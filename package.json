@@ -3,7 +3,7 @@
   "version": "1.13.0",
   "description": "UI Toolkit for Web, Vue2.0.",
   "main": "./dist/heyui.js",
-  "module": "./dist/heyui.esm.js",
+  "module": "./src/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/heyui/heyui.git"
@@ -17,6 +17,7 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "hey-cli": "^1.9.0",
     "manba": "^1.2.0"
   },
   "devDependencies": {
