@@ -46,6 +46,13 @@ import AutoComplete from './components/autocomplete';
 import {
   Row,
   Col
+} from './components/grid';
+import {
+  HHeader,
+  HFooter,
+  Content,
+  Sider,
+  Layout,
 } from './components/layout';
 import Timeline from './components/timeline';
 import Transfer from './components/transfer';
@@ -127,6 +134,11 @@ const components = {
   CarouselItem: Carousel.CarouselItem,
   Collapse,
   CollapseItem,
+  HHeader,
+  HFooter,
+  Content,
+  Sider,
+  Layout,
 };
 
 const directives = {
@@ -196,4 +208,5 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 HeyUI.install = install;
 
-export default HeyUI;
+// module.exports = HeyUI;
+export default HeyUI
