@@ -37,6 +37,7 @@
            v-width="40"
            :value="curNow"
            @blur="jump" />
+    <div :style="{order:5}"><slot name="right" ></slot></div>
   </div>
 </template>
 <script>

@@ -177,6 +177,7 @@
         scrollLeft: 0,
         scrollTop: 0,
         checks: [],
+        checksEmit: true, //是否触发checks的change事件
         hoveredTr: null,
         leftWidth: 0,
         rightWidth: 0,
@@ -222,7 +223,10 @@
       },
       checks: {
         handler() {
-          this.$emit('select', this.checks);
+          if (this.checksEmit) {
+            this.$emit('select', this.checks);
+          }
+          this.checksEmit = true
         },
         deep: true
       }
@@ -331,7 +335,8 @@
         }
         return this.sortStatus;
       },
-      setSelection(data) {
+      setSelection(data, emit = true) {
+        this.checksEmit = emit
         if (utils.isArray(data)) {
           this.checks = [...data];
         }
