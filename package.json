@@ -18,7 +18,6 @@
   "license": "MIT",
   "dependencies": {
     "hey-cli": "^1.9.0",
-    "lodash.get": "^4.4.2",
     "manba": "^1.2.0"
   },
   "devDependencies": {
