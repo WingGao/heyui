@@ -2,6 +2,43 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.14.0-alpha.2"></a>
+# [1.14.0-alpha.2](https://github.com/heyui/heyui/compare/v1.14.0-alpha.1...v1.14.0-alpha.2) (2019-01-10)
+
+
+### Bug Fixes
+
+* **Layout:** add clearfix style ([12dd7f2](https://github.com/heyui/heyui/commit/12dd7f2))
+
+
+
+<a name="1.14.0-alpha.1"></a>
+# [1.14.0-alpha.1](https://github.com/heyui/heyui/compare/v1.14.0-alpha.0...v1.14.0-alpha.1) (2019-01-10)
+
+
+### Bug Fixes
+
+* **Layout:** change layout-header-width ([1e57dfe](https://github.com/heyui/heyui/commit/1e57dfe))
+
+
+
+<a name="1.14.0-alpha.0"></a>
+# [1.14.0-alpha.0](https://github.com/heyui/heyui/compare/v1.13.1-alpha.4...v1.14.0-alpha.0) (2019-01-10)
+
+
+### Bug Fixes
+
+* **Avatar:** container add width style ([bc924d9](https://github.com/heyui/heyui/commit/bc924d9))
+* **Menu:** upgrade menu dark color ([b1d778d](https://github.com/heyui/heyui/commit/b1d778d))
+
+
+### Features
+
+* Collapse style and document ([a9c0863](https://github.com/heyui/heyui/commit/a9c0863))
+* Layout ([1dc49d4](https://github.com/heyui/heyui/commit/1dc49d4))
+
+
+
 <a name="1.13.1-alpha.4"></a>
 ## [1.13.1-alpha.4](https://github.com/heyui/heyui/compare/v1.13.0...v1.13.1-alpha.4) (2019-01-07)
 
