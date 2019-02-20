@@ -1,17 +1,9 @@
 <template>
-  <th :class="cls" @click="triggerSort()" :rowspan="rowspan" :colspan="colspan">
-    <div v-tooltip="tooltip" :placement="placement" :content="content || title">
-      <span>{{title}}</span>
-      <span class="h-table-sort-handler" v-if="sort">
-        <span class="h-table-sort-asc" v-if="sortStatus.type == 'asc' && sortStatus.prop == prop" :class="{'sort-selected': sortStatus.type == 'asc' && sortStatus.prop == prop}"><i class="h-icon-top"></i></span>
-        <span class="h-table-sort-desc" v-else :class="{'sort-selected': sortStatus.type == 'desc' && sortStatus.prop == prop}"><i class="h-icon-down"></i></span>
-      </span>
-    </div>
-  </th>
+<div></div>
 </template>
-
 <script>
 import utils from '../../utils/utils';
+
 export default {
   name: 'hTableItem',
   props: {
@@ -25,6 +17,8 @@ export default {
     dict: String,
     align: String,
     unit: String,
+    render: Function,
+    sortProp: String,
     tooltip: {
       type: Boolean,
       default: false
@@ -36,68 +30,19 @@ export default {
     placement: String,
     content: String
   },
-  data(){
-    return {
-      sortStatus: {type: null, prop: null}
-    };
-  },
   beforeMount(){
     this.init();
   },
   beforeDestroy(){
     this.init();
   },
-  // render(h) {
-  //   let directives = [];
-  //   let attrs = {};
-  //   if( this.tooltip ){
-  //     directives.push({
-  //       name: 'tooltip',
-  //     });
-  //     if(!utils.isNull(this.content)){
-  //       attrs.content = this.content;
-  //     }
-  //     if(this.placement){
-  //       attrs.placement = this.placement;
-  //     }
-  //   }
-  //   return h(
-  //     'th', {
-  //       'class': {
-  //         [`text-${this.align}`]: !!this.align
-  //       },
-  //       directives, attrs
-  //     }, [this.title]
-  //   )
-  // },
-  methods: {
-    triggerSort() {
-      if(!this.sort) return false;
-      let sortStatus = utils.copy(this.sortStatus);
-      if(this.sortStatus.type && this.sortStatus.prop == this.prop) {
-        sortStatus.type = this.sortStatus.type == 'asc' ? 'desc' : 'asc';
-      } else {
-        sortStatus.type = 'desc';
-        sortStatus.prop = this.prop
-      }
-      let parent = this.$parent;
-      if (parent.$options._componentTag == 'Table' || parent.$options._componentTag == 'h-table') {
-        this.sortStatus = parent.triggerSort(sortStatus, this.sort);
-      }
-    },
-    init() {
-      let parent = this.$parent;
-      if (parent.$options._componentTag == 'Table' || parent.$options._componentTag == 'h-table') {
-        parent.refresh();
-      }
-    }
+  data(){
+    return {};
   },
-  computed: {
-    cls() {
-      return {
-        [`text-${this.align}`]: !!this.align,
-        pointer: this.sort
-      };
+  init() {
+    let parent = this.$parent;
+    if (parent.$options._componentTag == 'Table' || parent.$options._componentTag == 'h-table') {
+      parent.refresh();
     }
   },
   watch: {

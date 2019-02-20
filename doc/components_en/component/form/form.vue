@@ -108,22 +108,32 @@
       <tr>
         <th>Method</th>
         <th>Description</th>
+        <th>Parameter</th>
+        <th>Return</th>
       </tr>
       <tr>
         <td>valid</td>
         <td>Overall verification form</td>
+        <td>Empty</td>
+        <td>{ result: isSuccess, messages: Array }</td>
       </tr>
       <tr>
         <td>validField</td>
         <td>verification individual field</td>
+        <td>prop: String</td>
+        <td>{valid: Boolean, message: String, label: String}</td>
       </tr>
       <tr>
         <td>validFieldJs(prop, next)</td>
         <td>simply performs validation without triggering dom operations</td>
+        <td>prop, next: Function</td>
+        <td>{valid: Boolean, message: String, label: String}</td>
       </tr>
       <tr>
         <td>reset</td>
         <td>Reset verification</td>
+        <td>Empty</td>
+        <td>Empty</td>
       </tr>
     </table>
 
@@ -160,6 +170,13 @@
       <tr>
         <td>required</td>
         <td>When the input for a label is more complex, it can be set individually, only the display of required styles.</td>
+        <td>Boolean</td>
+        <td></td>
+        <td>false</td>
+      </tr>
+      <tr>
+        <td>readonly</td>
+        <td>show readonly text</td>
         <td>Boolean</td>
         <td></td>
         <td>false</td>

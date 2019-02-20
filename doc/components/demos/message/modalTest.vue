@@ -2,8 +2,8 @@
   <div>
     <header class="h-modal-header">测试</header>
     <div style="padding:15px">
-      <Select dict="simple"></Select>
-      <p>传递的参数：{{params.a}}</p>
+      <Select dict="simple" v-model="value"></Select>
+      <p>传递的参数：{{params.a}}, {{param2}}</p>
       <p>vuex传递的值：{{test}}</p>
     </div>
     <footer class="h-modal-footer">
@@ -18,13 +18,14 @@
 import store from 'js/store'
 import { mapGetters } from 'vuex'
 export default {
+  props: {
+    params: Object,
+    param2: String
+  },
   data() {
     return {
-      value1: 1,
+      value: this.param2,
     }
-  },
-  props: {
-    params: Object
   },
   store,
   computed: {
@@ -36,7 +37,7 @@ export default {
     triggerEvent() {
       this.close();
       // 向外层触发事件
-      this.$emit("event", "fromchildevent", "测试");
+      this.$emit("event", "update", this.value);
     },
     go() {
       //注意：如果使用HeyUI.$Modal的方式调用，将无法使用$router等vue依赖组件。

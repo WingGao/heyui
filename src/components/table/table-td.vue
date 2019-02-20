@@ -1,5 +1,5 @@
 <template>
-  <td :class="cls"><template v-if="prop">{{show}}</template><slot :data="data" :index="index"></slot></td>
+  <td :class="cls"><template v-if="prop || render">{{show}}</template><slot :data="data" :index="index"></slot></td>
 </template>
 <script>
 import utils from '../../utils/utils';
@@ -14,6 +14,7 @@ export default {
     data: [Object, Array],
     align: String,
     unit: String,
+    render: Function
   },
   data(){
     return {};
@@ -26,6 +27,9 @@ export default {
     },
     show() {
       if (this.prop=='$index') return this.index;
+      if (this.render) {
+        return this.render.call(null, this.data)
+      }
       let value = hutils.getKeyValue(this.data, this.prop);
       if (this.dict) {
         return utils.dictMapping(value, this.dict);

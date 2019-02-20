@@ -1,6 +1,6 @@
 {
   "name": "heyui",
-  "version": "1.14.0-alpha.2",
+  "version": "1.15.1-alpha.4",
   "description": "UI Toolkit for Web, Vue2.0.",
   "main": "./dist/heyui.js",
   "module": "./src/index.js",
@@ -49,5 +49,5 @@
   "browserslist": [
     "ie >= 9"
   ],
-  "copyright": "Copyright (C) Lan 2017-2018"
+  "copyright": "Copyright © 2017-present Lan"
 }

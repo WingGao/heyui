@@ -3,11 +3,9 @@
     <h2>AutoComplete 模糊匹配</h2>
     <p class="component-name-tip">非 template/render 模式下，请使用 <code>h-autocomplete</code>。</p>
   
-    <h3>基本用法</h3>
-    <p>可以使用<code>dict</code>调用系统全局配置的字典，或者通过<code>datas</code>传递数据。</p>
-    <p>可以通过全局配置<code>autocomplete.default</code>参数设置控件默认的参数值。</p>
+    <h3>异步数据请求</h3>
     <p><code>autocomplete</code>有三种数据类型：<code>key</code>,<code>title</code>,<code>object</code>，如果需求更复杂，请监听<code>change</code>事件手动处理。</p>
-    <example demo="dataplugins/autocomplete1"></example>
+    <example demo="dataplugins/autocomplete4"></example>
     
     <h3>选择模式</h3>
     <example demo="dataplugins/autocomplete8"></example>
@@ -31,6 +29,10 @@
 
     <h3>disabled</h3>
     <example demo="dataplugins/autocomplete2"></example>
+
+    <h3>静态数据列表</h3>
+    <p>可以使用<code>dict</code>调用系统全局配置的字典，或者通过<code>datas</code>传递数据。</p>
+    <example demo="dataplugins/autocomplete1"></example>
 <!--   
     <h3>多选</h3>
     <example demo="dataplugins/autocomplete3"></example> -->
@@ -51,6 +53,7 @@
     <!-- <example demo="dataplugins/autocomplete12"></example> -->
   
     <h3>全局配置</h3>
+    <p>可以通过全局配置<code>autocomplete.default</code>参数设置控件默认的参数值。</p>
     <example demo="dataplugins/autocomplete13"></example>
     
     <h3>AutoComplete 参数</h3>
@@ -202,6 +205,11 @@
         <td>隐藏下拉框</td>
         <td>无</td>
       </tr>
+      <tr>
+        <td>search</td>
+        <td>主动触发搜索</td>
+        <td>无</td>
+      </tr>
     </table>
     
     <h3>option 配置</h3>
@@ -254,6 +262,19 @@
         <td>Number</td>
         <td>-</td>
         <td>100</td>
+      </tr>
+    </table>
+
+
+    <h3>Slot top/bottom</h3>
+    <table class="table">
+      <tr>
+        <th>参数</th>
+        <th>说明</th>
+      </tr>
+      <tr>
+        <td>results</td>
+        <td>当前列表结果值</td>
       </tr>
     </table>
   </div>

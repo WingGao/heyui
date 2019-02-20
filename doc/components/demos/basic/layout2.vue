@@ -10,7 +10,7 @@
       </div>
     </Content>
     <HFooter class="text-center">
-      HeyUI ©2019 Created by vvpvvp
+      Copyright © 2019 <a href="http://www.ch-un.com" target="_blank">Lan</a>
     </HFooter>
   </Layout>
 </template>

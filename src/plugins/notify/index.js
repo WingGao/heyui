@@ -8,7 +8,6 @@ const Default = {
   style: null,
   class: null,
   buttons: [],
-  middle: false,
   hasMask: false,
   closeOnMask: true,
   hasCloseIcon: false,
@@ -87,24 +86,18 @@ class Notify {
     } else {
       utils.addClass($body, 'h-notify-no-mask');
     }
-    // if (param.type == 'h-modal') {
-    //   utils.addClass($body, 'h-dropdown-common-container');
-    // }
-    if (param.fullScreen) {
-      utils.addClass($body, 'h-modal-full-screen');
-    }
     if (param.class) {
       utils.addClass($body, param.class);
     }
     if (param.className) {
       utils.addClass($body, param.className);
     }
+    if (param.class) {
+      utils.addClass($body, param.class);
+    }
     $body.innerHTML = html;
     let $content = this.$content = $body.querySelector(`.${notifyContentCls}`);
     let $container = this.$container = $body.querySelector(`.${notifyContainerCls}`);
-    if (param.middle) {
-      utils.addClass($container, `${notifyCls}-container-center`);
-    }
     this.$body = $body;
 
     let content = param.content;
@@ -122,14 +115,10 @@ class Notify {
         el: $content,
         i18n: param.$i18n,
         router: param.$router,
-        // template: `<div><plugin @event='trigger' :param="propsData" @close="close"></plugin></div>`,
         render(createElement) {
           return createElement(
             'div', {}, [createElement('plugin', {
-              props: {
-                param: this.propsData,
-                params: this.propsData
-              },
+              props: this.propsData,
               on: {
                 event: this.trigger,
                 close: this.close
@@ -139,7 +128,10 @@ class Notify {
         },
         data() {
           return {
-            propsData: param.component.data,
+            propsData: utils.extend({}, param.component.datas, {
+              param: param.component.data,
+              params: param.component.data
+            }),
             modal: that
           }
         },
@@ -165,9 +157,6 @@ class Notify {
       utils.addClass($body, param.type);
     }
 
-    if (param.width) {
-      $container.style.width = `${param.width}px`;
-    }
     if (param.height) {
       $content.style.height = `${param.height}px`;
     }
@@ -176,6 +165,9 @@ class Notify {
     }
     if (param.style) {
       utils.addClass($body, param.style);
+    }
+    if (param.width) {
+      $container.style.width = `${param.width}px`;
     }
 
     let parentDom = param.parent || document.body;
@@ -278,13 +270,13 @@ class Notify {
     utils.removeClass($body, notifyShowCls);
 
     $body.addEventListener("transitionend", (event) => {
-      if ((event.propertyName == 'opacity' || event.propertyName == 'top' || event.propertyName == 'right') && $body) {
+      if (event.target == this.$container) {
         utils.removeDom($body);
       }
     });
     setTimeout(() => {
       utils.removeDom($body);
-    }, 4000);
+    }, 400);
   }
 }
 

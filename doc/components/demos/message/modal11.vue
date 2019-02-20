@@ -1,30 +1,48 @@
 <template>
   <div>
-      <button class="h-btn" @click="open(false)">打开弹出框</button>
-      <button class="h-btn" @click="open(true)">打开有分割线的弹出框</button>
+    <p>{{value | dictMapping('simple')}}</p>
+    <p>
+      <button class="h-btn" @click="open(false)">Js打开弹出框</button>
+      <button class="h-btn" @click="openModal = true">Vue打开弹出框</button>
+      <Modal v-model="openModal">
+        <ModalTest :param2="value" :params="{a: 'test1'}" @close="openModal=false" @event="event"></ModalTest>
+      </Modal>
+    </p>
   </div>
 </template>
 
 <script>
-import modalTest from './modalTest';
+import ModalTest from './modalTest';
 
 export default {
+  components: {
+    ModalTest
+  },
+  data() {
+    return {
+      value: null,
+      openModal: false
+    }
+  },
   methods: {
-    open(hasDivider = false) {
+    event(type, data) {
+      this.value = data;
+    },
+    open() {
       let that = this;
       this.$Modal({
-        hasDivider,
         component: {
           // 这里也可以定义异步调用
           // vue: (resolve) => {
           //   require(['./modalTest'], resolve);
           // },
-          vue: modalTest,
-          data: { a: 1 }
+          vue: ModalTest,
+          data: { a: 'test1' }, // 子组件使用props params参数获取数据，建议使用datas
+          datas: { param2: this.value } // 子组件直接使用 props 即可使用，兼容性 1.15.0+
         },
         events: {
-          fromchildevent:(modal, data)=>{
-            this.$Message(data);
+          update: (modal, data)=>{
+            this.value = data;
           }
         }
       });

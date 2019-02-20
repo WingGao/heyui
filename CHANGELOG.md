@@ -2,6 +2,145 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.15.1-alpha.4"></a>
+## [1.15.1-alpha.4](https://github.com/heyui/heyui/compare/v1.15.1-alpha.3...v1.15.1-alpha.4) (2019-02-19)
+
+
+### Bug Fixes
+
+* **Table:** compatible sort selected class ([710afb4](https://github.com/heyui/heyui/commit/710afb4))
+* **Table:** sort optimize ([de82042](https://github.com/heyui/heyui/commit/de82042))
+
+
+
+<a name="1.15.1-alpha.3"></a>
+## [1.15.1-alpha.3](https://github.com/heyui/heyui/compare/v1.15.1-alpha.2...v1.15.1-alpha.3) (2019-02-18)
+
+
+### Bug Fixes
+
+* **Table:** fix click error ([f5d194e](https://github.com/heyui/heyui/commit/f5d194e))
+
+
+
+<a name="1.15.1-alpha.2"></a>
+## [1.15.1-alpha.2](https://github.com/heyui/heyui/compare/v1.15.1-alpha.1...v1.15.1-alpha.2) (2019-02-18)
+
+
+### Bug Fixes
+
+* **Avatar:** add background-position ([0f31d7f](https://github.com/heyui/heyui/commit/0f31d7f))
+* **Table:** event trclick add index parameter ([7f02164](https://github.com/heyui/heyui/commit/7f02164))
+* **Table:** sort-selected class -> h-table-sort-selected ([c8082c7](https://github.com/heyui/heyui/commit/c8082c7))
+
+
+
+<a name="1.15.1-alpha.1"></a>
+## [1.15.1-alpha.1](https://github.com/heyui/heyui/compare/v1.15.1-alpha.0...v1.15.1-alpha.1) (2019-02-14)
+
+
+### Bug Fixes
+
+* **Layout:** fix width automatic brace ([a768578](https://github.com/heyui/heyui/commit/a768578))
+
+
+
+<a name="1.15.1-alpha.0"></a>
+## [1.15.1-alpha.0](https://github.com/heyui/heyui/compare/v1.15.0...v1.15.1-alpha.0) (2019-02-13)
+
+
+### Bug Fixes
+
+* **Menu:** add [@menu-white-background-color](https://github.com/menu-white-background-color) ([726f58f](https://github.com/heyui/heyui/commit/726f58f))
+* **Menu:** remove init menu size ([9568d16](https://github.com/heyui/heyui/commit/9568d16))
+* **Table:** optimize table regulation ([11f672d](https://github.com/heyui/heyui/commit/11f672d))
+
+
+
+<a name="1.15.0"></a>
+# [1.15.0](https://github.com/heyui/heyui/compare/v1.15.0-alpha.2...v1.15.0) (2019-01-29)
+
+
+
+<a name="1.15.0-alpha.2"></a>
+# [1.15.0-alpha.2](https://github.com/heyui/heyui/compare/v1.15.0-alpha.1...v1.15.0-alpha.2) (2019-01-28)
+
+
+
+<a name="1.15.0-alpha.1"></a>
+# [1.15.0-alpha.1](https://github.com/heyui/heyui/compare/v1.15.0-alpha.0...v1.15.0-alpha.1) (2019-01-28)
+
+
+### Bug Fixes
+
+* **ImagePreview:** add $ImagePreview methods ([9021535](https://github.com/heyui/heyui/commit/9021535))
+
+
+### Features
+
+* ImagePreview ([bf59614](https://github.com/heyui/heyui/commit/bf59614))
+* **Modal:** add type parameter ([f7b8b0f](https://github.com/heyui/heyui/commit/f7b8b0f))
+
+
+
+<a name="1.15.0-alpha.0"></a>
+# [1.15.0-alpha.0](https://github.com/heyui/heyui/compare/v1.14.0...v1.15.0-alpha.0) (2019-01-23)
+
+
+### Bug Fixes
+
+* selectWhenClickTr && selectRow handler ([1534b8e](https://github.com/heyui/heyui/commit/1534b8e))
+* **AutoComplete:** add method search ([2096518](https://github.com/heyui/heyui/commit/2096518))
+* **Category:** fix undefined value dispose ([1a50c66](https://github.com/heyui/heyui/commit/1a50c66))
+* **ClipBoard:** fix failureCallback ([42ff47f](https://github.com/heyui/heyui/commit/42ff47f))
+* **Datetime:** optimize datetime style ([9bf5772](https://github.com/heyui/heyui/commit/9bf5772))
+* **Layout:** fix z-index setting ([71a365d](https://github.com/heyui/heyui/commit/71a365d))
+* **Table:** add render td params ([cc81e86](https://github.com/heyui/heyui/commit/cc81e86))
+* **TextEllipsis:** optimize limit function ([aa827fe](https://github.com/heyui/heyui/commit/aa827fe))
+
+
+### Features
+
+* add collapse-transition ([074a014](https://github.com/heyui/heyui/commit/074a014))
+* **Select:** select add top and bottom ([9d445f8](https://github.com/heyui/heyui/commit/9d445f8))
+
+
+
+<a name="1.14.0"></a>
+# [1.14.0](https://github.com/heyui/heyui/compare/v1.14.0-alpha.4...v1.14.0) (2019-01-14)
+
+
+### Bug Fixes
+
+* **AutoComplete:** fix add(undefined) ([90f96aa](https://github.com/heyui/heyui/commit/90f96aa))
+* **Form:** change label color ([29127f2](https://github.com/heyui/heyui/commit/29127f2))
+* **Switch:** add change event ([6b1667c](https://github.com/heyui/heyui/commit/6b1667c))
+* add change event ([806013f](https://github.com/heyui/heyui/commit/806013f))
+
+
+
+<a name="1.14.0-alpha.4"></a>
+# [1.14.0-alpha.4](https://github.com/heyui/heyui/compare/v1.14.0-alpha.3...v1.14.0-alpha.4) (2019-01-10)
+
+
+### Bug Fixes
+
+* **Layout:** layout add z-index: 1 ([24ccf1d](https://github.com/heyui/heyui/commit/24ccf1d))
+* **Layout:** remove error style ([e8d9648](https://github.com/heyui/heyui/commit/e8d9648))
+
+
+
+<a name="1.14.0-alpha.3"></a>
+# [1.14.0-alpha.3](https://github.com/heyui/heyui/compare/v1.14.0-alpha.2...v1.14.0-alpha.3) (2019-01-10)
+
+
+### Bug Fixes
+
+* **Layout:** optimize fixed and collapse sider ([7979c50](https://github.com/heyui/heyui/commit/7979c50))
+* **Menu:** update menu dark bg-color ([f70abbe](https://github.com/heyui/heyui/commit/f70abbe))
+
+
+
 <a name="1.14.0-alpha.2"></a>
 # [1.14.0-alpha.2](https://github.com/heyui/heyui/compare/v1.14.0-alpha.1...v1.14.0-alpha.2) (2019-01-10)
 

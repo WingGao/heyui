@@ -1,10 +1,5 @@
 <template>
   <div :class="uploaderCls">
-    <Modal v-model="preview">
-      <div class="text-center">
-        <img :src="previewFile.url" class="h-uploader-preview-image" :alt="previewFile.name"></img>
-      </div>
-    </Modal>
     <template v-if="type=='image'">
       <div class="h-uploader-image" v-if="file">
         <div class="h-uploader-image-background" :style="getBackgroundImage(file)"></div>
@@ -21,7 +16,7 @@
     </template>
 
     <template v-if="type=='images'">
-      <div class="h-uploader-image-empty h-uploader-browse-button">
+      <div class="h-uploader-image-empty h-uploader-browse-button" v-if="!readonly">
         <i class="h-icon-plus"></i>
       </div>
       <div v-for="(file, index) in fileList" :key="file.id" class="h-uploader-image">
@@ -29,9 +24,9 @@
         <div class="h-uploader-progress" v-if="file.status==2||file.status==1">
           <Progress :percent="file.percent"  :stroke-width="5"></Progress>
         </div>
-        <div class="h-uploader-image-operate" v-else>
-          <div>
-            <span class="h-uploader-operate" @click="previewImage(file)"><i class="h-icon-fullscreen"></i></span>
+        <div class="h-uploader-image-operate" v-else @click="clickImage(index, file)" :class="{'h-uploader-image-operate-pointer': readonly}">
+          <div v-if="!readonly">
+            <span class="h-uploader-operate" @click="previewImage(index)"><i class="h-icon-fullscreen"></i></span>
             <i class="h-split" v-width="3"></i>
             <span class="h-uploader-operate" @click="deleteFile(index)"><i class="h-icon-trash"></i></span>
           </div>
@@ -40,14 +35,14 @@
     </template>
     <template v-if="type=='file'||type=='files'">
       <div v-if="$slots.dragdrop" class="h-uploader-browse-button h-uploader-drop-element" :class="{'h-uploader-dragging': isdragging}" @dragover="isdragging=true" @dragleave="isdragging=false"  @drop="isdragging=false" ><slot name="dragdrop"></slot></div>
-      <div v-else><Button icon="h-icon-upload" class="h-uploader-browse-button" v-show="(!isSingle && (!limit || limit > files.length)) || (isSingle&&!files)">{{showUploadWord}}</Button></div>
+      <div v-else><Button icon="h-icon-upload" class="h-uploader-browse-button" v-show="showUploadButton">{{showUploadWord}}</Button></div>
       <div class="h-uploader-files">
         <div v-for="(file, index) in fileList" :key="file.id" class="h-uploader-file">
           <div class="h-uploader-file-progress" v-if="file.status==2">
             <Progress :percent="file.percent"  :stroke-width="5"><span slot="title">{{file[param.fileName]}}</span></Progress>
           </div>
           <div class="h-uploader-file-info" v-else>
-            <span class="link" @click="clickfile(file)">{{file.name}}</span><i class="h-icon-trash middle-right link" @click="deleteFile(index)"></i>
+            <span class="link" @click="clickfile(file, index)">{{file.name}}</span><i class="h-icon-trash middle-right link" v-if="!readonly" @click="deleteFile(index)"></i>
           </div>
         </div>
       </div>
@@ -57,7 +52,6 @@
 <script>
 import utils from '../../utils/utils';
 import config from '../../utils/config';
-import Modal from '../modal/modal';
 
 
 const prefix = 'h-uploader';
@@ -93,14 +87,18 @@ export default {
     },
     uploadList: { 
       type: Array,
-      default: () => []
+      default: () => ([])
     },
     files: {
       type: [Array, Object, String],
-      default: () => []
+      default: () => ([])
     },
     limit: Number,
-    className: String
+    className: String,
+    readonly: {
+      type: Boolean,
+      default: false
+    }
   },
   data() {
     let param = {};
@@ -112,17 +110,23 @@ export default {
     return {
       param,
       preview: false,
-      previewFile: {},
+      previewIndex: -1,
       isdragging: false
     }
   },
   methods: {
-    clickfile(file) {
-      this.$emit('fileclick', file);
+    clickfile(file, index) {
+      this.$emit('fileclick', file, index);
     },
-    previewImage(file) {
-      this.preview = true;
-      this.previewFile = file;
+    clickImage(index, file) {
+      if (this.readonly) {
+        this.$ImagePreview(this.fileList, index);
+      } else {
+        this.$emit('imageclick', file);
+      }
+    },
+    previewImage(index) {
+      this.$ImagePreview(this.fileList, index);
     },
     getBrowseButton() {
       return this.$el.querySelector(".h-uploader-browse-button");
@@ -153,6 +157,10 @@ export default {
     }
   },
   computed: {
+    showUploadButton() {
+      if(this.readonly) return false;
+      return (!this.isSingle && (!this.limit || this.limit > this.files.length)) || (this.isSingle&&!this.files);
+    },
     showReUploadWord() {
       return this.t('h.uploader.reUpload');
     },
@@ -191,9 +199,6 @@ export default {
     file() {
       return this.fileList.length ? this.fileList[0] : null;
     }
-  },
-  components: {
-    Modal
   }
 };
 </script>

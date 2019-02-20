@@ -12,6 +12,11 @@
 
     <h3>数据渲染</h3>
     <p><code>Table</code>组件内置了一系列的数据渲染模式。</p>
+    <ul class="text-ul">
+      <li><code>unit</code>: 定义字段的单位</li>
+      <li><code>dict</code>: 定义字段使用字典渲染</li>
+      <li><code>render</code>: 自定义字段渲染方法</li>
+    </ul>
     <example demo="view/table9"></example>
 
     <h3>排序与加载</h3>
@@ -95,6 +100,20 @@
         <td>-</td>
         <td>false</td>
       </tr>
+      <tr>
+        <td>selectRow</td>
+        <td>单行选中切换</td>
+        <td>Boolean</td>
+        <td></td>
+        <td>false</td>
+      </tr>
+      <tr>
+        <td>selectWhenClickTr</td>
+        <td>当点击tr的时候，触发checkbox选中切换</td>
+        <td>Boolean</td>
+        <td></td>
+        <td>false</td>
+      </tr>
     </table>
 
 
@@ -172,18 +191,32 @@
         <td>false</td>
       </tr>
       <tr>
-        <td>selectWhenClickTr</td>
-        <td>当点击tr的时候，触发checkbox选中切换</td>
-        <td>Boolean</td>
+        <td>dict</td>
+        <td>字典渲染字段</td>
+        <td>String</td>
         <td></td>
-        <td>false</td>
+        <td></td>
       </tr>
       <tr>
-        <td>selectRow</td>
-        <td>单行选中切换</td>
-        <td>Boolean</td>
+        <td>unit</td>
+        <td>字段显示单位</td>
+        <td>String</td>
         <td></td>
-        <td>false</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>render</td>
+        <td>自定义字段处理方法</td>
+        <td>Function</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>sortProp</td>
+        <td>排序字段，当prop为空的时候，使用该字段，<code>1.15.1+新增</code></td>
+        <td>String</td>
+        <td></td>
+        <td></td>
       </tr>
     </table>
 
@@ -192,30 +225,37 @@
       <tr>
         <th>事件</th>
         <th>说明</th>
+        <th>返回值</th>
       </tr>
       <tr>
         <td>sort</td>
         <td>当排序的时候触发的事件</td>
+        <td>{type: ['asc'|'desc'], prop: String}</td>
       </tr>
       <tr>
         <td>select</td>
         <td>当checkbox有变动的时候触发的事件</td>
+        <td>checks</td>
       </tr>
       <tr>
         <td>selectAll</td>
         <td>当checkbox全选的时候</td>
+        <td>checks</td>
       </tr>
       <tr>
         <td>trclick</td>
         <td>当tr被点击的时候</td>
+        <td>(data, event, index)</td>
       </tr>
       <tr>
         <td>trdblclick</td>
         <td>当tr被双击的时候</td>
+        <td>(data, event, index)</td>
       </tr>
       <tr>
         <td>rowSelect</td>
         <td>当tr被单击选中的时候</td>
+        <td>data</td>
       </tr>
     </table>
 
@@ -224,26 +264,44 @@
       <tr>
         <th>方法</th>
         <th>说明</th>
+        <th>参数</th>
+        <th>返回值</th>
       </tr>
       <tr>
         <td>clearSort</td>
         <td>清空排序</td>
+        <td>无</td>
+        <td>无</td>
       </tr>
       <tr>
         <td>clearSelection</td>
         <td>清空选中</td>
+        <td>无</td>
+        <td>无</td>
       </tr>
       <tr>
         <td>setSelection</td>
         <td>设置选中的值</td>
+        <td>data</td>
+        <td>无</td>
       </tr>
       <tr>
         <td>getSelection</td>
         <td>获取选中的值</td>
+        <td>无</td>
+        <td>checks: Array</td>
       </tr>
       <tr>
-        <td>inverseSelection</td>
+        <td>invereSelection</td>
         <td>设置选中的值反选</td>
+        <td>无</td>
+        <td>无</td>
+      </tr>
+      <tr>
+        <td>triggerSort</td>
+        <td>设置排序，triggerType为true的时候触发<code>sort</code>事件，为auto时自动排序，<code>1.15.1+新增</code></td>
+        <td>sortStatus: {prop: String, type: String['asc'|'desc'] }, triggerType: true | 'auto' | false</td>
+        <td>无</td>
       </tr>
     </table>
   </div>
