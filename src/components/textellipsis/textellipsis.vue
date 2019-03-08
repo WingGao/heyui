@@ -61,15 +61,15 @@ export default {
         let title = this.$el;
         let more = this.$el.querySelector('.h-text-ellipsis-more');
         let n = 1000;
-        if(textDom) {
-          if(title.offsetHeight > this.height) {
+        if (textDom) {
+          if (title.offsetHeight > this.height) {
             more.style.display = 'inline-block';
             let text = this.text;
             while (title.offsetHeight > this.height && n > 0) {
-              if(title.offsetHeight > this.height * 3) {
+              if (title.offsetHeight > this.height * 3) {
                 textDom.innerText = text = text.substring(0, Math.floor(text.length / 2));
               } else {
-                textDom.innerText = text = text.substring(0, text.length-1);
+                textDom.innerText = text = text.substring(0, text.length - 1);
               }
               n--;
             }
@@ -80,7 +80,7 @@ export default {
             this.isHide = false;
           }
         }
-      })
+      });
     }
   }
 };

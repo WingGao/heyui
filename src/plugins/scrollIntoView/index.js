@@ -22,7 +22,6 @@ scrollIntoView(someElement, {
 });
 */
 
-
 const COMPLETE = 'COMPLETE';
 const CANCELED = 'CANCELED';
 
@@ -219,4 +218,3 @@ export default function (target, settings, callback) {
     }
   }
 }
-

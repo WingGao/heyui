@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import utils from 'hey-utils';
 
 export default {
   data() {
@@ -33,12 +34,13 @@ export default {
       pass: '',
       error: false,
       search: null
-    }
+    };
   },
   methods: {
     changeLang() {
       this.$i18n.locale = 'zh';
-      this.$router.push({name: `${this.$route.name.substring(3)}`});
+      utils.saveLocal('LANGUAGE', 'zh');
+      this.$router.push({ name: `${this.$route.name.substring(3)}` });
     },
     goLink(params) {
       this.$router.push(params);
@@ -47,12 +49,12 @@ export default {
       this.$router.go(link);
     },
     goSearch(data) {
-      if(!data.key) return;
-      this.$router.push({name: `en_${data.key}`});
+      if (!data.key) return;
+      this.$router.push({ name: `en_${data.key}` });
       this.$nextTick(() => {
         this.search = null;
-      })
+      });
     }
   }
-}
+};
 </script>

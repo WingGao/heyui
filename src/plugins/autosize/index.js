@@ -1,4 +1,4 @@
-const map = (typeof Map === "function") ? new Map() : (function () {
+const map = (typeof Map === 'function') ? new Map() : (function () {
   const keys = [];
   const values = [];
 
@@ -21,20 +21,15 @@ const map = (typeof Map === "function") ? new Map() : (function () {
         keys.splice(index, 1);
         values.splice(index, 1);
       }
-    },
-  }
+    }
+  };
 })();
 
-let createEvent = (name) => new Event(name, { bubbles: true });
-try {
-  new Event('test');
-} catch (e) {
-  createEvent = (name) => {
-    const evt = document.createEvent('Event');
-    evt.initEvent(name, true, false);
-    return evt;
-  };
-}
+const createEvent = (name) => {
+  const evt = document.createEvent('Event');
+  evt.initEvent(name, true, false);
+  return evt;
+};
 
 function assign(ta) {
   if (!ta || !ta.nodeName || ta.nodeName !== 'TEXTAREA' || map.has(ta)) return;
@@ -68,8 +63,6 @@ function assign(ta) {
     {
       const width = ta.style.width;
       ta.style.width = '0px';
-      ta.offsetWidth;
-      /* jshint ignore:end */
       ta.style.width = width;
     }
 
@@ -83,8 +76,8 @@ function assign(ta) {
       if (el.parentNode.scrollTop) {
         arr.push({
           node: el.parentNode,
-          scrollTop: el.parentNode.scrollTop,
-        })
+          scrollTop: el.parentNode.scrollTop
+        });
       }
       el = el.parentNode;
     }
@@ -111,7 +104,7 @@ function assign(ta) {
     clientWidth = ta.clientWidth;
 
     overflows.forEach(el => {
-      el.node.scrollTop = el.scrollTop
+      el.node.scrollTop = el.scrollTop;
     });
 
     if (docTop) {
@@ -172,7 +165,7 @@ function assign(ta) {
     resize: ta.style.resize,
     overflowY: ta.style.overflowY,
     overflowX: ta.style.overflowX,
-    wordWrap: ta.style.wordWrap,
+    wordWrap: ta.style.wordWrap
   });
 
   ta.addEventListener('autosize:destroy', destroy, false);
@@ -189,7 +182,7 @@ function assign(ta) {
 
   map.set(ta, {
     destroy,
-    update,
+    update
   });
 
   init();

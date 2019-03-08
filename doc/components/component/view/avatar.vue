@@ -2,7 +2,7 @@
   <div class="doc">
     <h2>Avatar 头像信息</h2>
     <blockquote>1.13.0+</blockquote>
-    
+
     <p class="component-name-tip">非 template/render 模式下，请使用 <code>h-avatar</code>。</p>
 
     <h3>基本调用</h3>
@@ -13,7 +13,7 @@
 
     <h3>全局配置</h3>
     <codes src="/codes/avatar.txt" type="javascript"></codes>
-    
+
     <h3>Avatar 参数</h3>
     <table class="table">
       <tr>
@@ -57,6 +57,20 @@
         <td>String</td>
         <td></td>
         <td></td>
+      </tr>
+    </table>
+
+    <h3>Avatar 事件</h3>
+    <table class="table">
+      <tr>
+        <th>事件</th>
+        <th>描述</th>
+        <th>数据</th>
+      </tr>
+      <tr>
+        <td>click</td>
+        <td>点击头像触发的事件</td>
+        <td>event</td>
       </tr>
     </table>
 

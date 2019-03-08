@@ -6,7 +6,7 @@ const prefixCls = 'h-modal';
 
 let Default = {
   middle: false
-}
+};
 
 function Confirm(content, title) {
   return new Promise((resolve, reject) => {
@@ -17,11 +17,11 @@ function Confirm(content, title) {
       events: {
         ok: (n) => {
           n.close();
-          resolve()
+          resolve();
         },
         cancel: (n) => {
           n.close();
-          reject();
+          reject(new Error('cancel'));
         }
       },
       title,

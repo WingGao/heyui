@@ -19,13 +19,12 @@ export default {
       type: Boolean,
       default: false
     },
-    text: String,
-    minHeight: Number
+    text: String
   },
   data() {
     return {
       isSetStyle: false
-    }
+    };
   },
   unbind() {
 
@@ -33,23 +32,33 @@ export default {
   mounted() {
     this.initStyle();
   },
+  beforeDestroyed() {
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+      this.timeout = null;
+    }
+  },
   methods: {
     initStyle() {
       if (this.loading) {
+        if (this.timeout) {
+          clearTimeout(this.timeout);
+          this.timeout = null;
+        }
         this.$nextTick(() => {
           utils.addClass(this.$el, 'h-loading-loading');
           utils.addClass(this.$el, 'h-loading-visible');
           let parent = this.$el.parentNode;
-          if(parent) {
+          if (parent) {
             utils.addClass(parent, 'h-loading-parent');
           }
         });
       } else {
         utils.removeClass(this.$el, 'h-loading-loading');
-        setTimeout(() => {
+        this.timeout = setTimeout(() => {
           utils.removeClass(this.$el, 'h-loading-visible');
           let parent = this.$el.parentNode;
-          if(parent) {
+          if (parent) {
             utils.removeClass(parent, 'h-loading-parent');
           }
         }, 500);
@@ -64,12 +73,12 @@ export default {
   computed: {
     circularCls() {
       return {
-        [`${prefix}-circular`]: true,
+        [`${prefix}-circular`]: true
       };
     },
     textCls() {
       return {
-        [`${prefix}-text`]: true,
+        [`${prefix}-text`]: true
       };
     },
     loadingCls() {

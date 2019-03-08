@@ -41,7 +41,7 @@ export default {
       default: true
     },
     range: {
-      default: ()=>({
+      default: () => ({
         start: 0,
         end: 100
       })
@@ -69,7 +69,7 @@ export default {
           content: this.$el.querySelector('.h-slider-start-node-value'),
           theme: this.theme,
           html: true,
-          trigger: "manual hover",
+          trigger: 'manual hover',
           container: document.body,
           placement: this.placement
         });
@@ -79,7 +79,7 @@ export default {
         content: this.$el.querySelector('.h-slider-end-node-value'),
         theme: this.theme,
         html: true,
-        trigger: "manual hover",
+        trigger: 'manual hover',
         container: document.body,
         placement: this.placement
       });
@@ -94,17 +94,17 @@ export default {
       }
     },
     mousedown(type, event) {
-      if(this.readonly) return;
+      if (this.readonly) return;
       utils.addClass(event.target, 'h-slider-node-dragging');
       this.eventControl.type = type;
       this.eventControl.x = event.clientX;
       this.eventControl.init = this.values[type];
       document.body.addEventListener('mousemove', this.mousemove);
       document.body.addEventListener('mouseup', this.mouseup);
-      if(this.tooltip[type]) this.tooltip[type].show();
+      if (this.tooltip[type]) this.tooltip[type].show();
     },
     mousemove(event) {
-      if(this.readonly) return;
+      if (this.readonly) return;
       let postition = event.clientX - this.eventControl.x;
       if (postition == 0) return;
       let nowPosition = postition / this.$el.querySelector('.h-slider-line').clientWidth;
@@ -147,8 +147,8 @@ export default {
 
       this.$emit('input', nowValue);
       this.$emit('change', nowValue);
-      let evt = document.createEvent("CustomEvent");
-      evt.initCustomEvent("setvalue", true, true, nowValue);
+      let evt = document.createEvent('CustomEvent');
+      evt.initCustomEvent('setvalue', true, true, nowValue);
       this.$el.dispatchEvent(evt);
       if (this.tooltip[type]) {
         this.tooltip[type].show();
@@ -156,7 +156,7 @@ export default {
       }
     },
     mouseup() {
-      if(this.readonly) return;
+      if (this.readonly) return;
       document.body.removeEventListener('mousemove', this.mousemove);
       document.body.removeEventListener('mouseup', this.mouseup);
       utils.removeClass(this.$el.querySelector('.h-slider-node-dragging'), 'h-slider-node-dragging');
@@ -164,7 +164,7 @@ export default {
       if (this.tooltip[type]) {
         this.tooltip[type].hide();
       }
-    },
+    }
   },
   computed: {
     hasStart() {
@@ -174,22 +174,22 @@ export default {
       let dis = this.range.end - this.range.start;
       return {
         left: `${parseInt((this.values.start - this.range.start) / dis * 100, 10)}%`,
-        right: `${parseInt((this.range.end - this.values.end) / dis * 100, 10)}%`,
-      }
+        right: `${parseInt((this.range.end - this.values.end) / dis * 100, 10)}%`
+      };
     },
     nodePosition() {
       let dis = this.range.end - this.range.start;
       return {
         start: `${parseInt((this.values.start - this.range.start) / dis * 100, 10)}%`,
-        end: `${100 - parseInt((this.range.end - this.values.end) / dis * 100, 10)}%`,
-      }
+        end: `${100 - parseInt((this.range.end - this.values.end) / dis * 100, 10)}%`
+      };
     },
     values() {
       if (!this.multiple) {
         return {
           start: this.range.start,
           end: this.value || this.range.start
-        }
+        };
       }
       return utils.extend({
         start: this.range.start,
@@ -199,7 +199,7 @@ export default {
     sliderCls() {
       return {
         [`${prefix}`]: true
-      }
+      };
     }
   }
 };

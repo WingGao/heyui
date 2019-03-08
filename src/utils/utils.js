@@ -5,7 +5,7 @@ const rclass = /[\t\r\n\f]/g;
 const rnotwhite = (/\S+/g);
 
 function getClass(elem) {
-  return elem.getAttribute && elem.getAttribute("class") || "";
+  return (elem.getAttribute && elem.getAttribute('class')) || '';
 }
 export default utils.extend({}, utils, {
   addClass(elem, value) {
@@ -16,12 +16,12 @@ export default utils.extend({}, utils, {
     let j;
     let finalValue;
 
-    if (typeof value === "string" && value) {
+    if (typeof value === 'string' && value) {
       classes = value.match(rnotwhite) || [];
 
       curValue = getClass(elem);
-      cur = elem.nodeType === 1 &&
-        (` ${curValue} `).replace(rclass, " ");
+      cur = elem.nodeType === 1 && (` ${curValue} `)
+        .replace(rclass, ' ');
 
       if (cur) {
         j = 0;
@@ -32,7 +32,7 @@ export default utils.extend({}, utils, {
         }
         finalValue = cur.trim();
         if (curValue !== finalValue) {
-          elem.setAttribute("class", finalValue);
+          elem.setAttribute('class', finalValue);
         }
       }
     }
@@ -45,12 +45,13 @@ export default utils.extend({}, utils, {
     let j;
     let finalValue;
 
-    if (typeof value === "string" && value) {
+    if (typeof value === 'string' && value) {
       classes = value.match(rnotwhite) || [];
 
       curValue = getClass(elem);
 
-      cur = elem.nodeType === 1 && (` ${curValue} `).replace(rclass, " ");
+      cur = elem.nodeType === 1 && (` ${curValue} `)
+        .replace(rclass, ' ');
 
       if (cur) {
         j = 0;
@@ -62,7 +63,7 @@ export default utils.extend({}, utils, {
 
         finalValue = cur.trim();
         if (curValue !== finalValue) {
-          elem.setAttribute("class", finalValue);
+          elem.setAttribute('class', finalValue);
         }
       }
     }
@@ -81,10 +82,9 @@ export default utils.extend({}, utils, {
   hasClass(elem, selector) {
     let className;
     className = ` ${selector} `;
-    if (elem.nodeType === 1 &&
-      (` ${getClass(elem)} `).replace(rclass, " ")
-      .indexOf(className) > -1
-    ) {
+    if (elem.nodeType === 1 && (` ${getClass(elem)} `)
+      .replace(rclass, ' ')
+      .indexOf(className) > -1) {
       return true;
     }
 
@@ -127,7 +127,7 @@ export default utils.extend({}, utils, {
   getArray(array, keyName = 'id') {
     const list = [];
     for (let a of array) {
-      list.push(a[keyName])
+      list.push(a[keyName]);
     }
     return list;
   },
@@ -159,7 +159,7 @@ export default utils.extend({}, utils, {
     if (utils.isArray(dict)) {
       dict = utils.toObject(dict, keyField);
     }
-    return value.map((ele) => {
+    let result = value.map((ele) => {
       if (utils.isObject(ele)) {
         return ele[titleField];
       }
@@ -168,7 +168,8 @@ export default utils.extend({}, utils, {
         return d[titleField];
       }
       return d;
-    }).filter(ele => (ele && ele !== '')).join(connector || ', ');
+    });
+    return result.filter(ele => (ele && ele !== '')).join(connector || ', ');
   },
   initOptions(datas, param) {
     let key = config.getOption('dict.keyName');
@@ -189,20 +190,20 @@ export default utils.extend({}, utils, {
               [`${key}`]: item,
               [`${title}`]: item
             };
-          })
+          });
         }
       }
     }
     if (param.render) {
       options.forEach((item) => {
         item[param.html] = param.render.call(null, item);
-      })
+      });
     }
     return options;
   },
   generateTree(data, param) {
     if (!this.isArray(data)) {
-      console.error("generateTree：data must be Array。");
+      console.error('generateTree：data must be Array。');
       return null;
     }
     let result = [];
@@ -245,7 +246,11 @@ export default utils.extend({}, utils, {
       title = item;
       key = item;
     }
-    let result = { key, title, value: item };
+    let result = {
+      key,
+      title,
+      value: item
+    };
     if (param.render && result.key) {
       result.html = param.render.call(null, result);
     }

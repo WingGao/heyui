@@ -5,6 +5,8 @@ import 'highlight.js/styles/github-gist.css';
 // import HeyUI from 'heyui';
 import App from './App.vue';
 
+import utils from 'hey-utils';
+
 import HeyUI from './../src/index';
 // import titleConfig from './js/config/title-config';
 import heyuiConfig from './js/config/heyui-config';
@@ -12,19 +14,25 @@ import VueHighlightJS from './js/vuehighlight';
 
 import example from './components/common/example.vue';
 import codes from './components/common/codes.vue';
+import exampleEn from './components_en/common/example.vue';
+import codesEn from './components_en/common/codes.vue';
 import routerParam from './js/config/router-config';
 import en from '../src/locale/lang/en-US';
 import zh from '../src/locale/lang/zh-CN';
 
-
 require('./css/index.less');
 
-Vue.use(VueHighlightJS)
+let language = (navigator.language || navigator.browserLanguage).toLowerCase();
 
 let lang = window.location.pathname.indexOf('/en') == -1 ? 'zh' : 'en';
 
-// HeyUI.locale(zh);
+if (utils.getLocal('LANGUAGE') == null && window.location.pathname.indexOf('/en') == -1) {
+  if (language.indexOf('zh') == -1) {
+    window.location.href = '/en';
+  }
+}
 
+Vue.use(VueHighlightJS);
 
 Vue.use(VueI18n);
 const messages = {
@@ -32,12 +40,11 @@ const messages = {
   zh: Object.assign({ message: '你好' }, zh)
 };
 const i18n = new VueI18n({
-  locale: lang,  // set locale
+  locale: lang, // set locale
   fallbackLocale: 'en',
-  messages  // set locale messages
+  messages // set locale messages
 });
 HeyUI.i18n(i18n);
-
 
 heyuiConfig();
 Vue.use(VueRouter);
@@ -45,6 +52,8 @@ Vue.use(HeyUI);
 
 Vue.component('example', example);
 Vue.component('codes', codes);
+Vue.component('exampleEn', exampleEn);
+Vue.component('codesEn', codesEn);
 
 const router = new VueRouter(routerParam);
 router.beforeEach((to, from, next) => {
@@ -56,7 +65,7 @@ router.beforeEach((to, from, next) => {
     document.title = 'HeyUI: A high quality UI Toolkit based on Vue.js';
   }
   next();
-})
+});
 router.afterEach(() => {
   HeyUI.$LoadingBar.success();
   Vue.nextTick(() => {

@@ -2,6 +2,139 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.17.0-alpha.1"></a>
+# [1.17.0-alpha.1](https://github.com/heyui/heyui/compare/v1.17.0-alpha.0...v1.17.0-alpha.1) (2019-03-07)
+
+
+### Bug Fixes
+
+* **Pop:** 修复上次格式化产生的错误 ([034dcfa](https://github.com/heyui/heyui/commit/034dcfa))
+
+
+
+<a name="1.17.0-alpha.0"></a>
+# [1.17.0-alpha.0](https://github.com/heyui/heyui/compare/v1.16.1-alpha.3...v1.17.0-alpha.0) (2019-03-06)
+
+
+### Bug Fixes
+
+* **DateFullRangePicker:** week calculations fixed ([2430b7f](https://github.com/heyui/heyui/commit/2430b7f))
+* **Loading:** 开启的时候删除关闭的timeout ([06f52a8](https://github.com/heyui/heyui/commit/06f52a8))
+
+
+### Features
+
+* **DateFullRangePicker:** add prop layout ([8cce8f8](https://github.com/heyui/heyui/commit/8cce8f8))
+* **Tree:**  enhance Tree component ([2d805d7](https://github.com/heyui/heyui/commit/2d805d7))
+
+
+
+<a name="1.16.1-alpha.3"></a>
+## [1.16.1-alpha.3](https://github.com/heyui/heyui/compare/v1.16.1-alpha.2...v1.16.1-alpha.3) (2019-03-05)
+
+
+### Bug Fixes
+
+* **Carousel:** remove unused codes ([dd71d06](https://github.com/heyui/heyui/commit/dd71d06))
+* **Loading:** 开启的时候删除关闭的timeout ([83d00ed](https://github.com/heyui/heyui/commit/83d00ed))
+
+
+
+<a name="1.16.1-alpha.2"></a>
+## [1.16.1-alpha.2](https://github.com/heyui/heyui/compare/v1.16.1-alpha.1...v1.16.1-alpha.2) (2019-02-27)
+
+
+### Bug Fixes
+
+* update manba version ([d08edb8](https://github.com/heyui/heyui/commit/d08edb8))
+
+
+
+<a name="1.16.1-alpha.1"></a>
+## [1.16.1-alpha.1](https://github.com/heyui/heyui/compare/v1.16.1-alpha.0...v1.16.1-alpha.1) (2019-02-27)
+
+
+### Bug Fixes
+
+* **Avatar:** add click event ([d28c94c](https://github.com/heyui/heyui/commit/d28c94c))
+
+
+
+<a name="1.16.1-alpha.0"></a>
+## [1.16.1-alpha.0](https://github.com/heyui/heyui/compare/v1.16.0...v1.16.1-alpha.0) (2019-02-26)
+
+
+### Bug Fixes
+
+* **Checkbox:** add trueValue falseValue ([c23f230](https://github.com/heyui/heyui/commit/c23f230))
+
+
+
+<a name="1.16.0"></a>
+# [1.16.0](https://github.com/heyui/heyui/compare/v1.16.0-alpha.10...v1.16.0) (2019-02-25)
+
+
+
+<a name="1.16.0-alpha.10"></a>
+# [1.16.0-alpha.10](https://github.com/heyui/heyui/compare/v1.16.0-alpha.9...v1.16.0-alpha.10) (2019-02-22)
+
+
+### Features
+
+* **Theme:** add var.js ([df4e369](https://github.com/heyui/heyui/commit/df4e369))
+
+
+
+<a name="1.16.0-alpha.9"></a>
+# [1.16.0-alpha.9](https://github.com/heyui/heyui/compare/v1.16.0-alpha.8...v1.16.0-alpha.9) (2019-02-21)
+
+
+### Features
+
+* **Cell:** Col renamed Cell ([11410e4](https://github.com/heyui/heyui/commit/11410e4))
+
+
+
+<a name="1.16.0-alpha.8"></a>
+# [1.16.0-alpha.8](https://github.com/heyui/heyui/compare/v1.16.0-alpha.7...v1.16.0-alpha.8) (2019-02-21)
+
+
+### Bug Fixes
+
+* **Table:** optimize debounce ([42c8e47](https://github.com/heyui/heyui/commit/42c8e47))
+
+
+
+<a name="1.16.0-alpha.7"></a>
+# [1.16.0-alpha.7](https://github.com/heyui/heyui/compare/v1.16.0-alpha.6...v1.16.0-alpha.7) (2019-02-21)
+
+
+### Bug Fixes
+
+* **Table:** fix tableItem update listener ([5c786e2](https://github.com/heyui/heyui/commit/5c786e2))
+
+
+
+<a name="1.16.0-alpha.6"></a>
+# [1.16.0-alpha.6](https://github.com/heyui/heyui/compare/v1.16.0-alpha.5...v1.16.0-alpha.6) (2019-02-21)
+
+
+### Bug Fixes
+
+* **Table:** fix restructure with vue2.5, vue2.6 ([70fb7c9](https://github.com/heyui/heyui/commit/70fb7c9))
+
+
+
+<a name="1.16.0-alpha.5"></a>
+# [1.16.0-alpha.5](https://github.com/heyui/heyui/compare/v1.15.1-alpha.4...v1.16.0-alpha.5) (2019-02-21)
+
+
+### Bug Fixes
+
+* **Pagination:** prop size add watch ([f716622](https://github.com/heyui/heyui/commit/f716622))
+
+
+
 <a name="1.15.1-alpha.4"></a>
 ## [1.15.1-alpha.4](https://github.com/heyui/heyui/compare/v1.15.1-alpha.3...v1.15.1-alpha.4) (2019-02-19)
 

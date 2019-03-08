@@ -1,5 +1,5 @@
-import utils from '../utils/utils'
-import locale from '../locale'
+import utils from '../utils/utils';
+import locale from '../locale';
 
 export default {
   dictMapping(value, key, connector) {
@@ -11,4 +11,4 @@ export default {
     }
     return defaultValue;
   }
-}
+};

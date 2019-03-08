@@ -12,11 +12,11 @@ const Props = {
   align: new Set(['top', 'middle', 'bottom']),
   justify: new Set(['start', 'end', 'center', 'space-around', 'space-between']),
   direction: new Set(['row', 'row-reverse', 'column', 'column-reverse'])
-}
+};
 
 const getHalf = (width, hasRemainder) => {
   return Math.floor(width / -2) + (hasRemainder ? width % 2 : 0) + 'px';
-}
+};
 
 export default {
   name: 'hRow',

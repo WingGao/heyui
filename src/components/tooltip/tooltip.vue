@@ -13,8 +13,8 @@ export default {
   name: 'hTooltip',
   props: {
     trigger: {
-      type: String,  //click,hover
-      default: "hover"
+      type: String, // click,hover
+      default: 'hover'
     },
     content: String,
     placement: {
@@ -26,13 +26,13 @@ export default {
       default: false
     },
     className: {
-      type: String,
+      type: String
     },
     theme: String,
     delay: {
       type: Number,
       default: 0
-    },
+    }
   },
   mounted() {
     this.init();
@@ -68,10 +68,10 @@ export default {
           disabled: this.disabled,
           delay: this.delay,
           events: {
-            show: ()=>{
+            show: () => {
               this.$emit('show');
             },
-            hide: ()=>{
+            hide: () => {
               this.$emit('hide');
             }
           }
@@ -81,15 +81,15 @@ export default {
   },
   watch: {
     disabled() {
-      if(!this.tooltip) return;
+      if (!this.tooltip) return;
       if (!this.disabled) {
-        this.tooltip.enabled()
+        this.tooltip.enabled();
       } else {
-        this.tooltip.disabled()
+        this.tooltip.disabled();
       }
     },
     content() {
-      if(!this.tooltip) return;
+      if (!this.tooltip) return;
       this.tooltip.update();
     }
   },
@@ -97,17 +97,17 @@ export default {
     tooltipCls() {
       return {
         [`${prefix}`]: true
-      }
+      };
     },
     showCls() {
       return {
         [`${prefix}-show`]: true
-      }
+      };
     },
     groupCls() {
       return {
         [`${prefix}`]: true
-      }
+      };
     }
   }
 };

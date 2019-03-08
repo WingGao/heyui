@@ -4,12 +4,12 @@ export default {
   height: {
     inserted(el, binding) {
       if (binding.value) {
-        el.style.height = binding.value + (String(binding.value).endsWith("%") ? '' : "px");
+        el.style.height = binding.value + (String(binding.value).endsWith('%') ? '' : 'px');
       }
     },
     update(el, binding) {
       if (binding.value) {
-        el.style.height = binding.value + (String(binding.value).endsWith("%") ? '' : "px");
+        el.style.height = binding.value + (String(binding.value).endsWith('%') ? '' : 'px');
       }
     },
     unbind(el) {
@@ -19,12 +19,12 @@ export default {
   width: {
     inserted(el, binding) {
       if (binding.value) {
-        el.style.width = binding.value + (String(binding.value).endsWith("%") ? '' : "px");
+        el.style.width = binding.value + (String(binding.value).endsWith('%') ? '' : 'px');
       }
     },
     update(el, binding) {
       if (binding.value) {
-        el.style.width = binding.value + (String(binding.value).endsWith("%") ? '' : "px");
+        el.style.width = binding.value + (String(binding.value).endsWith('%') ? '' : 'px');
       }
     },
     unbind(el) {
@@ -34,12 +34,12 @@ export default {
   padding: {
     inserted(el, binding) {
       if (binding.value) {
-        el.style.padding = binding.value + (String(binding.value).endsWith("%") ? '' : "px");
+        el.style.padding = binding.value + (String(binding.value).endsWith('%') ? '' : 'px');
       }
     },
     update(el, binding) {
       if (binding.value) {
-        el.style.padding = binding.value + (String(binding.value).endsWith("%") ? '' : "px");
+        el.style.padding = binding.value + (String(binding.value).endsWith('%') ? '' : 'px');
       }
     },
     unbind(el) {
@@ -49,12 +49,12 @@ export default {
   margin: {
     inserted(el, binding) {
       if (binding.value) {
-        el.style.margin = binding.value + (String(binding.value).endsWith("%") ? '' : "px");
+        el.style.margin = binding.value + (String(binding.value).endsWith('%') ? '' : 'px');
       }
     },
     update(el, binding) {
       if (binding.value) {
-        el.style.margin = binding.value + (String(binding.value).endsWith("%") ? '' : "px");
+        el.style.margin = binding.value + (String(binding.value).endsWith('%') ? '' : 'px');
       }
     },
     unbind(el) {
@@ -79,7 +79,7 @@ export default {
   color: {
     inserted(el, binding) {
       let color = binding.value || binding.arg || binding.expression;
-      if (color.startsWith("#")) {
+      if (color.startsWith('#')) {
         el.style.color = color;
       } else {
         utils.addClass(el, `${color}-color`);
@@ -87,7 +87,7 @@ export default {
     },
     update(el, binding) {
       let color = binding.value || binding.arg || binding.expression;
-      if (color.startsWith("#")) {
+      if (color.startsWith('#')) {
         el.style.color = color;
       } else {
         utils.addClass(el, `${color}-color`);
@@ -100,7 +100,7 @@ export default {
   bgColor: {
     inserted(el, binding) {
       let color = binding.value || binding.arg;
-      if (color.startsWith("#")) {
+      if (color.startsWith('#')) {
         el.style.backgroundColor = color;
       } else {
         utils.addClass(el, `bg-${color}-color`);
@@ -108,7 +108,7 @@ export default {
     },
     update(el, binding) {
       let color = binding.value || binding.arg;
-      if (color.startsWith("#")) {
+      if (color.startsWith('#')) {
         el.style.backgroundColor = color;
       } else {
         utils.addClass(el, `bg-${color}-color`);
@@ -117,5 +117,5 @@ export default {
     unbind(el) {
       el.style.backgroundColor = null;
     }
-  },
-}
+  }
+};

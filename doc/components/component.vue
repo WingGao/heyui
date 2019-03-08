@@ -68,6 +68,9 @@
               <router-link to="/component/form/rate">Rate 评分</router-link>
             </li>
             <li>
+              <router-link to="/component/form/switchlist">SwitchList 选项</router-link>
+            </li>
+            <li>
               <router-link to="/component/form/form">Form 表单</router-link>
             </li>
           </ul>
@@ -104,6 +107,9 @@
             </li>
             <li>
               <router-link to="/component/plugin/category">Category 分类选择</router-link>
+            </li>
+            <li>
+              <router-link to="/component/view/transfer">Transfer 穿梭框</router-link>
             </li>
             <!--<li><router-link to="/component/data/plugin/valid">Valid 数据验证</router-link></li>-->
           </ul>
@@ -143,9 +149,6 @@
               <router-link to="/component/view/avatar">Avatar 头像信息</router-link>
             </li>
             <li>
-              <router-link to="/component/form/switchlist">SwitchList 选项</router-link>
-            </li>
-            <li>
               <router-link to="/component/view/timeline">Timeline 时间轴</router-link>
             </li>
             <li>
@@ -153,9 +156,6 @@
             </li>
             <li>
               <router-link to="/component/view/carousel">Carousel 跑马灯</router-link>
-            </li>
-            <li>
-              <router-link to="/component/view/transfer">Transfer 穿梭框</router-link>
             </li>
             <li>
               <router-link to="/component/view/collapse">Collapse 折叠面板</router-link>
@@ -228,19 +228,17 @@
 </template>
 <script>
 import comHead from './common/header.vue';
-import comFoot from './common/footer.vue';
 import comFrame from './common/frame.vue';
 export default {
   data() {
     return {
-      pass: "",
+      pass: '',
       error: false
     };
   },
   methods: {},
   components: {
     comHead,
-    comFoot,
     comFrame
   }
 };

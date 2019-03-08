@@ -11,7 +11,6 @@
 
 const prefix = 'h-backtop';
 
-
 export default {
   name: 'hBackTop',
   props: {
@@ -40,14 +39,14 @@ export default {
   },
   watch: {
     show() {
-      this.$el.style.display = "block";
+      this.$el.style.display = 'block';
     }
   },
   mounted() {
     this.$nextTick(() => {
       let target = this.target();
       if (target) {
-        target.addEventListener("scroll", () => {
+        target.addEventListener('scroll', () => {
           if (target.scrollTop > 300) {
             this.show = true;
           } else {
@@ -55,9 +54,9 @@ export default {
           }
         });
       }
-      this.$el.addEventListener("webkitAnimationEnd", () => {
-        this.$el.style.display = this.show ? "block" : "none";
-      })
+      this.$el.addEventListener('webkitAnimationEnd', () => {
+        this.$el.style.display = this.show ? 'block' : 'none';
+      });
     });
   },
   methods: {
@@ -65,9 +64,9 @@ export default {
       if (this.timeout) return;
       let target = this.target();
       if (target) {
-        this.scrollTop(target, (target.scrollHeight - target.offsetHeight)/10);
+        this.scrollTop(target, (target.scrollHeight - target.offsetHeight) / 10);
       }
-      this.$emit("backtop");
+      this.$emit('backtop');
     },
     scrollTop(target, step) {
       this.timeout = setTimeout(() => {
@@ -87,13 +86,13 @@ export default {
         [`${prefix}`]: true,
         [`${prefix}-show`]: this.show,
         [this.className]: !!this.className
-      }
+      };
     },
     backtopStyle() {
       return {
         bottom: `${this.bottom}px`,
         right: `${this.right}px`
-      }
+      };
     }
   }
 };

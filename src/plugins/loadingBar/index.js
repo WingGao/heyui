@@ -82,18 +82,18 @@ function loadingBar() {
 
 loadingBar.start = () => {
   $loadingBar.start();
-}
+};
 
 loadingBar.success = () => {
   $loadingBar.success();
-}
+};
 
 loadingBar.percent = (value) => {
   $loadingBar.percent(value);
-}
+};
 
 loadingBar.fail = () => {
   $loadingBar.fail();
-}
+};
 
 export default loadingBar;

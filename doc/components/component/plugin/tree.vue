@@ -2,16 +2,16 @@
   <div class="doc">
     <h2>Tree 树</h2>
     <p class="component-name-tip">非 template/render 模式下，请使用 <code>h-tree</code>。</p>
-  
+
     <h3>基本调用</h3>
     <p>在传递的param参数中，定义基本的数据字段：<code>keyName</code>, <code>parentName</code>, <code>titleName</code>。</p>
     <p>设定数据模式：<code>dataMode</code>, 当传递的数据为有key,parent字段的list，则传递<code>list</code>，组件会根据key,parent字段自动计算树模型(parent可以是数组对应)，如果传递的数据本身就是树模型，则传递<code>tree</code>。</p>
     <example demo="plugins/tree1"></example>
-  
+
     <h3>多选，选择模式为ALL</h3>
     <p><code>chooseMode</code>: all, 只有子集全选的时候，才会选中父级，如果父级选择，返回数据则只返回父级，子集不返回。</p>
     <example demo="plugins/tree2"></example>
-  
+
     <h3>多选，选择模式为SOME</h3>
     <p><code>chooseMode</code>: some, 只要子集选中，父级即选中，返回数据为所有选中数据。</p>
     <example demo="plugins/tree3"></example>
@@ -20,10 +20,9 @@
     <p><code>chooseMode</code>: independent, 父级子级的选择不相关，最终中返回已选择的数据。</p>
     <example demo="plugins/tree8"></example>
 
-  
-    <h3>搜索</h3>
+    <h3>搜索与自定义</h3>
     <example demo="plugins/tree4"></example>
-  
+
     <h3>全部数据异步加载</h3>
     <p>在传递的param参数中，定义字段：<code>getTotalDatas</code>获取异步返回的数据，这里的数据属于一次性返回。</p>
     <example demo="plugins/tree5"></example>
@@ -87,6 +86,20 @@
         <td>-</td>
         <td>false</td>
       </tr>
+      <tr>
+        <td>selectOnClick</td>
+        <td>是否点击整行的时候选中，1.17.0+</td>
+        <td>Boolean</td>
+        <td>-</td>
+        <td>false</td>
+      </tr>
+      <tr>
+        <td>className</td>
+        <td>主题，1.17.0+</td>
+        <td>String</td>
+        <td>h-tree-theme-item-selected, h-tree-theme-row-selected</td>
+        <td>h-tree-theme-item-selected</td>
+      </tr>
     </table>
 
     <h3>Tree 方法</h3>
@@ -94,46 +107,80 @@
       <tr>
         <th>方法</th>
         <th>说明</th>
+        <th>参数</th>
+        <th>返回值</th>
       </tr>
       <tr>
         <td>updateChoose</td>
         <td>更新选中值(多选)</td>
+        <td>(keys, updateValue = true)</td>
+        <td>无</td>
       </tr>
       <tr>
         <td>getChoose</td>
         <td>获取选中值(多选)</td>
+        <td>无</td>
+        <td>[TreeItem]</td>
       </tr>
       <tr>
         <td>updateSelect</td>
         <td>更新选中值(单选)</td>
+        <td>(keys, updateValue = true)</td>
+        <td>无</td>
       </tr>
       <tr>
         <td>getSelect</td>
         <td>获取选中值(单选)</td>
+        <td>无</td>
+        <td>TreeItem</td>
       </tr>
       <tr>
         <td>getFullChoose</td>
         <td>获取所有选中的值(多选)</td>
+        <td>无</td>
+        <td>[TreeItem]</td>
       </tr>
       <tr>
         <td>chooseAll</td>
         <td>选中所有值(多选)</td>
-        <td></td>
+        <td>无</td>
+        <td>无</td>
       </tr>
       <tr>
         <td>expandAll</td>
         <td>打开所有的折叠</td>
-        <td></td>
+        <td>无</td>
+        <td>无</td>
       </tr>
       <tr>
         <td>foldAll</td>
         <td>收起所有的折叠</td>
-        <td></td>
+        <td>无</td>
+        <td>无</td>
       </tr>
       <tr>
         <td>refresh</td>
         <td>刷新数据</td>
-        <td></td>
+        <td>无</td>
+        <td>无</td>
+      </tr>
+      <tr>
+        <td>updateTreeItem</td>
+        <td>更新TreeItem，1.17.0+</td>
+        <td>(key, { title: '' })</td>
+        <td>无</td>
+      </tr>
+      <tr>
+        <td>appendTreeItem</td>
+        <td>插入TreeItem，1.17.0+</td>
+        <td>(parentkey, { id: '', title: '' })</td>
+        <td>无</td>
+      </tr>
+      <tr>
+        <td>removeTreeItem</td>
+        <td>删除TreeItem，1.17.0+</td>
+        <td>(key)</td>
+        <td>无</td>
       </tr>
     </table>
 
@@ -164,7 +211,7 @@
         <td>当异步数据加载成功的时候触发，应用与有一些数据按照tree加载的数据执行的场景</td>
       </tr>
     </table>
-    
+
     <h3>option 配置</h3>
     <table class="table">
       <tr>

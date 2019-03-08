@@ -45,7 +45,7 @@
                    :rangeEnd="rangeEnd"
                    @updateRangeEnd="updateRangeEnd"></date-base>
       </div>
-  
+
       <div class="h-date-footer">
         <button class="h-btn h-btn-text h-btn-s"
                 @click="clear">{{'h.common.clear' | hlang}}</button>
@@ -65,16 +65,6 @@ import dateBase from './date-base';
 
 const prefix = 'h-datetime';
 
-const manbaType = {
-  year: manba.YEAR,
-  month: manba.MONTH,
-  date: manba.DAY,
-  datetime:
-  manba.MINUTE,
-  time: manba.MINUTE,
-  datehour: manba.HOUR
-}
-
 export default {
   name: 'hDateRangePicker',
   props: {
@@ -84,7 +74,7 @@ export default {
     },
     type: {
       type: [String],
-      default: 'date'  //year, month, week
+      default: 'date' // year, month, week
     },
     option: Object,
     format: String,
@@ -97,7 +87,7 @@ export default {
       default: false
     },
     placeholder: {
-      type: String,
+      type: String
     },
     value: Object,
     startWeek: {
@@ -129,7 +119,7 @@ export default {
       },
       nowView: {
         start: manba(),
-        end: manba().add(1, manba.MONTH),
+        end: manba().add(1, manba.MONTH)
       },
       rangeEnd: '',
       nowFormat: format,
@@ -141,11 +131,11 @@ export default {
   },
   beforeDestroy() {
     let el = this.el;
-    if(el) {
+    if (el) {
       el.style.display = 'none';
       this.$el.appendChild(el);
     }
-    if(this.dropdown) {
+    if (this.dropdown) {
       this.dropdown.destory();
     }
   },
@@ -161,9 +151,9 @@ export default {
         events: {
           show() {
             that.isShow = true;
-            that.$nextTick(()=>{
-              that.initNowView()
-            })
+            that.$nextTick(() => {
+              that.initNowView();
+            });
           }
         }
       });
@@ -225,13 +215,13 @@ export default {
     },
     initNowView() {
       let start = manba();
-      if (!!this.nowDate.start) {
+      if (this.nowDate.start) {
         start = manba(this.nowDate.start);
       }
       let endRange = 1;
       this.nowView = {
         start,
-        end: manba(start).add(endRange, manba.MONTH),
+        end: manba(start).add(endRange, manba.MONTH)
       };
       this.$refs.start.resetView();
       this.$refs.end.resetView();
@@ -252,7 +242,7 @@ export default {
     setvalue(string, isEnd = false, range) {
       string = string || '';
       let lastDate = utils.copy(this.nowDate);
-      if(!isEnd) {
+      if (!isEnd) {
         if (range == 'start') {
           lastDate.start = string;
         } else if (range == 'end') {
@@ -279,13 +269,13 @@ export default {
     updateValue(value) {
       value = {
         [this.paramName.start]: value.start,
-        [this.paramName.end]: value.end,
-      }
+        [this.paramName.end]: value.end
+      };
       this.parse(value);
       this.$emit('input', value);
       this.$emit('change', value);
-      let event = document.createEvent("CustomEvent");
-      event.initCustomEvent("setvalue", true, true, value);
+      let event = document.createEvent('CustomEvent');
+      event.initCustomEvent('setvalue', true, true, value);
       this.$el.dispatchEvent(event);
       this.dropdown.update();
     }
@@ -323,12 +313,12 @@ export default {
         [`${prefix}-range`]: true,
         [`${prefix}-input-border`]: !this.noBorder,
         [`${prefix}-disabled`]: this.disabled
-      }
+      };
     },
     datePickerCls() {
       return {
         [`${prefix}-has-shortcut`]: this.shortcuts.length > 0
-      }
+      };
     },
     startOption() {
       return this.option;

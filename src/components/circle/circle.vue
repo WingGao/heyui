@@ -14,10 +14,6 @@
   </div>
 </template>
 <script>
-import config from '../../utils/config';
-
-const prefix = 'h-circle';
-const colors = ['red', 'blue', 'primary', 'gray', 'yellow', 'green'];
 
 export default {
   name: 'hCircle',
@@ -40,35 +36,35 @@ export default {
     }
   },
   data() {
-    return {}
+    return {};
   },
   computed: {
     circleStyle() {
       return {
         height: `${this.circleSize}px`
-      }
+      };
     },
     circleSize() {
       return this.size + (this.strokeWidth / 2);
     },
-    radius () {
+    radius() {
       return this.circleSize - this.strokeWidth / 2;
     },
-    pathString () {
-        return `M ${this.circleSize},${this.circleSize} m 0,-${this.radius}
+    pathString() {
+      return `M ${this.circleSize},${this.circleSize} m 0,-${this.radius}
         a ${this.radius},${this.radius} 0 1 1 0,${2 * this.radius}
         a ${this.radius},${this.radius} 0 1 1 0,-${2 * this.radius}`;
     },
-    len () {
-        return Math.PI * 2 * this.radius;
+    len() {
+      return Math.PI * 2 * this.radius;
     },
-    pathStyle () {
+    pathStyle() {
       return {
         'stroke-dasharray': `${this.len}px ${this.len}px`,
         'stroke-dashoffset': `${((100 - this.percent) / 100 * this.len)}px`,
         'transition': 'stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease'
       };
-    },
+    }
     // circleInnerStyle() {
     //   let s = {};
     //   s.height = `${this.strokeWidth}px`;

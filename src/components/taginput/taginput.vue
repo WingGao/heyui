@@ -4,7 +4,8 @@
       <span>{{v}}</span>
       <i v-if="!readonly" class="h-icon-close" @click.stop="remove(index)"></i>
     </span>
-    <input v-if="!readonly" type="text" class="h-taginput-input" @focus="focusing=true" v-model="tagvalue" @blur="blur" @keyup.enter="add"  @keydown.delete="removeLast" v-wordlimit="wordlimit" :placeholder="placeholder" />
+    <input v-if="!readonly" type="text" class="h-taginput-input" @focus="focusing=true" v-model="tagvalue" @blur="blur"
+      @keyup.enter="add" @keydown.delete="removeLast" v-wordlimit="wordlimit" :placeholder="placeholder" />
   </div>
 </template>
 <script>
@@ -24,15 +25,15 @@ export default {
       default: false
     },
     placeholder: {
-      type: String,
+      type: String
     },
     type: {
       type: String,
-      default: "Array" //String
+      default: 'Array' // String
     },
     split: {
       type: String,
-      default: ","
+      default: ','
     },
     wordlimit: {
       type: Number,
@@ -52,7 +53,7 @@ export default {
   },
   methods: {
     removeLast(event) {
-      if (event.target.value === '' && this.values.length){
+      if (event.target.value === '' && this.values.length) {
         this.remove(this.values.length - 1);
       }
     },
@@ -75,7 +76,7 @@ export default {
     },
     setvalue(value) {
       if (this.type == 'string') {
-        if (value.length == 0){
+        if (value.length == 0) {
           value = null;
         } else {
           value = value.join(this.split);
@@ -83,13 +84,13 @@ export default {
       }
       this.$emit('input', value);
       this.$emit('change', value);
-      let event = document.createEvent("CustomEvent");
-      event.initCustomEvent("setvalue", true, true, value);
+      let event = document.createEvent('CustomEvent');
+      event.initCustomEvent('setvalue', true, true, value);
       this.$el.dispatchEvent(event);
       this.tagvalue = '';
     },
     blur() {
-      let result = this.add();
+      this.add();
       this.focusing = false;
     }
   },
@@ -100,18 +101,19 @@ export default {
         [`${prefix}-input-border`]: !this.noBorder && !this.readonly,
         [`${prefix}-readonly`]: this.readonly,
         focusing: this.focusing
-      }
+      };
     },
     values() {
       if (this.type == 'Array') {
         return this.value || [];
       } else {
-        if (utils.isNull(this.value) || this.value === ''){
+        if (utils.isNull(this.value) || this.value === '') {
           return [];
         }
-        return new String(this.value).split(this.split);
+        return String(this.value).split(this.split);
       }
     }
   }
 };
+
 </script>

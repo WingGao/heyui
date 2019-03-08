@@ -34,7 +34,7 @@ export default {
     },
     hasDivider: {
       type: Boolean,
-      default:() => config.getOption('modal', 'hasDivider')
+      default: () => config.getOption('modal', 'hasDivider')
     },
     closeOnMask: {
       type: Boolean,
@@ -86,7 +86,7 @@ export default {
   },
   beforeDestroy() {
     let el = this.el;
-    if(el) {
+    if (el) {
       el.style.display = 'none';
       this.$el.appendChild(el);
     }
@@ -97,14 +97,14 @@ export default {
       document.body.appendChild(el);
       el.style.display = 'block';
       this.isShow = true;
-      if(this.hasMask){
+      if (this.hasMask) {
         let body = document.documentElement;
         let scrollWidth = window.innerWidth - body.clientWidth;
         body.style.overflow = 'hidden';
         body.style.paddingRight = `${scrollWidth}px`;
       }
       setTimeout(() => {
-        this.isOpened = true
+        this.isOpened = true;
       }, 100);
     },
     hide() {
@@ -122,18 +122,18 @@ export default {
       if (!fromMask || (fromMask && this.hasMask && this.closeOnMask)) {
         this.$emit('input', false);
       }
-    },
+    }
   },
   computed: {
     contentCls() {
       return {
         [`${notifyprefix}-content`]: true
-      }
+      };
     },
     containerCls() {
       return {
-        [`${notifyprefix}-container`]: true,
-      }
+        [`${notifyprefix}-container`]: true
+      };
     },
     noticeCls() {
       return {
@@ -150,7 +150,7 @@ export default {
         [`${prefix}-transparent`]: this.transparent,
         [`${prefix}-full-screen`]: this.fullScreen,
         [this.className]: !!this.className
-      }
+      };
     },
     hasHeader() {
       return !!this.$slots.header;

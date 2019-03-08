@@ -75,7 +75,7 @@
       <FormItem label="Fuzzy" prop="autocompleteData">
         <AutoComplete v-model="data.autocompleteData" config="simple"></AutoComplete>
       </FormItem>
-      <!-- 
+      <!--
           这里定义的required属性同样适用与验证规则中。
          -->
       <FormItem label="Custom" prop="thingsData[0]" required>
@@ -84,18 +84,18 @@
       <FormItemList>
         <FormItem v-for="(item, index) of data.inputsData" :key="index" :label="'Custom'+(index+1)" :prop="'inputsData['+index+'].value'">
           <Row type="flex">
-            <Col class="flex1">
+            <Cell class="flex1">
             <input type="text" v-model="item.value" />
-            </Col>
-            <Col class="text-right" v-width="50">
+            </Cell>
+            <Cell class="text-right" v-width="50">
             <Poptip @confirm="remove(index)" content="确定删除？">
               <Button text-color="red" :no-border="true" icon="h-icon-trash"></Button>
             </Poptip>
-            </Col>
+            </Cell>
           </Row>
         </FormItem>
       </FormItemList>
-      <FormItem :single="true" single>
+      <FormItem single>
         <Button size="s" text-color="blue" @click="add">添加输入框</Button>
       </FormItem>
       <FormItem :no-padding="true" single>
@@ -150,7 +150,7 @@ export default {
         single: '一个区块一行',
         twocolumn: '两列一行',
         threecolumn: '三列一行',
-        block: '标题独立一行',
+        block: '标题独立一行'
       },
       isInputAsyncError: false,
       validationRules: {
@@ -160,14 +160,14 @@ export default {
             minLen: 10
           },
           inputData: {
-            //这里的判断不会影响最终的valid结果，所以也可以作为一些验证提示
+            // 这里的判断不会影响最终的valid结果，所以也可以作为一些验证提示
             validAsync(value, next, parent, data) {
-              log(value)
+              log(value);
               setTimeout(() => {
                 if (value == 15) {
                   next();
                 } else {
-                  next("ID不等于15");
+                  next('ID不等于15');
                 }
               }, 10);
             }
@@ -203,7 +203,7 @@ export default {
         mobile: ['mobileData'],
         combineRules: [
           {
-            parentRef: "money",
+            parentRef: 'money',
             refs: ['minData', 'maxData'],
             valid: {
               valid: 'lessThan',
@@ -212,14 +212,14 @@ export default {
           }
         ]
       }
-    }
+    };
   },
   methods: {
     submit() {
       this.isLoading = true;
       let validResult = this.$refs.form.valid();
       if (validResult.result) {
-        this.$Message("验证成功");
+        this.$Message('验证成功');
         setTimeout(() => {
           this.isLoading = false;
         }, 1000);
@@ -229,9 +229,9 @@ export default {
     },
     submitAsync() {
       this.isLoading = true;
-      this.$refs.form.validAsync().then(result=>{
+      this.$refs.form.validAsync().then(result => {
         if (result.result) {
-          this.$Message("验证成功");
+          this.$Message('验证成功');
           setTimeout(() => {
             this.isLoading = false;
           }, 1000);
@@ -242,9 +242,9 @@ export default {
     },
     open() {
       this.$Modal({
-        title: "处理",
+        title: '处理',
         content: '我要去做特殊的处理'
-      })
+      });
     },
     reset() {
       this.isLoading = false;

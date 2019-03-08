@@ -4,7 +4,6 @@
   </div>
 </template>
 <script>
-import utils from '../../utils/utils';
 
 const prefixCls = 'h-layout-sider';
 
@@ -27,7 +26,7 @@ export default {
     }
   },
   beforeDestroyed() {
-    if(this.$parent && this.$parent.updateSider) {
+    if (this.$parent && this.$parent.updateSider) {
       this.$parent.updateSider();
     }
   }

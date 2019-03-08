@@ -5,10 +5,10 @@
     <p class="component-name-tip">In non-string templates，it is necessary to use <code>h-table</code>. </p>
 
     <h3>Columns definition mode</h3>
-    <example demo="view/table1"></example>
+    <exampleEn demo="view/table1"></exampleEn>
 
     <h3>TableItem definition mode</h3>
-    <example demo="view/table2"></example>
+    <exampleEn demo="view/table2"></exampleEn>
 
     <h3>Data render</h3>
     <ul class="text-ul">
@@ -16,38 +16,36 @@
       <li><code>dict</code>: use dict render data</li>
       <li><code>render</code>: define render function</li>
     </ul>
-    <example demo="view/table9"></example>
+    <exampleEn demo="view/table9"></exampleEn>
 
     <h3>Sort and loading</h3>
     <p>Set <code>sort</code> to <code>true</code> for Column, then use custom sort to adjust data according to sort event.</p>
     <p>Set <code>sort</code> to <code>auto</code> for Column, you can use data sorting by default.</p>
     <p>use <code>loading</code> to set up the load effect of the data.</p>
-    <example demo="view/table5"></example>
+    <exampleEn demo="view/table5"></exampleEn>
 
     <h3>Table open/hide row</h3>
     <p>To a setting rows of data <code>_expand</code> is true, the current row can be expanded by default</p>
-    <example demo="view/table6"></example>
-<!--     
+    <exampleEn demo="view/table6"></exampleEn>
+<!--
     <h3>自定义模式</h3>
-    <example demo="view/table5"></example> -->
+    <exampleEn demo="view/table5"></exampleEn> -->
 
     <h3>Table fixed column</h3>
     <p class="tip">Fixed height and width, automatic scrolling when internal content is exceeded.</p>
-    <example demo="view/table3"></example>
-  
+    <exampleEn demo="view/table3"></exampleEn>
+
     <h3>Table choose lines</h3>
-    <example demo="view/table4"></example>
+    <exampleEn demo="view/table4"></exampleEn>
 
     <h3>Table select line</h3>
-    <example demo="view/table10"></example>
+    <exampleEn demo="view/table10"></exampleEn>
 
     <h3>Table bubble tips and border, stripe style</h3>
-    <example demo="view/table7"></example>
-
+    <exampleEn demo="view/table7"></exampleEn>
 
     <h3>Custom table header</h3>
-    <example demo="view/table8"></example>
-
+    <exampleEn demo="view/table8"></exampleEn>
 
     <h3>Table 参数</h3>
     <table class="table">
@@ -116,13 +114,12 @@
       </tr>
       <tr>
         <td>sortProp</td>
-        <td>sort prop，when prop is null，use sortProp, <code>1.15.1+</code></td>
+        <td>sort prop，when sortProp is null，use prop, <code>1.16.0+</code></td>
         <td>String</td>
         <td></td>
         <td></td>
       </tr>
     </table>
-
 
     <h3>TableItem / Column Property</h3>
     <table class="table">
@@ -298,7 +295,7 @@
       </tr>
       <tr>
         <td>triggerSort</td>
-        <td>Set sort, trigger sort event when triggerType is true, and sort automatically when triggerType is auto, <code>1.15.1+</code></td>
+        <td>Set sort, trigger sort event when triggerType is true, and sort automatically when triggerType is auto, <code>1.16.0+</code></td>
         <td>sortStatus: {prop: String, type: String['asc'|'desc'] }, triggerType: true | 'auto' | false</td>
         <td>Empty</td>
       </tr>
@@ -312,9 +309,9 @@
 export default {
   data() {
     return {
-    }
+    };
   },
   methods: {
   }
-}
+};
 </script>

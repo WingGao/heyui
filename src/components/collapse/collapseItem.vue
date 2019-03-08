@@ -24,26 +24,26 @@ export default {
     },
     title: {
       type: String
-    },
+    }
   },
   components: {
-      
+
   },
   data() {
     return {
-      isActive: false,
-    }
+      isActive: false
+    };
   },
   inject: ['collapse'],
   computed: {
   },
   created() {
-    
+
   },
   methods: {
     toggle() {
-      this.collapse.toggle(this.name || this.index)
+      this.collapse.toggle(this.name || this.index);
     }
-  },
-}
+  }
+};
 </script>

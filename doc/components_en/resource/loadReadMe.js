@@ -4,12 +4,12 @@ const hljs = require('highlight.js');
 export default (el, url, vm) => {
   $.get(url, function (data) {
     let content = $(marked(data));
-    let container = $(".readme", el);
+    let container = $('.readme', el);
     container.append(content);
     // let menus = [];
 
     // $("#left").append(lis);
-    // 完成代码高亮
+    // Completion code highlighting
     $('code', container).map(function () {
       $(this).addClass('javascript');
       // Prism.highlightElement(this);
@@ -33,4 +33,4 @@ export default (el, url, vm) => {
     // })
     vm.$parent.initLeftMenu(true);
   });
-}
+};

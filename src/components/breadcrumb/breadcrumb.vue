@@ -7,15 +7,13 @@
   </div>
 </template>
 <script>
-import config from '../../utils/config';
-import utils from '../../utils/utils';
 
 export default {
   name: 'hBreadcrumb',
   props: {
     datas: {
       Array,
-      default: ()=>({})
+      default: () => ({})
     },
     separator: {
       type: String,
@@ -28,8 +26,8 @@ export default {
   },
   data() {
     return {
-      
-    }
+
+    };
   },
   mounted() {
   },
@@ -41,5 +39,5 @@ export default {
       this.$emit('click', data);
     }
   }
-}
+};
 </script>

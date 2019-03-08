@@ -37,7 +37,7 @@
                    @input="setvalue"
                    @changeView="updateDropdown"></date-base>
       </div>
-  
+
       <div class="h-date-footer"
            v-if="hasConfirm & !inline">
         <button class="h-btn h-btn-text"
@@ -65,7 +65,7 @@ const manbaType = {
   datetime: manba.MINUTE,
   time: manba.MINUTE,
   datehour: manba.HOUR
-}
+};
 
 const options = config.getOption('datepicker');
 
@@ -82,7 +82,7 @@ export default {
     },
     type: {
       type: [String],
-      default: 'date'  //year, month, week
+      default: 'date' // year, month, week
     },
     option: Object,
     format: String,
@@ -95,7 +95,7 @@ export default {
       default: false
     },
     placeholder: {
-      type: String,
+      type: String
     },
     hasButtons: {
       type: Boolean,
@@ -142,21 +142,21 @@ export default {
   },
   beforeDestroy() {
     let el = this.el;
-    if(el) {
+    if (el) {
       el.style.display = 'none';
       this.$el.appendChild(el);
     }
-    if(this.dropdown) {
+    if (this.dropdown) {
       this.dropdown.destory();
     }
   },
   mounted() {
     let that = this;
     this.$nextTick(() => {
-      if(this.inline) return;
+      if (this.inline) return;
       let el = this.el = this.$el.querySelector(`.${prefix}>.h-datetime-show`);
       let content = this.$el.querySelector(`.h-date-picker`);
-      
+
       this.dropdown = new Dropdown(el, {
         trigger: 'click',
         triggerOnce: true,
@@ -166,13 +166,13 @@ export default {
         events: {
           show() {
             that.isShow = true;
-            that.$nextTick(()=>{
+            that.$nextTick(() => {
               that.parse(that.value);
               that.$refs.datebase.resetView();
               if (that.nowDate) {
                 that.nowView = manba(that.nowDate);
               }
-            })
+            });
           }
         }
       });
@@ -199,23 +199,23 @@ export default {
     },
     updateView(value) {
       this.nowView = manba(value);
-      this.$nextTick(()=>{
+      this.$nextTick(() => {
         this.updateDropdown();
-      })
+      });
     },
     updateDropdown() {
-      if(this.dropdown) this.dropdown.update();
+      if (this.dropdown) this.dropdown.update();
     },
     inputEvent(event) {
       let value = event.target.value;
-      try { manba(value) } catch (evt) { return; }
+      try { manba(value); } catch (evt) { return; }
       // this.parse(value, false);
       this.setvalue(value);
     },
     changeEvent(event) {
       let value = event.target.value;
       this.parse(value);
-      if (this.nowDate && utils.isObject(this.option) && this.type != "time") {
+      if (this.nowDate && utils.isObject(this.option) && this.type != 'time') {
         let disabled = false;
         let nowDate = manba(this.nowDate);
         let type = manbaType[this.type];
@@ -238,9 +238,9 @@ export default {
           this.nowDate = this.nowView.format('k');
           if (initShow) {
             if (this.type == 'week') {
-              this.showDate = this.t('h.date.show.weekInput', {year:this.nowView.year(), week: this.nowView.getWeekOfYear(manba.MONDAY)});
+              this.showDate = this.t('h.date.show.weekInput', { year: this.nowView.year(), week: this.nowView.getWeekOfYear(this.startWeek) });
             } else if (this.type == 'quarter') {
-              this.showDate = this.t('h.date.show.quarter', {year:this.nowView.year(), quarter:Math.ceil(this.nowView.month() / 3)});
+              this.showDate = this.t('h.date.show.quarter', { year: this.nowView.year(), quarter: Math.ceil(this.nowView.month() / 3) });
             } else {
               this.showDate = this.nowView.format(this.nowFormat);
             }
@@ -256,7 +256,7 @@ export default {
       if (initShow) this.showDate = '';
     },
     hide() {
-      if(this.dropdown) this.dropdown.hide();
+      if (this.dropdown) this.dropdown.hide();
     },
     setvalue(string, isEnd = true) {
       // log(string);
@@ -266,8 +266,8 @@ export default {
       }
       this.$emit('input', value);
       this.$emit('change', value);
-      let event = document.createEvent("CustomEvent");
-      event.initCustomEvent("setvalue", true, true, value);
+      let event = document.createEvent('CustomEvent');
+      event.initCustomEvent('setvalue', true, true, value);
       this.$el.dispatchEvent(event);
       if (isEnd) {
         this.hide();
@@ -312,12 +312,12 @@ export default {
         [`${prefix}-inline`]: this.inline,
         [`${prefix}-input-border`]: !this.noBorder,
         [`${prefix}-disabled`]: this.disabled
-      }
+      };
     },
     datePickerCls() {
       return {
         [`${prefix}-has-shortcut`]: this.shortcuts.length > 0
-      }
+      };
     }
   },
   components: {

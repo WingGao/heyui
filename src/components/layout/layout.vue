@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       hasSiderChild: false
-    }
+    };
   },
   mounted() {
     this.updateSider();
@@ -33,15 +33,15 @@ export default {
   methods: {
     updateSider() {
       const siderTag = new Set(['hSider', 'Sider', 'h-sider']);
-      this.$nextTick(()=>{
+      this.$nextTick(() => {
         for (let c of this.$children) {
-          if(siderTag.has(c.$options._componentTag || c.$options.name)) {
+          if (siderTag.has(c.$options._componentTag || c.$options.name)) {
             this.hasSiderChild = true;
             return;
           }
         }
         this.hasSiderChild = false;
-      })
+      });
     }
   },
   computed: {
@@ -51,13 +51,13 @@ export default {
         [`${prefixCls}-has-sider`]: this.hasSiderChild,
         [`${prefixCls}-header-fixed`]: this.headerFixed,
         [`${prefixCls}-sider-fixed`]: this.siderFixed,
-        [`${prefixCls}-sider-collapsed`]: this.siderCollapsed,
+        [`${prefixCls}-sider-collapsed`]: this.siderCollapsed
       };
       return classList;
     },
     styles() {
       let style = {};
-      
+
       return style;
     }
   }

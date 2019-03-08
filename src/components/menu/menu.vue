@@ -26,7 +26,7 @@ const initStatus = (list = [], param, parent) => {
     datas.push(obj);
   }
   return datas;
-}
+};
 
 const getObj = (list = [], param) => {
   let obj = {};
@@ -41,7 +41,7 @@ const getObj = (list = [], param) => {
     }
   }
   return obj;
-}
+};
 const updateOpened = (obj) => {
   let openedList = [];
   if (obj.parent) {
@@ -49,7 +49,7 @@ const updateOpened = (obj) => {
     openedList.push(...updateOpened(obj.parent));
   }
   return openedList;
-}
+};
 
 export default {
   name: 'hMenu',
@@ -69,7 +69,7 @@ export default {
     },
     mode: {
       type: String,
-      default: 'normal' //normal, vertical
+      default: 'normal' // normal, vertical
     },
     inlineCollapsed: {
       type: Boolean,
@@ -78,14 +78,14 @@ export default {
   },
   data() {
     let param = {};
-    param = utils.extend({}, config.getOption("menu"), this.option);
+    param = utils.extend({}, config.getOption('menu'), this.option);
     return {
       param,
       status: {
         selected: null,
         opened: []
       }
-    }
+    };
   },
   computed: {
     classes() {
@@ -94,7 +94,7 @@ export default {
         [this.className]: true,
         [`${prefix}-mode-${this.mode}`]: !this.isDropdownMenu,
         [`${prefix}-mode-vertical`]: this.isDropdownMenu,
-        [`${prefix}-size-collapse`]: this.inlineCollapsed,
+        [`${prefix}-size-collapse`]: this.inlineCollapsed
       };
     },
     isDropdownMenu() {
@@ -129,7 +129,7 @@ export default {
             }
           }
         }
-        
+
         this.$emit('click', menu);
         if (menu.children && menu.children.length > 0) {
           return;

@@ -1,10 +1,9 @@
-import locale from '../locale';
 import utils from './utils';
 
 const config = {
   dict: {
-    keyName: "key",
-    titleName: "title",
+    keyName: 'key',
+    titleName: 'title',
     dicts: {}
   },
   tree: {
@@ -13,7 +12,7 @@ const config = {
       titleName: 'title',
       keyName: 'key',
       parentName: 'parent',
-      childrenName: 'children',
+      childrenName: 'children'
     }
   },
   category: {
@@ -22,7 +21,7 @@ const config = {
       titleName: 'title',
       keyName: 'key',
       parentName: 'parent',
-      childrenName: 'children',
+      childrenName: 'children'
     }
   },
   uploader: {
@@ -35,7 +34,7 @@ const config = {
   menu: {
     titleName: 'title',
     keyName: 'key',
-    childrenName: 'children',
+    childrenName: 'children'
   },
   autocomplete: {
     configs: {},
@@ -105,7 +104,7 @@ const config = {
         start: 'start',
         end: 'end'
       }
-    },
+    }
   }
 };
 
@@ -148,7 +147,6 @@ const func = {
   addDict(name, value) {
     config.dict.dicts[name] = value;
   }
-}
-
+};
 
 export default func;

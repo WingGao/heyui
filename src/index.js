@@ -1,5 +1,5 @@
 
- /*
+/*
  * HeyUI JavaScript Library
  * https://heyui.top/
  *
@@ -53,7 +53,7 @@ import {
   HFooter,
   Content,
   Sider,
-  Layout,
+  Layout
 } from './components/layout';
 import Timeline from './components/timeline';
 import Transfer from './components/transfer';
@@ -114,13 +114,14 @@ const components = {
   Radio,
   Rate,
   Row,
+  Col,
+  Cell: Col,
   Search,
   Select,
   Slider,
   Steps,
   hSwitch: Switch,
   SwitchList,
-  Col,
   Timeline,
   TimelineItem: Timeline.Item,
   Transfer,
@@ -143,13 +144,13 @@ const components = {
   HFooter,
   Content,
   Sider,
-  Layout,
+  Layout
 };
 
 const directives = {
   width: style.width,
   color: style.color,
-  "bg-color": style.bgColor,
+  'bg-color': style.bgColor,
   height: style.height,
   padding: style.padding,
   margin: style.margin,
@@ -158,7 +159,7 @@ const directives = {
   tooltip,
   wordcount,
   wordlimit
-}
+};
 
 let prototypes = {
   $Message,
@@ -166,7 +167,7 @@ let prototypes = {
   $Confirm,
   $Loading,
   $LoadingBar
-}
+};
 
 const HeyUI = Object.assign({}, components, { $Modal: $Modal(), $Notice: $Notice(), locale: locale.use, i18n: locale.i18n }, prototypes, config, { Dropdown }, filters);
 

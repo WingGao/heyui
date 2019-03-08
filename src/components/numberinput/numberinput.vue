@@ -12,7 +12,7 @@
 </template>
 <script>
 
-import utils from '../../utils/utils'
+import utils from '../../utils/utils';
 const prefix = 'h-numberinput';
 
 export default {
@@ -30,7 +30,7 @@ export default {
       default: 1
     },
     placeholder: {
-      type: String,
+      type: String
     },
     useInt: {
       type: Boolean,
@@ -41,7 +41,7 @@ export default {
       default: false
     },
     precision: {
-      type: Number,
+      type: Number
     }
   },
   data() {
@@ -54,7 +54,7 @@ export default {
   watch: {
     value() {
       // this.editValue = this.value;
-      if(this.valueBak != this.value) {
+      if (this.valueBak != this.value) {
         this.editValue = this.value;
         this.valueBak = this.value;
       }
@@ -74,9 +74,9 @@ export default {
       this.setvalue(utils.add(value || 0, -this.step), 'handler');
     },
     input(event) {
-      if(isNaN(new Number(event.target.value))) return false;
+      if (isNaN(Number(event.target.value))) return false;
       let value = this.getValue(event.target.value);
-      if(utils.isNumber(this.value) && Math.abs(value - this.value) <= 1 && this.precision) {
+      if (utils.isNumber(this.value) && Math.abs(value - this.value) <= 1 && this.precision) {
         return;
       }
       this.setvalue(value, 'input');
@@ -104,8 +104,8 @@ export default {
       if (this.min !== undefined && value !== null) {
         value = Math.max(this.min, value);
       }
-      if(this.precision && utils.isNumber(value)) {
-        value = Math.floor(utils.mul(value || 0, Math.pow(10,this.precision)))/Math.pow(10,this.precision);
+      if (this.precision && utils.isNumber(value)) {
+        value = Math.floor(utils.mul(value || 0, Math.pow(10, this.precision))) / Math.pow(10, this.precision);
         value = value.toFixed(this.precision);
       }
       this.valueBak = value;
@@ -113,11 +113,11 @@ export default {
       if (trigger != 'input') {
         this.editValue = value;
       }
-      if(trigger == 'blur') {
+      if (trigger == 'blur') {
         this.$emit('change', value);
       }
-      let event = document.createEvent("CustomEvent");
-      event.initCustomEvent("setvalue", true, true, value);
+      let event = document.createEvent('CustomEvent');
+      event.initCustomEvent('setvalue', true, true, value);
       this.$el.dispatchEvent(event);
     }
   },
@@ -126,7 +126,7 @@ export default {
       return {
         [prefix]: true,
         [`${prefix}-disabled`]: !!this.disabled
-      }
+      };
     }
   }
 };

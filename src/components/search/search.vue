@@ -41,12 +41,12 @@ export default {
       default: false
     },
     searchText: {
-      type: String,
+      type: String
     }
   },
   data() {
     return {
-      inputValue: this.value,
+      inputValue: this.value
     };
   },
   watch: {
@@ -81,8 +81,8 @@ export default {
         [`${prefix}-block`]: this.block,
         [`${prefix}-searching`]: this.value !== '' && this.value !== null && this.value !== undefined,
         [`${prefix}-has-button`]: this.showSearchButton,
-        [`${prefix}-${this.position}`]: true,
-      }
+        [`${prefix}-${this.position}`]: true
+      };
     }
   }
 };

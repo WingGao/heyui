@@ -10,7 +10,7 @@ const prefixCls = 'h-col';
 
 const getHalf = (width, hasRemainder) => {
   return Math.floor(width / 2) + (!hasRemainder ? width % 2 : 0) + 'px';
-}
+};
 
 export default {
   name: 'hCol',
@@ -34,7 +34,7 @@ export default {
       });
 
       // let noOtherWidth = width==undefined&&this.flex == undefined;
-      for(let size of ['xs', 'sm', 'md', 'lg', 'xl']){
+      for (let size of ['xs', 'sm', 'md', 'lg', 'xl']) {
         if (utils.isNumber(this[size])) {
           // noOtherWidth = false;
           classList.push(`${prefixCls}-${size}-${this[size]}`);
@@ -49,10 +49,10 @@ export default {
     styles() {
       let style = {};
       let styletype = 'padding';
-      if(this.flex){
+      if (this.flex) {
         style.flex = this.flex;
       }
-      if(this.$parent.type == 'flex'){
+      if (this.$parent.type == 'flex') {
         styletype = 'margin';
       }
 
@@ -74,7 +74,7 @@ export default {
         style[`${styletype}Top`] = getHalf(this.$parent.spaceY, true);
         style[`${styletype}Bottom`] = getHalf(this.$parent.spaceY, false);
       }
-      
+
       return style;
     }
   }

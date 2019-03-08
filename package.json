@@ -1,6 +1,6 @@
 {
   "name": "heyui",
-  "version": "1.15.1-alpha.4",
+  "version": "1.17.0-alpha.1",
   "description": "UI Toolkit for Web, Vue2.0.",
   "main": "./dist/heyui.js",
   "module": "./src/index.js",
@@ -17,15 +17,15 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "hey-cli": "^1.9.0",
-    "manba": "^1.2.0"
+    "manba": "^1.2.8"
   },
   "devDependencies": {
-    "eslint": "^3.8.1",
-    "eslint-config-airbnb-base": "^9.0.0",
-    "eslint-plugin-html": "^1.5.5",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-vue": "^0.1.1",
+    "@vue/eslint-config-standard": "^4.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.3.0",
+    "eslint-plugin-html": "^5.0.3",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-vue": "^5.2.2",
     "fs": "0.0.1-security",
     "headr": "0.0.4",
     "hey-log": "^0.0.8",
@@ -39,6 +39,7 @@
     "pa": "sh ./scripts/publish.sh -alpha",
     "pb": "sh ./scripts/publish.sh -beta",
     "p": "sh ./scripts/publish.sh",
+    "eslintfix": "eslint --fix --ext .js,.vue src",
     "min": "babel dist/heyui.js --minified --no-babelrc -o dist/heyui.min.js"
   },
   "standard-version": {

@@ -1,6 +1,6 @@
 <template>
   <div class="h-avatar" :class="avatarClass">
-    <div :style="avatarImageStyle" :class="avatarImageClass" class="h-avatar-image-container">
+    <div :style="avatarImageStyle" @click="click" :class="avatarImageClass" class="h-avatar-image-container">
       <div class="h-avatar-image" :style="imageStyle"></div>
     </div>
     <div class="h-avatar-info" :style="infoStyle">
@@ -31,33 +31,39 @@ export default {
     imageTop: Number,
     type: String
   },
+  methods: {
+    click(event) {
+      this.$emit('click', event);
+    }
+  },
   computed: {
     imageStyle() {
-      if(this.src) {
+      if (this.src) {
         return {
           'background-image': `url(${config.getOption('avatar').handleSrc.call(this, this.src)})`
-        }
+        };
       }
       return {};
     },
     avatarClass() {
       return {
         [`h-avatar-type-${this.type}`]: !!this.type,
-        [`h-avatar-shape-${this.shape}`]: !!this.shape,
-      }
+        [`h-avatar-shape-${this.shape}`]: !!this.shape
+      };
     },
     avatarImageClass() {
       if (!this.imageTop) {
         return {
           'h-avatar-middle': true
-        }
+        };
       }
+      return {};
     },
     avatarImageStyle() {
       let s = {
         width: `${this.width}px`,
-        height: `${this.width}px`,
-      }
+        height: `${this.width}px`
+      };
       if (this.imageTop) {
         s.top = `${this.imageTop}px`;
       }
@@ -66,9 +72,10 @@ export default {
     infoStyle() {
       return {
         'padding-left': `${this.width + this.distance}px`,
-        'min-height': `${this.width}px`,
-      }
+        'min-height': `${this.width}px`
+      };
     }
-  },
+  }
 };
+
 </script>

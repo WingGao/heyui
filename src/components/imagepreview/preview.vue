@@ -38,7 +38,7 @@ export default {
       showIndex: -1,
       changeing: false,
       previewFile: {}
-    }
+    };
   },
   watch: {
     isShow() {
@@ -84,15 +84,15 @@ export default {
         return {};
       }
       let data = this.datas[this.showIndex];
-      let previewFile = utils.isString(data) ? {url: data} : data;
-      if(previewFile.url == this.previewFile.url) {
+      let previewFile = utils.isString(data) ? { url: data } : data;
+      if (previewFile.url == this.previewFile.url) {
         this.$nextTick(() => {
           if (this.$refs.img && this.$refs.img.complete) {
             setTimeout(() => {
               this.changeing = false;
             }, 300);
           }
-        })
+        });
       }
       this.previewFile = previewFile;
     }
@@ -101,8 +101,8 @@ export default {
     previewStyle() {
       return {
         height: `${this.height}px`,
-        width: `${this.width}px`,
-      }
+        width: `${this.width}px`
+      };
     }
   },
   components: {

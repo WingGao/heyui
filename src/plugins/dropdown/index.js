@@ -1,7 +1,6 @@
 import Pop from '../pop';
 import utils from '../../utils/utils';
 
-
 const Default = {
   trigger: 'click',
   closeOnClickBody: true,
@@ -13,7 +12,7 @@ const Default = {
   type: 'dropdown',
   delay: 0,
   offset: '0, 1'
-}
+};
 
 class Dropdown extends Pop {
   constructor(el, param) {

@@ -13,10 +13,10 @@ export default {
         break;
       }
     }
-  },
+  }
   // update(el) {
   //   const evt = document.createEvent('Event');
   //   evt.initEvent('autosize:update', true, false);
   //   el.dispatchEvent(evt);
   // }
-}
+};

@@ -2,28 +2,26 @@
   <div class="doc">
     <h2>Grid</h2>
     <p>We use standard 24 grid layout containers and use containers to complete a simple network layout.</p>
-    <p class="component-name-tip">In non-string templates，it is necessary to use <code>h-row</code>, <code>h-col</code>. </p>
+    <p class="component-name-tip">In non-string templates，it is necessary to use <code>h-row</code>, <code>h-cell</code>. </p>
+    <p class="component-name-tip">Since Col and HTML native col tags conflict, after version 1.16.0, Col components are renamed Cell components, and Col components will continue to be compatible.</p>
     <h3>Basic</h3>
-    <p>Use the basic class <code>.h-col-{n}</code>for layout.</p>
-    <example demo="basic/grid1"></example>
-    <h3>Component</h3>
-    <p>Use component <code>Row</code>,<code>Col</code>typeset layout, by <code>width</code>setting the width.</p>
-    <blockquote>Note: When using non-string mode, please use <code>h-row</code>,<code>h-col</code>for details, refer to <a href="https://vuejs.org/v2/guide/components-registration.html#Name-Casing" target="_blank">vue component name casing</a></blockquote>
-    <example demo="basic/grid2"></example>
+    <p>Use component <code>Row</code>,<code>Cell</code>typeset layout, by <code>width</code>setting the width.</p>
+    <blockquote>Note: When using non-string mode, please use <code>h-row</code>,<code>h-cell</code>for details, refer to <a href="https://vuejs.org/v2/guide/components-registration.html#Name-Casing" target="_blank">vue component name casing</a></blockquote>
+    <exampleEn demo="basic/grid2"></exampleEn>
     <h3>block spacing</h3>
-    <p>By add <code>space</code> attributes to<code>Row</code>, let <code>Col</code> have space. <code>space</code> can be set to any integer value.</p>
+    <p>By add <code>space</code> attributes to<code>Row</code>, let <code>Cell</code> have space. <code>space</code> can be set to any integer value.</p>
     <blockquote>We are not using a grid layout, so we can layout the loop's blocks.</blockquote>
-    <example demo="basic/grid3"></example>
+    <exampleEn demo="basic/grid3"></exampleEn>
     <h3>Horizontal, vertical block spacing</h3>
-    <p>By add <code>space-x</code>,<code>space-y</code> attributes to<code>Row</code> ，let <code>Col</code> have space. </p>
-    <example demo="basic/grid4"></example>
+    <p>By add <code>space-x</code>,<code>space-y</code> attributes to<code>Row</code> ，let <code>Cell</code> have space. </p>
+    <exampleEn demo="basic/grid4"></exampleEn>
     <h3>Flex layout</h3>
     <p>Flex layout is mainly used in flex adaptive scenes.</p>
-    <example demo="basic/grid5"></example>
+    <exampleEn demo="basic/grid5"></exampleEn>
     <h3>Adaptive layout</h3>
     <p>Implement responsive design using five dimensions: xs, sm, md, lg, xl.</p>
     <p>max-768px, 768px, 992px,1200px , min-1800px</p>
-    <example demo="basic/grid6"></example>
+    <exampleEn demo="basic/grid6"></exampleEn>
     <h3>Row Property</h3>
     <table class="table">
       <tr>
@@ -84,7 +82,7 @@
       </tr>
     </table>
 
-    <h3>Col Property</h3>
+    <h3>Cell Property</h3>
     <table class="table">
       <tr>
         <th>Property</th>
@@ -141,9 +139,9 @@
 <script>
 export default {
   data() {
-      return {}
-    },
-    methods: {},
-    components: {}
-}
+    return {};
+  },
+  methods: {},
+  components: {}
+};
 </script>

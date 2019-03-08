@@ -14,7 +14,7 @@
   </div>
 </template>
 <script>
-import utils from "../../utils/utils";
+import utils from '../../utils/utils';
 
 const prefixCls = 'h-form-item';
 export default {
@@ -78,12 +78,12 @@ export default {
   },
   mounted() {
     // this.$nextTick(() => {
-      // this.$el.addEventListener("blur", (event) => {
-      //   this.trigger(event);
-      // }, true);
-      // this.$el.addEventListener("setvalue", (event) => {
-      //   this.trigger(event);
-      // });
+    // this.$el.addEventListener("blur", (event) => {
+    //   this.trigger(event);
+    // }, true);
+    // this.$el.addEventListener("setvalue", (event) => {
+    //   this.trigger(event);
+    // });
     // });
     let parent = this.getParent();
 
@@ -92,8 +92,8 @@ export default {
       if (message) {
         this.configRequired = !!message.required;
       }
-      if(this.required){
-        parent.setConfig(this.prop, {required: true});
+      if (this.required) {
+        parent.setConfig(this.prop, { required: true });
       }
       // if(this.label){
       //   parent.setConfig(this.prop, {label: this.label});
@@ -135,7 +135,7 @@ export default {
         return;
       }
       this.getParent().validField(prop);
-    },
+    }
   },
   computed: {
     initLabelWidth() {
@@ -154,12 +154,12 @@ export default {
         [`${prefixCls}-required`]: this.required || this.configRequired,
         [`${prefixCls}-valid-error`]: !this.errorMessage.valid,
         [`${prefixCls}-no-padding`]: !!this.noPadding
-      }
+      };
     },
     labelCls() {
       return {
-        [`${prefixCls}-label`]: true,
-      }
+        [`${prefixCls}-label`]: true
+      };
     },
     labelStyleCls() {
       let param = {

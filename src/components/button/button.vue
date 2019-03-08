@@ -7,7 +7,7 @@
 const prefix = 'h-btn';
 const Props = {
   size: new Set(['l', 's', 'xs'])
-}
+};
 export default {
   name: 'hButton',
   props: {
@@ -44,10 +44,10 @@ export default {
   },
   methods: {
     trigger(event) {
-      if(this.stop){
+      if (this.stop) {
         event.stopPropagation();
       }
-      if(this.preventDefault){
+      if (this.preventDefault) {
         event.preventDefault();
       }
       this.$emit('click', event);
@@ -72,7 +72,7 @@ export default {
         [`${prefix}-text-${this.textColor}`]: !!this.textColor,
         [`${prefix}-${this.color}`]: !!this.color,
         [`${prefix}-${this.size}`]: !!this.size,
-        [`${prefix}-no-border`]: this.noBorder === true,
+        [`${prefix}-no-border`]: this.noBorder === true
       };
     },
     iconCode() {
@@ -81,7 +81,7 @@ export default {
     iconCls() {
       const iconCode = this.loading ? 'h-icon-loading' : this.icon;
       return {
-        [`${iconCode}`]: !!iconCode,
+        [`${iconCode}`]: !!iconCode
       };
     }
   }

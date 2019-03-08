@@ -37,25 +37,25 @@ export default {
     },
     sortStatus: {
       type: Object,
-      default: () => ({type: null, prop: null})
+      default: () => ({ type: null, prop: null })
     },
     placement: String,
-    content: String,
+    content: String
   },
-  data(){
+  data() {
     return {
       // sortStatus: {type: null, prop: null}
     };
   },
   methods: {
     triggerSort() {
-      if(!this.sort) return false;
+      if (!this.sort) return false;
       let sortStatus = utils.copy(this.sortStatus);
-      if(this.sortStatus.type && this.sortStatus.prop == this.sortUseProp) {
+      if (this.sortStatus.type && this.sortStatus.prop == this.sortUseProp) {
         sortStatus.type = this.sortStatus.type == 'asc' ? 'desc' : 'asc';
       } else {
         sortStatus.type = 'desc';
-        sortStatus.prop = this.sortUseProp
+        sortStatus.prop = this.sortUseProp;
       }
       let parent = this.$parent;
       if (parent.$options._componentTag == 'Table' || parent.$options._componentTag == 'h-table') {
@@ -74,6 +74,5 @@ export default {
       return this.sortProp || this.prop;
     }
   }
-}
+};
 </script>
-

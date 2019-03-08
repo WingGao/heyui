@@ -6,41 +6,42 @@
       <div class="h-panel-bar">
         <div class="h-category-modal-multiple-tags" v-if="param.multiple">
           <span v-for="tag of param.objects" :key="tag.key"><span>{{tag.title}}</span><i class="h-icon-close"
-            @click.stop="remove(tag)"></i></span>
+              @click.stop="remove(tag)"></i></span>
         </div>
         <div v-else class="h-category-modal-single-tag">
           <span v-if="param.object">{{param.object.title}}</span>
-          <!-- <i v-else class="gray-color">{{showEmptyContent}}</i> -->
         </div>
         <Search v-if="param.filterable" v-model="searchText" trigger="input" class="h-panel-right"></Search>
       </div>
-      <!-- <div class="h-panel-bar" v-if="param.filterable">
-        
-      </div> -->
       <Tabs v-if="searchText == ''" v-font="13" :datas="tabs" v-model="tab" keyName="key" titleName="title" @change="focusTab"></Tabs>
       <div class="h-panel-body">
         <Row :space="10">
-          <template  v-if="searchText==''">
-            <Col :width="8" v-for="data of list" :key="data.key">
-                <div class="text-ellipsis h-category-item" @click="openNew(data)"><Checkbox v-if="data.status.checkable" :checked="isChecked(data)" @click.native="change(data, $event)"></Checkbox><i class="h-split"></i>{{data.title}} <span v-if="data.children.length">({{data.children.length}})</span></div>
-            </Col>
+          <template v-if="searchText==''">
+            <Cell :width="8" v-for="data of list" :key="data.key">
+            <div class="text-ellipsis h-category-item" @click="openNew(data)">
+              <Checkbox v-if="data.status.checkable" :checked="isChecked(data)" @click.native="change(data, $event)"></Checkbox><i
+                class="h-split"></i>{{data.title}} <span v-if="data.children.length">({{data.children.length}})</span>
+            </div>
+            </Cell>
           </template>
-         <Col v-else :width="8" v-for="data of searchlist" :key="data">
-            <div class="text-ellipsis h-category-item" @click.stop="change(data)"><Checkbox v-if="data.status.checkable" :checked="isChecked(data)" @click.native="change(data, $event)"></Checkbox><i class="h-split"></i>{{data.title}}</div>
-         </Col>
+          <Cell v-else :width="8" v-for="data of searchlist" :key="data">
+          <div class="text-ellipsis h-category-item" @click.stop="change(data)">
+            <Checkbox v-if="data.status.checkable" :checked="isChecked(data)" @click.native="change(data, $event)"></Checkbox><i
+              class="h-split"></i>{{data.title}}
+          </div>
+          </Cell>
         </Row>
       </div>
     </div>
     <footer>
-      <Button color="primary" @click="confirm">{{'h.common.confirm' | hlang}}</Button>
+      <Button Cellor="primary" @click="confirm">{{'h.common.confirm' | hlang}}</Button>
       <Button @click="close">{{'h.common.cancel' | hlang}}</Button>
     </footer>
   </div>
 </template>
 <script>
-import config from '../../utils/config';
 import utils from '../../utils/utils';
-const topMenu = "-------";
+const topMenu = '-------';
 
 export default {
   name: 'hCategoryModal',
@@ -52,32 +53,36 @@ export default {
       params: this.param.param,
       list: this.param.categoryDatas,
       searchText: '',
-      tabs: [{title: this.t('h.categoryModal.total'), key: topMenu}],
+      tabs: [{
+        title: this.t('h.categoryModal.total'),
+        key: topMenu
+      }],
       tab: topMenu,
       tabIndex: 0
     };
   },
-  mounted() {
-  },
+  mounted() {},
   methods: {
     isChecked(data) {
       if (this.param.multiple) {
-        return this.param.objects.some(item=>item.key == data.key);
+        return this.param.objects.some(item => item.key == data.key);
       } else {
-        return this.param.object ? (this.param.object.key==data.key) : false;
+        return this.param.object ? (this.param.object.key == data.key) : false;
       }
     },
-    change(data,event) {
+    change(data, event) {
       if (event) {
         event.stopPropagation();
         event.preventDefault();
       }
-      if(data.status.checkable === false) {
+      if (data.status.checkable === false) {
         return;
       }
       if (this.param.multiple) {
-        if(this.param.objects.length >= this.param.limit && this.param.objects.indexOf(data) == -1) {
-          this.$Message.error(this.t('h.categoryModal.limitWords', {size: this.param.limit}));
+        if (this.param.objects.length >= this.param.limit && this.param.objects.indexOf(data) == -1) {
+          this.$Message.error(this.t('h.categoryModal.limitWords', {
+            size: this.param.limit
+          }));
           return;
         }
         this.param.objects = utils.toggleValue(this.param.objects, data);
@@ -86,7 +91,7 @@ export default {
       }
     },
     openNew(data) {
-      if (data.children&&data.children.length) {
+      if (data.children && data.children.length) {
         this.tabIndex = this.tabIndex + 1;
         this.tabs.splice(this.tabIndex);
         this.tabs.push(data);
@@ -99,12 +104,12 @@ export default {
     remove(obj) {
       this.param.objects.splice(this.param.objects.indexOf(obj), 1);
     },
-    focusTab(tab, index){
+    focusTab(tab, index) {
       this.tab = tab.key;
       this.tabIndex = index;
-      if(tab.key === topMenu){
+      if (tab.key === topMenu) {
         this.list = this.param.categoryDatas;
-      }else{
+      } else {
         this.list = tab.children;
       }
     },
@@ -113,7 +118,7 @@ export default {
       this.close();
     },
     close() {
-      this.$emit("close");
+      this.$emit('close');
     }
   },
   computed: {
@@ -128,9 +133,9 @@ export default {
     },
     searchlist() {
       let list = [];
-      for(let key in this.param.categoryObj){
+      for (let key in this.param.categoryObj) {
         let item = this.param.categoryObj[key];
-        if(item.status.checkable && item.title.indexOf(this.searchText) != -1){
+        if (item.status.checkable && item.title.indexOf(this.searchText) != -1) {
           list.push(item);
         }
       }
@@ -138,4 +143,5 @@ export default {
     }
   }
 };
+
 </script>

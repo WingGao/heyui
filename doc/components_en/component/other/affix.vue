@@ -3,16 +3,16 @@
     <h2>Affix</h2>
     <p class="component-name-tip">In non-string templates，it is necessary to use <code>h-affix</code>. </p>
 
-    <example demo="other/affix1"></example>
+    <exampleEn demo="other/affix1"></exampleEn>
     <div v-height="1000" v-bg-color:gray4 v-padding="20" class="text-center">
       Support page
     </div>
-    <example demo="other/affix2"></example>
-    
+    <exampleEn demo="other/affix2"></exampleEn>
+
     <h3>Fixed in the container</h3>
     <p>If you encounter a fixed dom higher than the container, be sure to add style overflow: hidden;</p>
-    <example demo="other/affix3"></example>
-    
+    <exampleEn demo="other/affix3"></exampleEn>
+
     <h3>affix 参数</h3>
     <table class="table">
       <tr>
@@ -59,7 +59,6 @@
       </tr>
     </table>
 
-
     <h3>affix Event</h3>
     <table class="table">
       <tr>
@@ -92,9 +91,9 @@ export default {
   data() {
     return {
       fixed: false
-    }
+    };
   },
   methods: {
   }
-}
+};
 </script>

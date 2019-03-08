@@ -5,7 +5,7 @@
     <p class="component-name-tip">非 template/render 模式下，请使用 <code>h-table</code>。</p>
 
     <h3>Columns定义模式</h3>
-    <example demo="view/table1"></example>
+    <example demo="view/table11"></example>
 
     <h3>TableItem定义模式</h3>
     <example demo="view/table2"></example>
@@ -28,14 +28,14 @@
     <h3>Table open/hide row</h3>
     <p>给行数据 data 的某项设置 <code>_expand</code> 为 true，可以默认展开当前行</p>
     <example demo="view/table6"></example>
-<!--     
+<!--
     <h3>自定义模式</h3>
     <example demo="view/table5"></example> -->
 
     <h3>Table fixed column</h3>
     <p class="tip">固定的高度和宽度，内部内容超出时自动scroll。</p>
     <example demo="view/table3"></example>
-  
+
     <h3>Table 多选</h3>
     <p>设定<code>selectWhenClickTr</code>属性可以点击整行选中。</p>
     <example demo="view/table4"></example>
@@ -115,7 +115,6 @@
         <td>false</td>
       </tr>
     </table>
-
 
     <h3>TableItem / Column 参数</h3>
     <table class="table">
@@ -213,7 +212,7 @@
       </tr>
       <tr>
         <td>sortProp</td>
-        <td>排序字段，当prop为空的时候，使用该字段，<code>1.15.1+新增</code></td>
+        <td>排序字段，当sortProp为空的时候，使用prop字段，<code>1.16.0+新增</code></td>
         <td>String</td>
         <td></td>
         <td></td>
@@ -299,7 +298,7 @@
       </tr>
       <tr>
         <td>triggerSort</td>
-        <td>设置排序，triggerType为true的时候触发<code>sort</code>事件，为auto时自动排序，<code>1.15.1+新增</code></td>
+        <td>设置排序，triggerType为true的时候触发<code>sort</code>事件，为auto时自动排序，<code>1.16.0+新增</code></td>
         <td>sortStatus: {prop: String, type: String['asc'|'desc'] }, triggerType: true | 'auto' | false</td>
         <td>无</td>
       </tr>
@@ -312,9 +311,9 @@
 export default {
   data() {
     return {
-    }
+    };
   },
   methods: {
   }
-}
+};
 </script>

@@ -12,7 +12,7 @@ let Default = {
   hasDivider,
   fullScreen: false,
   className: ''
-}
+};
 
 function Modal(originalParam) {
   let cls = prefixCls;
@@ -39,7 +39,7 @@ function Modal(originalParam) {
     param.className += ' h-modal-type-default';
   }
   param.type = cls;
-  
+
   param.Vue = Vue;
   return Notify(param);
 }

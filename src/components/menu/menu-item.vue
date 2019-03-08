@@ -22,7 +22,6 @@
   </li>
 </template>
 <script>
-import utils from '../../utils/utils';
 
 export default {
   name: 'hMenuItem',
@@ -41,10 +40,10 @@ export default {
   },
   methods: {
     trigger(data) {
-      this.$emit("trigger", data);
+      this.$emit('trigger', data);
     },
     togglemenu(data) {
-      this.$emit("trigger", { type: "togglemenuEvent", data });
+      this.$emit('trigger', { type: 'togglemenuEvent', data });
     }
   }
 };

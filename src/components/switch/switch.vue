@@ -38,8 +38,8 @@ export default {
       let value = this.isChecked ? this.falseValue : this.trueValue;
       this.$emit('input', value);
       this.$emit('change', value);
-      let event = document.createEvent("CustomEvent");
-      event.initCustomEvent("setvalue", true, true, this.value);
+      let event = document.createEvent('CustomEvent');
+      event.initCustomEvent('setvalue', true, true, this.value);
       this.$el.dispatchEvent(event);
     }
   }

@@ -1,5 +1,5 @@
 <template>
-  <div class="h-rate" :readonly="readonly" @mouseleave="mouseleave()"><span  v-for="n in 5" @click="setvalue(n)" :class="starCls(n)" @mouseover="mouseover(n)"><i class="h-icon-star-on"></i></span><span v-if="showText" class="h-rate-value">{{value}}</span></div>
+  <div class="h-rate" :readonly="readonly" @mouseleave="mouseleave()"><span v-for="n in 5" :key="n" @click="setvalue(n)" :class="starCls(n)" @mouseover="mouseover(n)"><i class="h-icon-star-on"></i></span><span v-if="showText" class="h-rate-value">{{value}}</span></div>
 </template>
 <script>
 export default {
@@ -28,8 +28,8 @@ export default {
       if (this.readonly) return;
       this.$emit('input', value);
       this.$emit('change', value);
-      let event = document.createEvent("CustomEvent");
-      event.initCustomEvent("setvalue", true, true, this.value);
+      let event = document.createEvent('CustomEvent');
+      event.initCustomEvent('setvalue', true, true, this.value);
       this.$el.dispatchEvent(event);
     },
     mouseover(n) {
@@ -44,8 +44,8 @@ export default {
       let v = this.mouseValue || Number(this.value);
       return {
         'h-rate-on': v >= n,
-        'h-rate-off': v < n,
-      }
+        'h-rate-off': v < n
+      };
     }
   },
   filters: {

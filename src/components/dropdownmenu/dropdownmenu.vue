@@ -36,8 +36,8 @@ export default {
     dict: String,
     datas: [Array, Object],
     trigger: {
-      type: String,  //click,hover,contextMenu`
-      default: "click"
+      type: String, // click,hover,contextMenu`
+      default: 'click'
     },
     equalWidth: {
       type: Boolean,
@@ -92,7 +92,7 @@ export default {
       title: this.titleName,
       html: 'dropdownmenuHtml',
       isShow: false,
-      el: null,
+      el: null
     };
   },
   mounted() {
@@ -101,9 +101,9 @@ export default {
   },
   methods: {
     onclick(event, option) {
-      if (!!option.disabled) return;
-      this.$emit("onclick", option[this.key], option, event);
-      this.$emit("click", option[this.key], option, event);
+      if (option.disabled) return;
+      this.$emit('onclick', option[this.key], option, event);
+      this.$emit('click', option[this.key], option, event);
       this.$refs.dropdown.hide();
     }
   },
@@ -111,7 +111,7 @@ export default {
     dropdownmenuCls() {
       return {
         [`${prefix}`]: true
-      }
+      };
     },
     groupStyle() {
       let styles = {};
@@ -125,13 +125,13 @@ export default {
         [`${prefix}-show`]: true,
         [`${prefix}-disabled`]: !!this.disabled,
         [this.className]: true
-      }
+      };
     },
     groupCls() {
       return {
         [`${this.className}-dropdown`]: !!this.className,
         'h-dropdownmenu-group': true
-      }
+      };
     },
     options() {
       if (!this.datas && !this.dict) {

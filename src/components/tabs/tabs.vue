@@ -35,7 +35,7 @@ export default {
     return {
       key: this.keyName,
       title: this.titleName
-    }
+    };
   },
   methods: {
     trigger(data, index) {

@@ -29,12 +29,12 @@ export default {
         [`${prefix}-item`]: true,
         'has-icon': !!this.icon,
         [`${prefix}-item-${this.color}-color`]: !!this.color
-      }
+      };
     },
     circleSC() {
       let styles = {};
       let classes = {
-        [`${prefix}-item-circle`]: true,
+        [`${prefix}-item-circle`]: true
       };
       return {
         styles,
@@ -45,7 +45,7 @@ export default {
       let width = this.$parent.timeWidth || 100;
       return {
         classes: {
-          [`${prefix}-item-time`]: true,
+          [`${prefix}-item-time`]: true
         },
         styles: {
           width: `${width}px`

@@ -5,10 +5,9 @@ const prefixCls = 'h-notice';
 const iconPrefixCls = 'h-icon';
 let Vue = null;
 
-
 let Default = {
   timeout: 4000
-}
+};
 
 const iconNames = {
   info: 'info',
@@ -39,7 +38,7 @@ function Notice(originalParam) {
   };
   if (new Set(Object.keys(iconNames)).has(originalParam.type)) {
     if (originalParam.title) originalParam.style = `${prefixCls}-has-icon`;
-    originalParam.content = `<i class="${iconPrefixCls}-${iconNames[originalParam.type]} ${iconColor[originalParam.type]}-color"></i>${originalParam.content}`
+    originalParam.content = `<i class="${iconPrefixCls}-${iconNames[originalParam.type]} ${iconColor[originalParam.type]}-color"></i>${originalParam.content}`;
     delete originalParam.type;
   } else if (originalParam.icon) {
     if (originalParam.title) originalParam.style = `${prefixCls}-has-icon`;

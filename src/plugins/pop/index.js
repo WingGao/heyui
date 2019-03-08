@@ -47,7 +47,6 @@ const DEFAULT_OPTIONS = {
  * @return {Object} instance - The generated pop instance
  */
 class Pop {
-
   constructor(reference, options) {
     options = utils.extend({}, DEFAULT_OPTIONS, options);
     this.reference = reference;
@@ -64,7 +63,7 @@ class Pop {
     this.innerSelector = options.innerSelector;
     this.triggerEvents = [];
     if (options.content.nodeType === 1) {
-      options.content.style.display = "none";
+      options.content.style.display = 'none';
     }
     this.setEventListeners(triggerEvents, options);
   }
@@ -79,7 +78,7 @@ class Pop {
     const contentNode = popGenerator.querySelector(this.innerSelector);
     if (content.nodeType === 1) {
       if (allowHtml) contentNode.appendChild(content);
-      content.style.display = "block";
+      content.style.display = 'block';
     } else if (utils.isFunction(content)) {
       const contentText = content.call(reference);
       if (allowHtml) {
@@ -105,7 +104,7 @@ class Pop {
     const allowHtml = this.options.html;
     if (content.nodeType === 1) {
       if (allowHtml) contentNode.replaceChild(content, contentNode.firstChild);
-      content.style.display = "block";
+      content.style.display = 'block';
     } else if (allowHtml) {
       contentNode.innerHTML = content;
     } else {
@@ -116,7 +115,7 @@ class Pop {
 
   initPopNode() {
     let reference = this.reference;
-    let options = this.options
+    let options = this.options;
     const content = options.content || reference.getAttribute('content');
 
     if (!content) {
@@ -128,7 +127,7 @@ class Pop {
     popNode.setAttribute('aria-describedby', popNode.id);
     const container = this.findContainer(options.container, reference);
 
-    container.appendChild(popNode)
+    container.appendChild(popNode);
     if (options.class) {
       utils.addClass(popNode, options.class);
     }
@@ -164,32 +163,32 @@ class Pop {
         boundariesElement: 'window',
         enabled: true
       }
-    }
+    };
 
     if (this.options.offset) {
       modifiers.offset = {
         enabled: true,
         offset: this.options.offset
-      }
+      };
     }
 
     if (this.options.preventOverflow && container.tagName != 'BODY') {
       modifiers.hide = {
-        enabled: false,
+        enabled: false
       };
       modifiers.flip = {
         boundariesElement: container,
         enabled: true
-      }
+      };
 
       modifiers.preventOverflow = {
-        enabled: false,
-      }
+        enabled: false
+      };
     }
     if (this.options.trigger == 'contextMenu') {
       modifiers.flip = {
         enabled: false
-      }
+      };
     }
 
     let popperOptions = {
@@ -272,7 +271,7 @@ class Pop {
             this.popperInstance.disableEventListeners();
           }
         }
-      }, 300)
+      }, 300);
     }, this.options.delay);
     return this;
   }
@@ -354,7 +353,7 @@ class Pop {
             this.popperInstance.defaultOptions.modifiers.offset = {
               enabled: true,
               offset: this.options.offset
-            }
+            };
             this.popperInstance.updateModifiers();
             this.popperInstance.update();
           }

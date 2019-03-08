@@ -7,7 +7,7 @@
          :style="progressInnerStyle">
       <div class="h-progress-bg"
          :style="progressBgStyle"
-         :class="progressBgClass"></div>     
+         :class="progressBgClass"></div>
     </div>
     <div class="h-progress-text" v-if="$slots.text">
       <slot name="text"></slot>
@@ -15,7 +15,6 @@
   </div>
 </template>
 <script>
-const prefix = 'h-progress';
 const colors = ['red', 'blue', 'primary', 'gray', 'yellow', 'green'];
 
 export default {
@@ -35,7 +34,7 @@ export default {
     }
   },
   data() {
-    return {}
+    return {};
   },
   computed: {
     progressInnerStyle() {
@@ -55,7 +54,7 @@ export default {
     progressBgClass() {
       let s = {};
       if (colors.includes(this.color)) {
-        s[`bg-${this.color}-color`] = true
+        s[`bg-${this.color}-color`] = true;
       }
       return s;
     }

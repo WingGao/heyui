@@ -32,12 +32,12 @@ export default {
     titleName: {
       type: String,
       default: () => config.getOption('dict', 'titleName')
-    },
+    }
   },
   data() {
     return {
       key: this.keyName,
-      title: this.titleName,
+      title: this.titleName
     };
   },
   methods: {
@@ -51,8 +51,8 @@ export default {
       }
       this.$emit('input', result);
       this.$emit('change', value);
-      let event = document.createEvent("CustomEvent");
-      event.initCustomEvent("setvalue", true, true, result);
+      let event = document.createEvent('CustomEvent');
+      event.initCustomEvent('setvalue', true, true, result);
       this.$el.dispatchEvent(event);
     }
   },

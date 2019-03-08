@@ -41,25 +41,25 @@
   </div>
 </template>
 <script>
-import config from "../../utils/config";
-import utils from "../../utils/utils";
+import config from '../../utils/config';
+import utils from '../../utils/utils';
 
-const prefix = "h-page";
+const prefix = 'h-page';
 
 export default {
   name: 'hPagination',
   props: {
     size: {
       type: Number,
-      default: () => config.getOption("page.size")
+      default: () => config.getOption('page.size')
     },
     sizes: {
       type: Array,
-      default: () => config.getOption("page.sizes")
+      default: () => config.getOption('page.sizes')
     },
     align: {
       type: String,
-      default: "left"
+      default: 'left'
     },
     cur: {
       type: Number,
@@ -75,26 +75,26 @@ export default {
     },
     small: {
       type: Boolean,
-      default: () => config.getOption("page.small")
+      default: () => config.getOption('page.small')
     },
     layout: {
       type: String,
-      default: () => config.getOption("page.layout")
+      default: () => config.getOption('page.layout')
     }
   },
   data() {
-    let layoutList = this.layout.replace(" ", "").split(",");
+    let layoutList = this.layout.replace(' ', '').split(',');
     let orders = { total: -1, pager: -1, jumper: -1, sizes: -1 };
     for (let o in orders) {
       orders[o] = layoutList.indexOf(o);
     }
-    const keyField = config.getOption("dict", "keyName");
-    const titleField = config.getOption("dict", "titleName");
+    const keyField = config.getOption('dict', 'keyName');
+    const titleField = config.getOption('dict', 'titleName');
     return {
       sizesShow: this.sizes.map(item => {
         return {
           [keyField]: item,
-          [titleField]: this.t('h.pagination.sizeOfPage', {size: item})
+          [titleField]: this.t('h.pagination.sizeOfPage', { size: item })
         };
       }),
       sizeNow: this.size,
@@ -105,15 +105,18 @@ export default {
   watch: {
     cur() {
       this.curNow = this.cur;
+    },
+    size() {
+      this.sizeNow = this.size;
     }
   },
   methods: {
     prev() {
-      if(this.curNow == 1) return;
+      if (this.curNow == 1) return;
       this.change(this.curNow - 1);
     },
     next() {
-      if(this.curNow == this.count) return;
+      if (this.curNow == this.count) return;
       this.change(this.curNow + 1);
     },
     jump(event) {
@@ -128,24 +131,24 @@ export default {
         return;
       }
       this.curNow = parseInt(event.target.value, 10);
-      this.$emit("change", { cur: this.curNow, size: this.sizeNow });
+      this.$emit('change', { cur: this.curNow, size: this.sizeNow });
     },
     change(cur) {
       if (this.curNow == cur) return;
       this.curNow = cur;
-      let onChange = config.getOption("page.onChange");
+      let onChange = config.getOption('page.onChange');
       if (utils.isFunction(onChange)) {
-        onChange.call(null, { cur: this.curNow, size: this.sizeNow });
+        onChange({ cur: this.curNow, size: this.sizeNow });
       }
-      this.$emit("change", { cur: this.curNow, size: this.sizeNow });
+      this.$emit('change', { cur: this.curNow, size: this.sizeNow });
     },
     changesize() {
       this.curNow = 1;
-      this.$emit("change", { cur: 1, size: this.sizeNow });
-      this.$emit("changeSize", this.sizeNow);
-      let onChangeSize = config.getOption("page.onChangeSize");
+      this.$emit('change', { cur: 1, size: this.sizeNow });
+      this.$emit('changeSize', this.sizeNow);
+      let onChangeSize = config.getOption('page.onChangeSize');
       if (utils.isFunction(onChangeSize)) {
-        onChangeSize.call(null, this.sizeNow);
+        onChangeSize(this.sizeNow);
       }
     },
     genPagerCls(num) {
@@ -181,13 +184,13 @@ export default {
     prevCls() {
       return {
         [`${prefix}-pager-disabled`]: this.curNow == 1,
-        "h-page-pager": true
+        'h-page-pager': true
       };
     },
     nextCls() {
       return {
         [`${prefix}-pager-disabled`]: this.curNow == this.count,
-        "h-page-pager": true
+        'h-page-pager': true
       };
     },
     pagerCls() {

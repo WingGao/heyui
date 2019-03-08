@@ -28,7 +28,7 @@
     "highlight.js": "^9.10.0",
     "jquery": "^3.2.1",
     "jquery-smooth-scroll": "^2.1.2",
-    "manba": "^1.1.2",
+    "manba": "^1.2.8",
     "plupload-es6": "^2.1.11",
     "popper.js": "^1.10.8",
     "qiniu-js-es6": "^1.0.28",
@@ -40,15 +40,19 @@
     "vuex": "^3.0.1"
   },
   "devDependencies": {
-    "eslint": "^5.11.1",
-    "eslint-config-airbnb-base": "^9.0.0",
-    "eslint-plugin-html": "^1.5.5",
-    "eslint-plugin-import": "^2.0.1",
-    "eslint-plugin-vue": "^0.1.1"
+    "@vue/eslint-config-standard": "^4.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.3.0",
+    "eslint-plugin-html": "^5.0.3",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-vue": "^5.2.2"
   },
   "readmeFilename": "README.md",
   "scripts": {
-    "build": "hey b"
+    "build": "hey b",
+    "eslintfix": "eslint --fix --ext .js,.vue components",
+    "eslintfixjs": "eslint --fix --ext .js,.vue js",
+    "eslintfixen": "eslint --fix --ext .js,.vue components_en"
   },
   "browserslist": [
     "ie >= 9"

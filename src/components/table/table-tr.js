@@ -10,7 +10,7 @@ export default {
   render(h) {
     let tds = [];
     if (this.$slots && this.$slots.default) {
-      tds.push(...this.$slots.default)
+      tds.push(...this.$slots.default);
     }
     if (this.$parent.$slots.default) {
       for (let td of this.$parent.$slots.default || []) {
@@ -40,17 +40,17 @@ export default {
       'tr', {
         on: {
           click: this.clickHandler,
-          dblclick: this.dblclickHandler,
-        },
+          dblclick: this.dblclickHandler
+        }
       }, tds
-    )
+    );
   },
   methods: {
     clickHandler(event) {
-      this.$emit('click', this.datas, this.index, event)
+      this.$emit('click', this.datas, this.index, event);
     },
     dblclickHandler(event) {
-      this.$emit('dblclick', this.datas, this.index, event)
+      this.$emit('dblclick', this.datas, this.index, event);
     }
   }
-}
+};

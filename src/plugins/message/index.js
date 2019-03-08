@@ -6,7 +6,7 @@ const iconPrefixCls = 'h-icon';
 
 let Default = {
   timeout: 3000
-}
+};
 
 const iconNames = {
   info: 'info',
@@ -54,7 +54,7 @@ function message(content, timeout, onClose) {
 
 message.info = (content, timeout, onClose) => {
   return Message(content, timeout, 'info', onClose);
-}
+};
 
 message.success = (content, timeout, onClose) => {
   return Message(content, timeout, 'success', onClose);
