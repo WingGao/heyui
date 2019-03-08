@@ -187,6 +187,7 @@ export default {
         type: null,
         prop: null
       },
+      checksEmit: true, //是否触发checks的change事件
       rowSelected: null
     };
   },
@@ -222,7 +223,10 @@ export default {
     },
     checks: {
       handler() {
-        this.$emit('select', this.checks);
+        if (this.checksEmit) {
+          this.$emit('select', this.checks);
+        }
+        this.checksEmit = true
       },
       deep: true
     }
@@ -331,7 +335,8 @@ export default {
         });
       }
     },
-    setSelection(data) {
+    setSelection(data, emit = true) {
+      this.checksEmit = emit
       if (utils.isArray(data)) {
         this.checks = [...data];
       }
