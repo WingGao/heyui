@@ -230,6 +230,7 @@ export default {
   'pluginsDropdownmenu8': resolve => require.ensure([], require => require('./plugins/dropdownmenu8'), 'plugins'),
   'pluginsDropdownmenu9': resolve => require.ensure([], require => require('./plugins/dropdownmenu9'), 'plugins'),
   'pluginsDropdownmenu10': resolve => require.ensure([], require => require('./plugins/dropdownmenu10'), 'plugins'),
+  'pluginsDropdownmenu11': resolve => require.ensure([], require => require('./plugins/dropdownmenu11'), 'plugins'),
   'pluginsDropdowncustom1': resolve => require.ensure([], require => require('./plugins/dropdowncustom1'), 'plugins'),
   'pluginsDropdowncustom2': resolve => require.ensure([], require => require('./plugins/dropdowncustom2'), 'plugins'),
   'pluginsDropdowncustom3': resolve => require.ensure([], require => require('./plugins/dropdowncustom3'), 'plugins'),
@@ -272,10 +273,14 @@ export default {
   'otherScrollintoview1': resolve => require.ensure([], require => require('./other/scrollintoview1'), 'other'),
   'otherClipboard1': resolve => require.ensure([], require => require('./other/clipboard1'), 'other'),
   'otherDirective': resolve => require.ensure([], require => require('./other/directive'), 'other'),
+  'otherSkeleton1': resolve => require.ensure([], require => require('./other/skeleton1'), 'other'),
+  'otherSkeleton2': resolve => require.ensure([], require => require('./other/skeleton2'), 'other'),
+  'otherSkeleton3': resolve => require.ensure([], require => require('./other/skeleton3'), 'other'),
   'imagepreviewImagepreview1': resolve => require.ensure([], require => require('./imagepreview/imagepreview1'), 'carousel'),
   'carouselCarousel1': resolve => require.ensure([], require => require('./carousel/carousel1'), 'carousel'),
   'carouselCarousel2': resolve => require.ensure([], require => require('./carousel/carousel2'), 'carousel'),
   'carouselCarousel3': resolve => require.ensure([], require => require('./carousel/carousel3'), 'carousel'),
   'carouselCarousel4': resolve => require.ensure([], require => require('./carousel/carousel4'), 'carousel'),
-  'carouselCarousel5': resolve => require.ensure([], require => require('./carousel/carousel5'), 'carousel')
+  'carouselCarousel5': resolve => require.ensure([], require => require('./carousel/carousel5'), 'carousel'),
+  'validatorValidator': resolve => require.ensure([], require => require('./validator/validator'), 'carousel')
 };

@@ -210,13 +210,13 @@ class Pop {
   show(event) {
     if (this.hideTimeout) clearTimeout(this.hideTimeout);
     if (this.hideTimeout2) clearTimeout(this.hideTimeout2);
+    if (this.options.events && utils.isFunction(this.options.events.show)) {
+      this.options.events.show(event);
+    }
     if (this.isOpen || this.options.disabled) {
       return this;
     }
     this.isOpen = true;
-    if (this.options.events && utils.isFunction(this.options.events.show)) {
-      this.options.events.show(event);
-    }
     if (!this.popNode) {
       this.initPopNode();
     }
@@ -279,6 +279,7 @@ class Pop {
   destory() {
     if (this.documentHandler) {
       document.removeEventListener('click', this.documentHandler);
+      document.removeEventListener('contextmenu', this.documentHandler);
     }
     if (this.popperInstance) {
       this.popperInstance.destroy();
@@ -341,7 +342,7 @@ class Pop {
       const func = (evt) => {
         if (evt.type == 'contextmenu') {
           evt.preventDefault();
-          evt.stopPropagation();
+          // evt.stopPropagation();
           if (window.getSelection) {
             window.getSelection().removeAllRanges();
           } else {
@@ -358,11 +359,11 @@ class Pop {
             this.popperInstance.update();
           }
         }
-        if (this.isOpen === true) {
+        if (event == 'click' && this.isOpen === true) {
           return;
         }
         evt.usedByPop = true;
-        this.show(event);
+        this.show(evt);
       };
       this.triggerEvents.push({
         event,
@@ -398,6 +399,7 @@ class Pop {
         this.hide();
       };
       document.addEventListener('click', this.documentHandler);
+      document.addEventListener('contextmenu', this.documentHandler);
     }
   }
 
