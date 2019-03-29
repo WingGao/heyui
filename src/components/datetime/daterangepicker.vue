@@ -288,7 +288,8 @@ export default {
       if (!utils.isObject(this.value)) {
         return '';
       }
-      return `${this.value.start || this.t('h.datepicker.start')} - ${this.value.end || this.t('h.datepicker.end')}`;
+      // return `${this.value.start || this.t('h.datepicker.start')} - ${this.value.end || this.t('h.datepicker.end')}`;
+      return `${this.nowDate.start || this.t('h.datepicker.start')} - ${this.nowDate.end || this.t('h.datepicker.end')}`;
     },
     shortcuts() {
       let shortcuts = [];
