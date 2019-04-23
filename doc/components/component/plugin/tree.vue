@@ -148,8 +148,14 @@
       </tr>
       <tr>
         <td>expandAll</td>
-        <td>打开所有的折叠</td>
+        <td>展开所有的节点</td>
         <td>无</td>
+        <td>无</td>
+      </tr>
+      <tr>
+        <td>expand</td>
+        <td>展开节点，1.18.0+</td>
+        <td>([keys])</td>
         <td>无</td>
       </tr>
       <tr>
@@ -254,7 +260,7 @@
         <td>提供的数据类型，是平铺需要解析的列表，还是已经生成好的tree数据</td>
         <td>String</td>
         <td>list, tree</td>
-        <td>list</td>
+        <td>-</td>
       </tr>
       <tr>
         <td>datas</td>

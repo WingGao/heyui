@@ -132,10 +132,7 @@ export default {
       globalloading: false,
       loading: true,
       status: {
-        selected: null,
-        selects: [],
-        opens: [],
-        loadings: []
+        selected: null
       },
       treeDatas: [],
       treeObj: {},
@@ -218,9 +215,9 @@ export default {
         }
       }
     },
-    trigger(data) {
-      let type = data.type;
-      data = data.data;
+    trigger(params) {
+      let type = params.type;
+      let data = params.data;
       if (type == 'toggleTreeEvent') {
         data.status.opened = !data.status.opened;
         this.$emit('open', data.value);
@@ -338,6 +335,12 @@ export default {
     foldAll() {
       for (let tree of Object.keys(this.treeObj)) {
         this.treeObj[tree].status.opened = false;
+      }
+    },
+    expand(ids) {
+      for (let key of Object.keys(this.treeObj)) {
+        let tree = this.treeObj[key];
+        tree.status.opened = ids.indexOf(tree.key) > -1;
       }
     },
     chooseAll() {

@@ -3,6 +3,8 @@ import HeyUI from '../../../src/index';
 import utils from 'hey-utils';
 import jsonp from 'fetch-jsonp';
 import dict from './dict-config';
+import { getData } from 'js/locations/district';
+import getCity from 'js/locations/city';
 
 const loadData = function (filter, callback) {
   log('传递的参数', this.orgId);
@@ -94,6 +96,27 @@ export default () => {
       datas() {
         return list;
       }
+    }
+  });
+
+  HeyUI.config('categoryPicker.configs', {
+    locations: {
+      getDatas: (parent, resolve) => {
+        setTimeout(() => {
+          resolve(getData(parent));
+        });
+      },
+      keyName: 'id',
+      titleName: 'title',
+      dataMode: 'list',
+      parentName: 'parentId'
+    },
+    citys: {
+      datas: getCity(),
+      keyName: 'id',
+      titleName: 'title',
+      dataMode: 'list',
+      parentName: 'parentId'
     }
   });
 };

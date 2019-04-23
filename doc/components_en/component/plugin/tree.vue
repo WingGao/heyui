@@ -153,6 +153,12 @@
         <td>none</td>
       </tr>
       <tr>
+        <td>expand</td>
+        <td>Open folds，1.18.0+</td>
+        <td>([keys])</td>
+        <td>none</td>
+      </tr>
+      <tr>
         <td>foldAll</td>
         <td>Collapse all folds</td>
         <td>none</td>
@@ -254,7 +260,7 @@
         <td>The type of data provided is whether the tile needs to be parsed or whether tree data has already been generated.</td>
         <td>String</td>
         <td>list, tree</td>
-        <td>list</td>
+        <td>-</td>
       </tr>
       <tr>
         <td>datas</td>

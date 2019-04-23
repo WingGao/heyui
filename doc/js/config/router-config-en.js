@@ -330,6 +330,14 @@ const router = [
         component: () => import('components_en/component/plugin/search')
       },
       {
+        path: 'plugin/cascader',
+        name: 'en_pluginCascader',
+        meta: {
+          title: 'Cascader'
+        },
+        component: () => import('components_en/component/plugin/cascader')
+      },
+      {
         path: 'plugin/dropdownmenu',
         name: 'en_pluginDropdownmenu',
         meta: {
@@ -506,12 +514,28 @@ const router = [
         component: () => import('components_en/component/other/backtop')
       },
       {
+        path: 'other/colorpicker',
+        name: 'en_otherColorPicker',
+        meta: {
+          title: 'ColorPicker'
+        },
+        component: () => import('components_en/component/other/colorpicker')
+      },
+      {
         path: 'other/scrollintoview',
         name: 'en_otherScrollintoview',
         meta: {
           title: 'ScrollIntoView'
         },
         component: () => import('components_en/component/other/scrollintoview')
+      },
+      {
+        path: 'other/categorypicker',
+        name: 'en_otherCategoryPicker',
+        meta: {
+          title: 'CategoryPicker'
+        },
+        component: () => import('components_en/component/other/categorypicker')
       },
       {
         path: 'other/clipboard',

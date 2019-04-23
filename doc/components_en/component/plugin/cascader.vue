@@ -1,17 +1,17 @@
 <template>
   <div class="doc">
     <h2>Cascader </h2>
-    <blockquote>1.17.0+</blockquote>
+    <blockquote>1.18.0+</blockquote>
 
     <p class="component-name-tip">In non-string templates，it is necessary to use <code>h-cascader</code>. </p>
 
     <p>description</p>
 
     <h3>Basic</h3>
-    <example demo="other/cascader1"></example>
+    <example demo="cascader/cascader1"></example>
 
     <h3>Advance</h3>
-    <example demo="other/cascader2"></example>
+    <example demo="cascader/cascader2"></example>
 
     <h3>Cascader Property</h3>
     <table class="table">
@@ -30,7 +30,6 @@
         <td>false</td>
       </tr>
     </table>
-
 
     <h3>Cascader Method</h3>
     <table class="table">
