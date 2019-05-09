@@ -2,6 +2,108 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.19.2-alpha.0"></a>
+## [1.19.2-alpha.0](https://github.com/heyui/heyui/compare/v1.19.1...v1.19.2-alpha.0) (2019-04-29)
+
+
+### Bug Fixes
+
+* **Button:** optimize button icon bracing height ([30e2867](https://github.com/heyui/heyui/commit/30e2867))
+* **DatePicker:** add prop clearable ([cd0e52d](https://github.com/heyui/heyui/commit/cd0e52d)), closes [#110](https://github.com/heyui/heyui/issues/110)
+* **Table:** add column and row style ([5e09eb2](https://github.com/heyui/heyui/commit/5e09eb2)), closes [#109](https://github.com/heyui/heyui/issues/109)
+* **Table:** tooltip support object param ([26f7603](https://github.com/heyui/heyui/commit/26f7603))
+
+
+
+<a name="1.19.1"></a>
+## [1.19.1](https://github.com/heyui/heyui/compare/v1.19.1-alpha.0...v1.19.1) (2019-04-28)
+
+
+### Bug Fixes
+
+* **Input:** overflow hidden add on select not div ([e17ca72](https://github.com/heyui/heyui/commit/e17ca72))
+
+
+
+<a name="1.19.1-alpha.0"></a>
+## [1.19.1-alpha.0](https://github.com/heyui/heyui/compare/v1.19.0...v1.19.1-alpha.0) (2019-04-28)
+
+
+### Bug Fixes
+
+* **Dropdown:** optimize documentHandler ([ffd36da](https://github.com/heyui/heyui/commit/ffd36da))
+* **var:** fix var.js error ([cc894b7](https://github.com/heyui/heyui/commit/cc894b7))
+
+
+
+<a name="1.19.0"></a>
+# [1.19.0](https://github.com/heyui/heyui/compare/v1.19.0-alpha.4...v1.19.0) (2019-04-26)
+
+
+
+<a name="1.19.0-alpha.4"></a>
+# [1.19.0-alpha.4](https://github.com/heyui/heyui/compare/v1.19.0-alpha.3...v1.19.0-alpha.4) (2019-04-26)
+
+
+### Features
+
+* **Icon:** supplement more icons ([77aee70](https://github.com/heyui/heyui/commit/77aee70))
+
+
+
+<a name="1.19.0-alpha.3"></a>
+# [1.19.0-alpha.3](https://github.com/heyui/heyui/compare/v1.19.0-alpha.2...v1.19.0-alpha.3) (2019-04-26)
+
+
+### Bug Fixes
+
+* **Table:** optimize border table empty style ([8c19cc5](https://github.com/heyui/heyui/commit/8c19cc5)), closes [#107](https://github.com/heyui/heyui/issues/107)
+
+
+
+<a name="1.19.0-alpha.2"></a>
+# [1.19.0-alpha.2](https://github.com/heyui/heyui/compare/v1.19.0-alpha.1...v1.19.0-alpha.2) (2019-04-26)
+
+
+### Bug Fixes
+
+* **Date:** startWeek add default value ([53e1c8e](https://github.com/heyui/heyui/commit/53e1c8e))
+* **Form:** fix label span position remove spaces ([a54de3a](https://github.com/heyui/heyui/commit/a54de3a))
+
+
+
+<a name="1.19.0-alpha.1"></a>
+# [1.19.0-alpha.1](https://github.com/heyui/heyui/compare/v1.19.0-alpha.0...v1.19.0-alpha.1) (2019-04-26)
+
+
+### Bug Fixes
+
+* **Form:** fix label align padding ([8720d54](https://github.com/heyui/heyui/commit/8720d54))
+* **Table:** fix table align padding ([b4d2ebf](https://github.com/heyui/heyui/commit/b4d2ebf))
+
+
+
+<a name="1.19.0-alpha.0"></a>
+# [1.19.0-alpha.0](https://github.com/heyui/heyui/compare/v1.18.1...v1.19.0-alpha.0) (2019-04-26)
+
+
+### Bug Fixes
+
+* **AutoComplete:** optimize close icon position ([8cbfd7d](https://github.com/heyui/heyui/commit/8cbfd7d))
+* **Button:** icon style add float fixed height ([b85b882](https://github.com/heyui/heyui/commit/b85b882)), closes [#106](https://github.com/heyui/heyui/issues/106)
+* **Button:** optimize text-button color ([8ed2375](https://github.com/heyui/heyui/commit/8ed2375))
+* **Input:** support select and numberinput input group ([0766ebf](https://github.com/heyui/heyui/commit/0766ebf)), closes [#105](https://github.com/heyui/heyui/issues/105)
+* **Menu:** add overflow handler ([7c60923](https://github.com/heyui/heyui/commit/7c60923))
+* **Table:** align right add padding-right ([d467bf9](https://github.com/heyui/heyui/commit/d467bf9)), closes [#105](https://github.com/heyui/heyui/issues/105)
+* **Table:** border table td, tr add padding-right ([444db4c](https://github.com/heyui/heyui/commit/444db4c)), closes [#105](https://github.com/heyui/heyui/issues/105)
+
+
+### Features
+
+* **Search:** add prop height width ([3e9b0d5](https://github.com/heyui/heyui/commit/3e9b0d5))
+
+
+
 <a name="1.18.1"></a>
 ## [1.18.1](https://github.com/heyui/heyui/compare/v1.18.1-alpha.0...v1.18.1) (2019-04-23)
 

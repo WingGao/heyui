@@ -15,11 +15,12 @@ export default {
     prop: String,
     dict: String,
     align: String,
+    className: String,
     unit: String,
     render: Function,
     sortProp: String,
     tooltip: {
-      type: Boolean,
+      type: [Boolean, Object],
       default: false
     },
     sort: {

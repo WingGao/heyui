@@ -43,7 +43,7 @@
     <h3>Table 单选</h3>
     <example demo="view/table10"></example>
 
-    <h3>Table 气泡提示与定义border, stripe样式</h3>
+    <h3>Table 气泡提示以及自定义行列样式</h3>
     <example demo="view/table7"></example>
 
     <h3>自定义表头</h3>
@@ -114,6 +114,13 @@
         <td></td>
         <td>false</td>
       </tr>
+      <tr>
+        <td>getTrClass</td>
+        <td>获取行的样式,1.19.2+</td>
+        <td>Function(data, index)</td>
+        <td></td>
+        <td></td>
+      </tr>
     </table>
 
     <h3>TableItem / Column 参数</h3>
@@ -164,7 +171,7 @@
       <tr>
         <td>tooltip</td>
         <td>table中的标题是否使用提示框</td>
-        <td>Boolean</td>
+        <td>Boolean, Object</td>
         <td>-</td>
         <td>false</td>
       </tr>
@@ -213,6 +220,13 @@
       <tr>
         <td>sortProp</td>
         <td>排序字段，当sortProp为空的时候，使用prop字段，<code>1.16.0+新增</code></td>
+        <td>String</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>className</td>
+        <td>自定义列的样式,1.19.2+</td>
         <td>String</td>
         <td></td>
         <td></td>

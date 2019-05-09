@@ -41,7 +41,7 @@
     <h3>Table select line</h3>
     <exampleEn demo="view/table10"></exampleEn>
 
-    <h3>Table bubble tips and border, stripe style</h3>
+    <h3>Table bubble tips and custom style</h3>
     <exampleEn demo="view/table7"></exampleEn>
 
     <h3>Custom table header</h3>
@@ -119,6 +119,13 @@
         <td></td>
         <td></td>
       </tr>
+      <tr>
+        <td>getTrClass</td>
+        <td>get row style,1.19.2+</td>
+        <td>Function(data, index)</td>
+        <td></td>
+        <td></td>
+      </tr>
     </table>
 
     <h3>TableItem / Column Property</h3>
@@ -168,7 +175,7 @@
       <tr>
         <td>tooltip</td>
         <td>Whether the title in the table uses a prompt box</td>
-        <td>Boolean</td>
+        <td>Boolean, Object</td>
         <td>-</td>
         <td>false</td>
       </tr>
@@ -211,6 +218,13 @@
         <td>render</td>
         <td>define render function</td>
         <td>Function</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>className</td>
+        <td>Define column style,1.19.2+</td>
+        <td>String</td>
         <td></td>
         <td></td>
       </tr>
