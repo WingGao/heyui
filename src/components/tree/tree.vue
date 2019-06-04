@@ -20,10 +20,10 @@
   </div>
 </template>
 <script>
-import config from '../../utils/config';
-import utils from '../../utils/utils';
-import treeItem from './tree-item';
-import Search from '../search';
+import config from 'heyui/src/utils/config';
+import utils from 'heyui/src/utils/utils';
+import treeItem from './treeitem';
+import Search from 'heyui/src/components/search';
 
 const prefix = 'h-tree';
 

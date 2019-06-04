@@ -11,9 +11,9 @@
   </ul>
 </template>
 <script>
-import utils from '../../utils/utils';
-import config from '../../utils/config';
-import hMenuItem from './menu-item';
+import utils from 'heyui/src/utils/utils';
+import config from 'heyui/src/utils/config';
+import hMenuItem from './menuitem';
 
 const prefix = 'h-menu';
 

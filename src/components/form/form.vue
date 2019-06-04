@@ -4,9 +4,10 @@
   </div>
 </template>
 <script>
-import Validator from '../../plugins/validator';
-import utils from '../../utils/utils';
-import scrollIntoView from '../../plugins/scrollIntoView';
+import Validator from 'heyui/src/plugins/validator';
+import utils from 'heyui/src/utils/utils';
+import ScrollIntoView from 'heyui/src/plugins/scroll-into-view';
+import Message from 'heyui/src/plugins/message';
 
 const prefixCls = 'h-form';
 
@@ -61,19 +62,23 @@ export default {
   provide: function () {
     return {
       validField: this.validField,
+      requireds: this.requireds,
       removeProp: this.removeProp,
-      getConfig: this.getConfig,
       setConfig: this.setConfig,
       updateErrorMessage: this.updateErrorMessage,
       getErrorMessage: this.getErrorMessage,
       labelWidth: this.labelWidth,
-      mode: this.mode
+      params: this.childParams
     };
   },
   data() {
     return {
       messages: {},
-      validator: null
+      requireds: [],
+      validator: null,
+      childParams: {
+        mode: this.mode
+      }
     };
   },
   beforeMount() {
@@ -85,6 +90,7 @@ export default {
     }
   },
   mounted() {
+    this.initRequires();
     this.$nextTick(() => {
       this.$el.addEventListener('blur', (event) => {
         if (event.target.tagName == 'INPUT' || event.target.tagName == 'TEXTAREA') {
@@ -97,6 +103,9 @@ export default {
     });
   },
   watch: {
+    mode() {
+      this.childParams.mode = this.mode;
+    },
     rules: {
       handler() {
         if (this.validator) {
@@ -104,12 +113,26 @@ export default {
         } else if (this.model && this.rules) {
           this.validator = new Validator(this.rules);
         }
+        this.initRequires();
       },
       deep: true
     }
   },
   methods: {
+    initRequires() {
+      this.requireds.splice(0);
+      if (this.rules) {
+        let validRequiredProps = utils.toArray(this.rules.rules, 'key').filter(item => item.required === true).map(item => item.key);
+        this.requireds.push(...(this.rules.required || []), ...validRequiredProps);
+      }
+    },
     reset() {
+      console.warn('[HeyUI WARNING] Form Component: form.reset() will be decapitated, please use method form.resetValid()');
+      for (let m in this.messages) {
+        this.messages[m].valid = true;
+      }
+    },
+    resetValid() {
       for (let m in this.messages) {
         this.messages[m].valid = true;
       }
@@ -155,10 +178,6 @@ export default {
       if (!this.validator) return false;
       this.validator.setConfig(prop, options);
     },
-    getConfig(prop) {
-      if (!this.validator) return false;
-      return this.validator.getConfig(prop);
-    },
     getErrorMessage(prop, label) {
       if (this.messages[prop]) return this.messages[prop];
       let message = {
@@ -203,15 +222,15 @@ export default {
         let m = result.messages[0];
         if (this.showErrorTip) {
           if (m.type == 'base') {
-            this.$Message.error(`${m.label}${m.message}`);
+            Message.error(`${m.label}${m.message}`);
           } else {
-            this.$Message.error(`${m.message}`);
+            Message.error(`${m.message}`);
           }
         }
         this.$nextTick(() => {
           let firstError = this.$el.querySelector(`.h-form-item-valid-error[prop='${m.prop}']`);
           if (firstError) {
-            scrollIntoView(firstError, {
+            ScrollIntoView(firstError, {
               time: 500,
               align: {
                 top: this.top,

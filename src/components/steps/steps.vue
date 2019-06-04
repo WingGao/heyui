@@ -19,8 +19,8 @@
   </div>
 </template>
 <script>
-import config from '../../utils/config';
-import utils from '../../utils/utils';
+import config from 'heyui/src/utils/config';
+import utils from 'heyui/src/utils/utils';
 
 const prefix = 'h-steps';
 
@@ -73,14 +73,14 @@ export default {
     },
     arr() {
       if (!this.datas && !this.dict) {
-        console.error('Steps Component: Datas or dict parameters need to be defined at least.');
+        console.error('[HeyUI Error] Steps Component: Datas or dict parameters need to be defined at least.');
         return [];
       }
       let datas = this.datas;
       if (this.dict) {
         datas = config.getDict(this.dict);
       }
-      return utils.initOptions(datas, this);
+      return config.initOptions(datas, this);
     }
   }
 };

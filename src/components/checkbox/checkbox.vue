@@ -12,8 +12,8 @@
   </div>
 </template>
 <script>
-import config from '../../utils/config';
-import utils from '../../utils/utils';
+import config from 'heyui/src/utils/config';
+import utils from 'heyui/src/utils/utils';
 
 export default {
   name: 'hCheckbox',
@@ -124,7 +124,7 @@ export default {
     checkList() {
       let checkStatus = this.checkStatus || [];
       if ((!utils.isNull(this.value) || !this.isSingle) && !utils.isArray(checkStatus)) {
-        console.warn(`Checkbox: It's not allowed to use v-model with non-array value.`);
+        console.warn(`[HeyUI WARNING] Checkbox Component: It's not allowed to use v-model with non-array value.`);
       }
       return utils.isArray(checkStatus) ? checkStatus : [];
     },
@@ -140,7 +140,7 @@ export default {
         datas = config.getDict(this.dict);
       }
 
-      return utils.initOptions(datas, this);
+      return config.initOptions(datas, this);
     }
   }
 };

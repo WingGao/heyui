@@ -1,6 +1,6 @@
-import Notify from '../notify';
-import utils from '../../utils/utils';
-import config from '../../utils/config';
+import Notify from 'heyui/src/plugins/notify';
+import utils from 'heyui/src/utils/utils';
+import config from 'heyui/src/utils/config';
 
 const prefixCls = 'h-modal';
 const hasDivider = config.getOption('modal', 'hasDivider');
@@ -45,11 +45,13 @@ function Modal(originalParam) {
 }
 
 function modal(param) {
-  if (this.$router) {
-    param.$router = this.$router;
-  }
-  if (this.$i18n) {
-    param.$i18n = this.$i18n;
+  if (this) {
+    if (this.$router) {
+      param.$router = this.$router;
+    }
+    if (this.$i18n) {
+      param.$i18n = this.$i18n;
+    }
   }
   return new Modal(param);
 }
@@ -60,7 +62,4 @@ modal.config = (options) => {
   }
 };
 
-export default (vue) => {
-  Vue = vue;
-  return modal;
-};
+export default modal;

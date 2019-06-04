@@ -8,13 +8,12 @@ module.exports = {
     console: true,
     publicPath: '/',
     output: {
+      './module/index.html': {
+        entry: './module/app'
+      },
       './index.html': {
-        entry: './app',
-        commons: ['common']
+        entry: './app'
       }
-    },
-    commonTrunk: {
-      common: ['babel-polyfill', 'jquery', 'vue', 'vue-router', 'hey-utils', 'hey-log']
     },
     global: {
       $: 'jquery',
@@ -24,11 +23,17 @@ module.exports = {
     alias: {
       js: './js/',
       components: './components/',
-      components_en: './components_en/'
+      'heyui/src': '../src',
+      components_en: './components_en/',
+      'heyui/lib': '../lib'
     },
     globalVars: './css/var.less',
     devServer: {
       historyApiFallback: true
+    },
+    pluginImport: {
+      libraryName: 'heyui/lib',
+      libraryDirectory: 'components'
     },
     externals: {}
   },

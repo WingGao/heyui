@@ -3,7 +3,7 @@
     <div class="h-category-show" @click="openPicker">
       <div v-if="multiple&&objects.length" class="h-category-multiple-tags">
         <span v-for="obj of objects" :key="obj.key">
-          <span>{{obj.title}}</span><i class="h-icon-close" @click.stop="remove(obj)" v-if="!disabled"></i>
+          <span>{{obj.title}}</span><i class="h-icon-close-min" @click.stop="remove(obj)" v-if="!disabled"></i>
         </span>
       </div>
       <div v-else-if="!multiple&&object" class="h-category-value-single">
@@ -16,15 +16,18 @@
   </div>
 </template>
 <script>
-import config from '../../utils/config';
-import utils from '../../utils/utils';
+import config from 'heyui/src/utils/config';
+import utils from 'heyui/src/utils/utils';
 
-import categoryModal from './category-modal';
+import categoryModal from './categorymodal';
+import Locale from 'heyui/src/mixins/locale';
+import Modal from 'heyui/src/plugins/modal';
 
 const prefix = 'h-category';
 
 export default {
   name: 'hCategory',
+  mixins: [Locale],
   props: {
     option: Object,
     multiple: {
@@ -76,7 +79,7 @@ export default {
     openPicker() {
       let that = this;
       if (this.disabled) return;
-      this.$Modal({
+      Modal({
         width: 600,
         hasDivider: true,
         component: {

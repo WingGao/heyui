@@ -14,7 +14,7 @@
     </div>
     <h3>Date format customization</h3>
     <div>
-      <exampleEn demo="dataplugins/datepicker3"></exampleEn>
+      <example demo="dataplugins/datepicker3"></example>
     </div>
     <h3>Different types of selection controls</h3>
     <div>
@@ -119,7 +119,7 @@
       </tr>
       <tr>
         <td>clearable</td>
-        <td>Show clear icon</td>
+        <td>Show clear icon, 1.20.0+</td>
         <td>Boolean</td>
         <td>-</td>
         <td>true</td>

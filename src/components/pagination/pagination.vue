@@ -28,17 +28,20 @@
         <i class="h-icon-right"></i>
       </span>
     </span>
-    <input type="text" :style="{order:orders.jumper}" v-if="orders.jumper!=-1 && count > 0" v-width="40" :value="curNow" @blur="jump" @keyup.enter="jump">
+    <input type="text" :style="{order:orders.jumper}" v-if="orders.jumper!=-1 && count > 0" class="h-page-jumper-input h-input" :value="curNow" @blur="jump" @keyup.enter="jump">
   </div>
 </template>
 <script>
-import config from '../../utils/config';
-import utils from '../../utils/utils';
+import config from 'heyui/src/utils/config';
+import utils from 'heyui/src/utils/utils';
+import Locale from 'heyui/src/mixins/locale';
+import Message from 'heyui/src/plugins/message';
 
 const prefix = 'h-page';
 
 export default {
   name: 'hPagination',
+  mixins: [Locale],
   props: {
     size: {
       type: Number,
@@ -116,11 +119,11 @@ export default {
       let value = parseInt(event.target.value, 10);
       // log(value);
       if (isNaN(value)) {
-        this.$Message.error(this.t('h.pagination.incorrectFormat'));
+        Message.error(this.t('h.pagination.incorrectFormat'));
         return;
       }
       if (value > this.count || value < 1) {
-        this.$Message.error(this.t('h.pagination.overSize'));
+        Message.error(this.t('h.pagination.overSize'));
         return;
       }
       let cur = parseInt(event.target.value, 10);

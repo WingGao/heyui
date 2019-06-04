@@ -1,5 +1,6 @@
-import utils from '../../utils/utils';
-import locale from '../../locale';
+import utils from 'heyui/src/utils/utils';
+import locale from 'heyui/src/locale';
+import Vue from 'vue';
 
 const Default = {
   type: 'dialog',
@@ -92,9 +93,6 @@ class Notify {
     if (param.className) {
       utils.addClass($body, param.className);
     }
-    if (param.class) {
-      utils.addClass($body, param.class);
-    }
     $body.innerHTML = html;
     let $content = this.$content = $body.querySelector(`.${notifyContentCls}`);
     let $container = this.$container = $body.querySelector(`.${notifyContainerCls}`);
@@ -109,9 +107,9 @@ class Notify {
     } else {
       $content.innerHTML = content;
     }
-
-    if (param.component != undefined && param.Vue) {
-      this.vue = new param.Vue({
+    const VueInstance = Vue || window.Vue;
+    if (param.component != undefined && VueInstance) {
+      this.vue = new VueInstance({
         el: $content,
         i18n: param.$i18n,
         router: param.$router,
@@ -258,6 +256,11 @@ class Notify {
         };
       }
     }
+    this.popstateEvent = () => {
+      this.close();
+    };
+
+    window.addEventListener('popstate', this.popstateEvent);
   }
 
   trigger(event, ...data) {
@@ -279,6 +282,8 @@ class Notify {
     body.style.paddingRight = '';
 
     this.trigger('$close');
+
+    window.removeEventListener('popstate', this.popstateEvent);
 
     utils.removeClass($body, notifyShowCls);
 

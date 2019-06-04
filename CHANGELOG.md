@@ -2,6 +2,220 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.20.4"></a>
+## [1.20.4](https://github.com/heyui/heyui/compare/v1.20.4-alpha.3...v1.20.4) (2019-06-04)
+
+
+### Bug Fixes
+
+* **$ImagePreview:** update vue import ([7f9b559](https://github.com/heyui/heyui/commit/7f9b559)), closes [#151](https://github.com/heyui/heyui/issues/151)
+* **Form:** add array required judge ([5d2044c](https://github.com/heyui/heyui/commit/5d2044c)), closes [#148](https://github.com/heyui/heyui/issues/148)
+* **Form:** add array required judge ([2f31ce9](https://github.com/heyui/heyui/commit/2f31ce9))
+
+
+
+<a name="1.20.4-alpha.3"></a>
+## [1.20.4-alpha.3](https://github.com/heyui/heyui/compare/v1.20.4-alpha.1...v1.20.4-alpha.3) (2019-05-29)
+
+
+### Bug Fixes
+
+* **DatePicker:** init value use format ([78dba77](https://github.com/heyui/heyui/commit/78dba77))
+
+
+
+<a name="1.20.4-alpha.2"></a>
+## [1.20.4-alpha.2](https://github.com/heyui/heyui/compare/v1.20.4-alpha.1...v1.20.4-alpha.2) (2019-05-29)
+
+
+### Bug Fixes
+
+* **DatePicker:** init value use format ([78dba77](https://github.com/heyui/heyui/commit/78dba77))
+
+
+
+<a name="1.20.4-alpha.1"></a>
+## [1.20.4-alpha.1](https://github.com/heyui/heyui/compare/v1.20.4-alpha.0...v1.20.4-alpha.1) (2019-05-21)
+
+
+
+<a name="1.20.4-alpha.0"></a>
+## [1.20.4-alpha.0](https://github.com/heyui/heyui/compare/v1.20.3...v1.20.4-alpha.0) (2019-05-21)
+
+
+
+<a name="1.20.3"></a>
+## [1.20.3](https://github.com/heyui/heyui/compare/v1.20.2...v1.20.3) (2019-05-21)
+
+
+
+<a name="1.20.2"></a>
+## [1.20.2](https://github.com/heyui/heyui/compare/v1.20.1...v1.20.2) (2019-05-21)
+
+
+### Bug Fixes
+
+* **Dropdown:** add html container judgement ([2b6b4e2](https://github.com/heyui/heyui/commit/2b6b4e2))
+* **Table:** add $serial prop ([21aadb9](https://github.com/heyui/heyui/commit/21aadb9))
+* **Table:** mouseover use uuid trindex ([f063912](https://github.com/heyui/heyui/commit/f063912)), closes [#139](https://github.com/heyui/heyui/issues/139)
+* **Tabs:** remove Symbol ([0acf53f](https://github.com/heyui/heyui/commit/0acf53f))
+
+
+
+<a name="1.20.1"></a>
+## [1.20.1](https://github.com/heyui/heyui/compare/v1.20.1-alpha.0...v1.20.1) (2019-05-21)
+
+
+
+<a name="1.20.1-alpha.0"></a>
+## [1.20.1-alpha.0](https://github.com/heyui/heyui/compare/v1.20.0...v1.20.1-alpha.0) (2019-05-20)
+
+
+
+<a name="1.20.0"></a>
+# [1.20.0](https://github.com/heyui/heyui/compare/v1.20.0-alpha.10...v1.20.0) (2019-05-17)
+
+
+
+<a name="1.20.0-alpha.10"></a>
+# [1.20.0-alpha.10](https://github.com/heyui/heyui/compare/v1.20.0-alpha.9...v1.20.0-alpha.10) (2019-05-16)
+
+
+### Bug Fixes
+
+* **TreePicker:** update select trigger ([f5b8945](https://github.com/heyui/heyui/commit/f5b8945))
+
+
+
+<a name="1.20.0-alpha.9"></a>
+# [1.20.0-alpha.9](https://github.com/heyui/heyui/compare/v1.20.0-alpha.8...v1.20.0-alpha.9) (2019-05-16)
+
+
+
+<a name="1.20.0-alpha.8"></a>
+# [1.20.0-alpha.8](https://github.com/heyui/heyui/compare/v1.20.0-alpha.7...v1.20.0-alpha.8) (2019-05-15)
+
+
+### Bug Fixes
+
+* **Carousel:** fix carouselItem computed ([dfb88fd](https://github.com/heyui/heyui/commit/dfb88fd))
+* **Nofity:** optimize close icon ([762a463](https://github.com/heyui/heyui/commit/762a463))
+* **TextEllipsis:** fix class name ([91b4714](https://github.com/heyui/heyui/commit/91b4714))
+
+
+
+<a name="1.20.0-alpha.7"></a>
+# [1.20.0-alpha.7](https://github.com/heyui/heyui/compare/v1.20.0-alpha.6...v1.20.0-alpha.7) (2019-05-15)
+
+
+### Bug Fixes
+
+* **Notice:** update notice use ([2932dbd](https://github.com/heyui/heyui/commit/2932dbd))
+
+
+
+<a name="1.20.0-alpha.6"></a>
+# [1.20.0-alpha.6](https://github.com/heyui/heyui/compare/v1.20.0-alpha.4...v1.20.0-alpha.6) (2019-05-14)
+
+
+### Bug Fixes
+
+* **Form:** requireds use different function ([5ed12a4](https://github.com/heyui/heyui/commit/5ed12a4))
+
+
+
+<a name="1.20.0-alpha.5"></a>
+# [1.20.0-alpha.5](https://github.com/heyui/heyui/compare/v1.20.0-alpha.4...v1.20.0-alpha.5) (2019-05-14)
+
+
+### Bug Fixes
+
+* **Form:** requireds use different function ([5ed12a4](https://github.com/heyui/heyui/commit/5ed12a4))
+
+
+
+<a name="1.20.0-alpha.4"></a>
+# [1.20.0-alpha.4](https://github.com/heyui/heyui/compare/v1.20.0-alpha.3...v1.20.0-alpha.4) (2019-05-14)
+
+
+### Bug Fixes
+
+* **Dropdown:** optimize right icon ([07189e4](https://github.com/heyui/heyui/commit/07189e4))
+* **MenuItem:** optimize right icon ([c9c1e8d](https://github.com/heyui/heyui/commit/c9c1e8d))
+* **Search:** button style change to class ([6828f5a](https://github.com/heyui/heyui/commit/6828f5a))
+* **Tree:** optimize tree style ([f76b966](https://github.com/heyui/heyui/commit/f76b966))
+
+
+
+<a name="1.20.0-alpha.3"></a>
+# [1.20.0-alpha.3](https://github.com/heyui/heyui/compare/v1.20.0-alpha.2...v1.20.0-alpha.3) (2019-05-14)
+
+
+### Bug Fixes
+
+* **Button:** optimze button icon show ([a7868cb](https://github.com/heyui/heyui/commit/a7868cb)), closes [#132](https://github.com/heyui/heyui/issues/132)
+
+
+
+<a name="1.20.0-alpha.2"></a>
+# [1.20.0-alpha.2](https://github.com/heyui/heyui/compare/v1.20.0-alpha.1...v1.20.0-alpha.2) (2019-05-14)
+
+
+### Bug Fixes
+
+* **Form:** refactor required show ([b046d58](https://github.com/heyui/heyui/commit/b046d58))
+* **Select:** opimize hasNullOption to use computed ([d44affc](https://github.com/heyui/heyui/commit/d44affc))
+* **Select:** optimize keyName, titleName ([00f2ab5](https://github.com/heyui/heyui/commit/00f2ab5))
+
+
+### Features
+
+* **Select:** add slot show ([c10b55d](https://github.com/heyui/heyui/commit/c10b55d))
+
+
+
+<a name="1.20.0-alpha.1"></a>
+# [1.20.0-alpha.1](https://github.com/heyui/heyui/compare/v1.20.0-alpha.0...v1.20.0-alpha.1) (2019-05-14)
+
+
+### Bug Fixes
+
+* add locale.use to heyui ([d97a45c](https://github.com/heyui/heyui/commit/d97a45c))
+
+
+
+<a name="1.20.0-alpha.0"></a>
+# [1.20.0-alpha.0](https://github.com/heyui/heyui/compare/v1.19.2-alpha.0...v1.20.0-alpha.0) (2019-05-14)
+
+
+### Bug Fixes
+
+* **DatePicker:** increase width ([697712a](https://github.com/heyui/heyui/commit/697712a))
+* **Form:** reset -> resetValid ([d33323e](https://github.com/heyui/heyui/commit/d33323e)), closes [#123](https://github.com/heyui/heyui/issues/123)
+* **Notify:** add popstate event handler ([0362916](https://github.com/heyui/heyui/commit/0362916)), closes [#122](https://github.com/heyui/heyui/issues/122)
+* **Table:** getTrClass support array result ([adbc13c](https://github.com/heyui/heyui/commit/adbc13c))
+* **Table:** optimize tableitem computed ([cc18629](https://github.com/heyui/heyui/commit/cc18629))
+* **Table:** remove background-color of h-table-expand-tr ([d878b3a](https://github.com/heyui/heyui/commit/d878b3a)), closes [#120](https://github.com/heyui/heyui/issues/120)
+* **TagInput:** remove v-wordlimit ([da6687d](https://github.com/heyui/heyui/commit/da6687d))
+* **TextEllipsis:** add word-break ([c5f1bfc](https://github.com/heyui/heyui/commit/c5f1bfc)), closes [#129](https://github.com/heyui/heyui/issues/129)
+* **TreePicker:** close when use single select ([827d24c](https://github.com/heyui/heyui/commit/827d24c)), closes [#111](https://github.com/heyui/heyui/issues/111)
+* **wordlimit:** no effect on v-model value ([3b19326](https://github.com/heyui/heyui/commit/3b19326))
+* add locale ([821d2e4](https://github.com/heyui/heyui/commit/821d2e4))
+* **Wordlimit:** optimize trigger ([3a561bf](https://github.com/heyui/heyui/commit/3a561bf))
+* change locale use ([55547af](https://github.com/heyui/heyui/commit/55547af))
+* optimizing error-reporting statements ([2149b06](https://github.com/heyui/heyui/commit/2149b06))
+* optimizing error-reporting statements ([13a6a86](https://github.com/heyui/heyui/commit/13a6a86))
+* optimizing warning-reporting statements ([6dc3099](https://github.com/heyui/heyui/commit/6dc3099))
+* remove unused codes ([2d8a693](https://github.com/heyui/heyui/commit/2d8a693))
+* remove v-width in codes ([1c9a9b4](https://github.com/heyui/heyui/commit/1c9a9b4))
+
+
+### Features
+
+* **Tags:** optimize tag list close icon ([0086d02](https://github.com/heyui/heyui/commit/0086d02)), closes [#114](https://github.com/heyui/heyui/issues/114)
+
+
+
 <a name="1.19.2-alpha.0"></a>
 ## [1.19.2-alpha.0](https://github.com/heyui/heyui/compare/v1.19.1...v1.19.2-alpha.0) (2019-04-29)
 
