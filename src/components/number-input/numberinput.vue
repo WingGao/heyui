@@ -1,5 +1,5 @@
 <template>
-  <div :class="numberinputCls">
+  <div :class="[numberinputCls, className]">
     <div class="h-numberinput-show"
          :class="{'focusing':focusing}">
       <input type="text" :placeholder="placeholder" :disabled="disabled" class="h-numberinput-input h-input" v-model="editValue" @input="input" @focus="focusing=true" @blur="blur"/>
@@ -18,6 +18,7 @@ const prefix = 'h-numberinput';
 export default {
   name: 'hNumberInput',
   props: {
+    className: String,
     value: [ Number, String ],
     min: Number,
     max: Number,

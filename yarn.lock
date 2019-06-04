@@ -1350,10 +1350,10 @@ hey-log@^0.0.8:
   resolved "https://registry.yarnpkg.com/hey-log/-/hey-log-0.0.8.tgz#c11479d24421aadb064ca169215dd7218ffc0b93"
   integrity sha1-wRR50kQhqtsGTKFpIV3XIY/8C5M=
 
-hey-utils@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/hey-utils/-/hey-utils-0.4.0.tgz#b8ef145bdf84a9e5821e2633d7d4527c9a400b3a"
-  integrity sha512-ddjRMNnfWEcdtoO4ybGXRTznIIDrf2sMarGPy7rczq9cOKUZpvj8OlzyoHBK++PLD0df5RxqA19TiY6ldVuP0A==
+hey-utils@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/hey-utils/-/hey-utils-1.0.0.tgz#61a2d4de5fd06c0b47d5fd9d236cd8fa8474f041"
+  integrity sha512-DRyw3LHFnLPW8ZmW5h5WgvGp28FIjM5G5jioX5QRwkv4U1WtRdGilijOlWL+Rw7LnZbM0GEJhd9az43ppVeiig==
 
 hosted-git-info@^2.1.4:
   version "2.7.1"
@@ -1658,7 +1658,7 @@ lcid@^1.0.0:
   dependencies:
     invert-kv "^1.0.0"
 
-less-to-json@^1.0.0:
+less-to-json@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/less-to-json/-/less-to-json-1.2.0.tgz#56cf1b9806000c9889fe3bddff6ef318dc3a40aa"
   integrity sha512-1ItmxVFw76yiQgr2MUTGy7bTHT2tT6CcZ28grgw/gWNy2Q3WwFfSHL88sWUBpTXGFonlKd2yCDhtJFJdGjzqHA==
@@ -2872,6 +2872,11 @@ vue-eslint-parser@^5.0.0:
     espree "^4.1.0"
     esquery "^1.0.1"
     lodash "^4.17.11"
+
+vue@^2.6.10:
+  version "2.6.10"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
+  integrity sha512-ImThpeNU9HbdZL3utgMCq0oiMzAkt1mcgy3/E6zWC/G6AaQoeuFdsl9nDhTDU3X1R6FK7nsIUuRACVcjI+A2GQ==
 
 which-module@^2.0.0:
   version "2.0.0"
