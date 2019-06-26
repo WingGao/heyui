@@ -13,7 +13,7 @@
 <script>
 import utils from 'heyui/src/utils/utils';
 import config from 'heyui/src/utils/config';
-import hMenuItem from './menuitem';
+import hMenuItem from './menu-item';
 
 const prefix = 'h-menu';
 
@@ -113,6 +113,9 @@ export default {
       if (selected) {
         this.status.selected = key;
         this.status.opened = updateOpened(selected);
+      } else {
+        this.status.selected = null;
+        this.status.opened = [];
       }
     },
     trigger(data) {

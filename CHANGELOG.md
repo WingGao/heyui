@@ -2,6 +2,128 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.21.3-alpha.1"></a>
+## [1.21.3-alpha.1](https://github.com/heyui/heyui/compare/v1.21.2-alpha.1...v1.21.3-alpha.1) (2019-06-17)
+
+
+### Bug Fixes
+
+* **Button:** add prop type="button" ([be1812d](https://github.com/heyui/heyui/commit/be1812d))
+* **Button:** add type button ([94112e0](https://github.com/heyui/heyui/commit/94112e0))
+* **DatePicker:** remove duplicate type ([fc99898](https://github.com/heyui/heyui/commit/fc99898))
+* **Form:** optimize required handler ([c2f1f02](https://github.com/heyui/heyui/commit/c2f1f02)), closes [#155](https://github.com/heyui/heyui/issues/155)
+* **Table:** checkbox fix position ([9dcbb4b](https://github.com/heyui/heyui/commit/9dcbb4b))
+* **Table:** fix text center style ([6bf2d06](https://github.com/heyui/heyui/commit/6bf2d06))
+
+
+
+<a name="1.21.3-alpha.0"></a>
+## [1.21.3-alpha.0](https://github.com/heyui/heyui/compare/v1.21.2-alpha.1...v1.21.3-alpha.0) (2019-06-17)
+
+
+### Bug Fixes
+
+* **Button:** add prop type="button" ([be1812d](https://github.com/heyui/heyui/commit/be1812d))
+* **Button:** add type button ([94112e0](https://github.com/heyui/heyui/commit/94112e0))
+* **DatePicker:** remove duplicate type ([fc99898](https://github.com/heyui/heyui/commit/fc99898))
+* **Form:** optimize required handler ([c2f1f02](https://github.com/heyui/heyui/commit/c2f1f02)), closes [#155](https://github.com/heyui/heyui/issues/155)
+* **Table:** checkbox fix position ([9dcbb4b](https://github.com/heyui/heyui/commit/9dcbb4b))
+* **Table:** fix text center style ([6bf2d06](https://github.com/heyui/heyui/commit/6bf2d06))
+
+
+
+<a name="1.21.2"></a>
+## [1.21.2](https://github.com/heyui/heyui/compare/v1.21.2-alpha.1...v1.21.2) (2019-06-14)
+
+
+### Bug Fixes
+
+* **Button:** add prop type="button" ([be1812d](https://github.com/heyui/heyui/commit/be1812d))
+* **Button:** add type button ([94112e0](https://github.com/heyui/heyui/commit/94112e0))
+* **DatePicker:** remove duplicate type ([fc99898](https://github.com/heyui/heyui/commit/fc99898))
+* **Table:** checkbox fix position ([9dcbb4b](https://github.com/heyui/heyui/commit/9dcbb4b))
+* **Table:** fix text center style ([6bf2d06](https://github.com/heyui/heyui/commit/6bf2d06))
+
+
+
+<a name="1.21.2-alpha.1"></a>
+## [1.21.2-alpha.1](https://github.com/heyui/heyui/compare/v1.21.2-alpha.0...v1.21.2-alpha.1) (2019-06-12)
+
+
+### Bug Fixes
+
+* **AutoComplete:** key array parse error ([54e9bed](https://github.com/heyui/heyui/commit/54e9bed))
+
+
+
+<a name="1.21.2-alpha.0"></a>
+## [1.21.2-alpha.0](https://github.com/heyui/heyui/compare/v1.21.1...v1.21.2-alpha.0) (2019-06-12)
+
+
+### Bug Fixes
+
+* **AutoComplete:** optimize key array parse ([1f95dbd](https://github.com/heyui/heyui/commit/1f95dbd))
+* **Cell:** different size use between value ([5e6e915](https://github.com/heyui/heyui/commit/5e6e915))
+* **Color:** add primary1-color primary2-color ([6bca206](https://github.com/heyui/heyui/commit/6bca206))
+* **Table:** empty width add judgement ([eb3d260](https://github.com/heyui/heyui/commit/eb3d260))
+
+
+
+<a name="1.21.1"></a>
+## [1.21.1](https://github.com/heyui/heyui/compare/v1.21.0...v1.21.1) (2019-06-11)
+
+
+### Bug Fixes
+
+* **Table:** fix emtpy show judgement ([90140f6](https://github.com/heyui/heyui/commit/90140f6))
+
+
+
+<a name="1.21.0"></a>
+# [1.21.0](https://github.com/heyui/heyui/compare/v1.21.0-alpha.1...v1.21.0) (2019-06-10)
+
+
+
+<a name="1.21.0-alpha.1"></a>
+# [1.21.0-alpha.1](https://github.com/heyui/heyui/compare/v1.21.0-alpha.0...v1.21.0-alpha.1) (2019-06-10)
+
+
+### Bug Fixes
+
+* **AutoComplete:** optimize ([94b6c4b](https://github.com/heyui/heyui/commit/94b6c4b))
+* **Color:** optimize color ([d24404f](https://github.com/heyui/heyui/commit/d24404f))
+* **Color:** optimize colors ([0746ecf](https://github.com/heyui/heyui/commit/0746ecf))
+* add dark-text-hover class ([5ec5d3e](https://github.com/heyui/heyui/commit/5ec5d3e))
+* remove lib ([808cf75](https://github.com/heyui/heyui/commit/808cf75))
+* **ImagePreview:** increase max-height ([aed8f54](https://github.com/heyui/heyui/commit/aed8f54))
+* **ImagePreview:** optimize ([c0442ab](https://github.com/heyui/heyui/commit/c0442ab))
+* **Modal:** js modal add $store ([0f91db8](https://github.com/heyui/heyui/commit/0f91db8))
+* **Radio:** update border-color ([332ee15](https://github.com/heyui/heyui/commit/332ee15))
+
+
+
+<a name="1.21.0-alpha.0"></a>
+# [1.21.0-alpha.0](https://github.com/heyui/heyui/compare/v1.20.4...v1.21.0-alpha.0) (2019-06-05)
+
+
+### Bug Fixes
+
+* optimize install ([63900d8](https://github.com/heyui/heyui/commit/63900d8))
+* **Category:** optimize codes ([3aad13e](https://github.com/heyui/heyui/commit/3aad13e)), closes [#150](https://github.com/heyui/heyui/issues/150)
+* **Icon:** change to angle ([199ef7c](https://github.com/heyui/heyui/commit/199ef7c))
+* **Menu:** when key not exsit, clear select ([798c1d9](https://github.com/heyui/heyui/commit/798c1d9))
+* **Pop:** add manual trigger ([c0225f7](https://github.com/heyui/heyui/commit/c0225f7))
+* **Table:** add scroll when no data ([df078ec](https://github.com/heyui/heyui/commit/df078ec)), closes [#143](https://github.com/heyui/heyui/issues/143)
+* **Table:** change Loading import ([064079a](https://github.com/heyui/heyui/commit/064079a))
+* **Tree:** add prop useConfirm to control select ([4e5af55](https://github.com/heyui/heyui/commit/4e5af55)), closes [#111](https://github.com/heyui/heyui/issues/111)
+
+
+### Features
+
+* **Table:** tree data ([f205bf4](https://github.com/heyui/heyui/commit/f205bf4))
+
+
+
 <a name="1.20.4"></a>
 ## [1.20.4](https://github.com/heyui/heyui/compare/v1.20.4-alpha.3...v1.20.4) (2019-06-04)
 

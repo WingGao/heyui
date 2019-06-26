@@ -1,7 +1,7 @@
 <template>
   <div :class="tableCls">
     <div class="h-table-header" :style="{'padding-right': (scrollWidth+'px')}">
-      <table :style="{'margin-left': (-scrollLeft+'px')}">
+      <table class="h-table-header-table" :style="{'margin-left': (-scrollLeft+'px')}">
         <colgroup>
           <col v-if="checkbox" width="60" />
           <col v-for="(c, index) of computeColumns" :width="getWidth(c)" :key="index+update.columns" />
@@ -9,16 +9,16 @@
         <template v-if="ths">
           <tr v-for="(thdata, thindex) of ths" :key="thindex+update.columns">
             <th v-if="checkbox&&thindex==0" class="h-table-th-checkbox" :rowspan="ths.length">
-              <Checkbox v-if="fixedColumnLeft.length==0" :indeterminate="checks.length>0&&checks.length<datas.length"
-                :checked="checks.length>0&&checks.length == datas.length" @click.native="checkAll"></Checkbox>
+              <Checkbox v-if="fixedColumnLeft.length==0" :indeterminate="checks.length>0&&checks.length<tableDatas.length"
+                :checked="checks.length>0&&checks.length == tableDatas.length" @click.native="checkAll"></Checkbox>
             </th>
             <TableTh v-for="(thdata, index) of thdata" :key="index+update.columns" v-bind="thdata" :sortStatus="sortStatus"></TableTh>
           </tr>
         </template>
         <tr v-else>
           <th v-if="checkbox" class="h-table-th-checkbox">
-            <Checkbox v-if="fixedColumnLeft.length==0" :indeterminate="checks.length>0&&checks.length<datas.length"
-              :checked="checks.length>0&&checks.length == datas.length" @click.native="checkAll"></Checkbox>
+            <Checkbox v-if="fixedColumnLeft.length==0" :indeterminate="checks.length>0&&checks.length<tableDatas.length"
+              :checked="checks.length>0&&checks.length == tableDatas.length" @click.native="checkAll"></Checkbox>
           </th>
           <TableTh v-for="(c, index) of computeColumns" :key="index+update.columns" v-bind="c" :sortStatus="sortStatus"></TableTh>
         </tr>
@@ -26,69 +26,75 @@
       <div class="h-table-fixed-cover" :style="{'width': (scrollWidth+'px')}"></div>
     </div>
     <div class="h-table-container">
-      <div class="h-table-content-empty" v-if="datas.length == 0">
-        <slot name='empty'></slot>
-        <div v-if="!$slots.empty">{{'h.table.empty' | hlang}}</div>
-      </div>
-      <div class="h-table-body" v-show="datas.length" :style="bodyStyle">
-        <table>
-          <colgroup>
-            <col v-if="checkbox" width="60" />
-            <col v-for="(c, index) of computeColumns" :width="getWidth(c)" :key="index+update.columns" />
-          </colgroup>
-          <tbody class="h-table-tbody">
-            <template v-for="(d, index) of datas">
-              <TableTr @click="triggerTrClicked" @dblclick="triggerTrDblclicked" :datas="d" :key="index+update.datas"
-                :index="index" :trIndex="uuid+index" :class="getTrCls(d, index)">
-                <td v-if="checkbox" class="h-table-td-checkbox">
-                  <Checkbox v-if="fixedColumnLeft.length==0" v-model="checks" :value="d"></Checkbox>
-                </td>
-                <slot :data="d" :index="index" v-if="isTemplateMode"></slot>
-              </TableTr>
-              <tr :key="index+update.datas+'expand'" class="h-table-expand-tr" v-if="$scopedSlots.expand && d._expand">
-                <td class="h-table-expand-cell" :colspan="totalCol">
-                  <slot :data="d" :index="index" name="expand"></slot>
-                </td>
-              </tr>
-            </template>
-          </tbody>
-        </table>
-      </div>
+      <div class="relative">
+        <div class="h-table-body" :style="bodyStyle">
+          <template v-if="tableDatas.length == 0">
+            <div class="h-table-content-empty" >
+              <slot name='empty'></slot>
+              <div v-if="!$slots.empty">{{'h.table.empty' | hlang}}</div>
+            </div>
+            <div class="h-table-content-empty-width" :style="{width: emptyWidth + 'px'}"></div>
+          </template>
+          <table class="h-table-body-table" v-show="tableDatas.length">
+            <colgroup>
+              <col v-if="checkbox" width="60" />
+              <col v-for="(c, index) of computeColumns" :width="getWidth(c)" :key="index+update.columns" />
+            </colgroup>
+            <tbody class="h-table-tbody">
+              <template v-for="(d, index) of tableDatas">
+                <TableTr @click="triggerTrClicked" @dblclick="triggerTrDblclicked" @toggleTree="toggleTree" :datas="d" :key="d._heyui_uuid"
+                  :index="index" :trIndex="d._heyui_uuid" :class="getTrCls(d, index)">
+                  <td v-if="checkbox" class="h-table-td-checkbox">
+                    <Checkbox v-if="fixedColumnLeft.length==0" :key="d._heyui_uuid" v-model="checks" :value="d"></Checkbox>
+                  </td>
+                  <slot :data="d" :index="index" v-if="isTemplateMode"></slot>
+                </TableTr>
+                <tr :key="d._heyui_uuid+'expand'" class="h-table-expand-tr" v-if="$scopedSlots.expand && d._expand">
+                  <td class="h-table-expand-cell" :colspan="totalCol">
+                    <slot :data="d" :index="index" name="expand"></slot>
+                  </td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </div>
 
-      <div v-if="fixedColumnLeft.length" class="h-table-fixed-left" :style="fixedBodyStyle">
-        <table :style="{'margin-top': (-scrollTop+'px'), width: (tableWidth + 'px')}">
-          <colgroup>
-            <col v-if="checkbox" width="60" />
-            <col v-for="(c, index) of computeColumns" :width="getWidth(c)" :key="index+update.columns" />
-          </colgroup>
-          <tbody class="h-table-tbody">
-            <template v-for="(d, index) of datas">
-              <TableTr @click="triggerTrClicked" @dblclick="triggerTrDblclicked" :datas="d" :key="index+update.datas"
-                :index="index" :trIndex="uuid+index" :class="getTrCls(d, index)">
-                <td v-if="checkbox" class="h-table-td-checkbox">
-                  <Checkbox v-model="checks" :value="d"></Checkbox>
-                </td>
-                <slot :data="d" :index="index" v-if="isTemplateMode"></slot>
-              </TableTr>
-            </template>
-          </tbody>
-        </table>
+        <div v-if="fixedColumnLeft.length" class="h-table-fixed-left" :style="fixedBodyStyle">
+          <table class="h-table-fixed-left-table" :style="{'margin-top': (-scrollTop+'px'), width: (tableWidth + 'px')}">
+            <colgroup>
+              <col v-if="checkbox" width="60" />
+              <col v-for="(c, index) of computeColumns" :width="getWidth(c)" :key="index+update.columns" />
+            </colgroup>
+            <tbody class="h-table-tbody">
+              <template v-for="(d, index) of tableDatas">
+                <TableTr @click="triggerTrClicked" @dblclick="triggerTrDblclicked" @toggleTree="toggleTree" :datas="d" :key="d._heyui_uuid"
+                  :index="index" :trIndex="d._heyui_uuid" :class="getTrCls(d, index)">
+                  <td v-if="checkbox" class="h-table-td-checkbox">
+                    <Checkbox v-model="checks" :key="d._heyui_uuid" :value="d"></Checkbox>
+                  </td>
+                  <slot :data="d" :index="index" v-if="isTemplateMode"></slot>
+                </TableTr>
+              </template>
+            </tbody>
+          </table>
+        </div>
+        <div v-if="fixedColumnRight.length" class="h-table-fixed-right" :style="fixedRightBodyStyle">
+          <table class="h-table-fixed-right-table" :style="{'margin-top': (-scrollTop+'px'), width: (tableWidth + 'px')}">
+            <colgroup>
+              <col v-for="(c, index) of computeColumns" :width="getWidth(c)" :key="index+update.columns" />
+            </colgroup>
+            <tbody class="h-table-tbody">
+              <template v-for="(d, index) of tableDatas">
+                <TableTr @click="triggerTrClicked" @dblclick="triggerTrDblclicked" @toggleTree="toggleTree" :datas="d" :key="d._heyui_uuid"
+                  :index="index" :trIndex="d._heyui_uuid" :class="getTrCls(d, index)">
+                  <slot :data="d" :index="index" v-if="isTemplateMode"></slot>
+                </TableTr>
+              </template>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div v-if="fixedColumnRight.length" class="h-table-fixed-right" :style="fixedRightBodyStyle">
-        <table :style="{'margin-top': (-scrollTop+'px'), width: (tableWidth + 'px')}">
-          <colgroup>
-            <col v-for="(c, index) of computeColumns" :width="getWidth(c)" :key="index+update.columns" />
-          </colgroup>
-          <tbody class="h-table-tbody">
-            <template v-for="(d, index) of datas">
-              <TableTr @click="triggerTrClicked" @dblclick="triggerTrDblclicked" :datas="d" :key="index+update.datas"
-                :index="index" :trIndex="uuid+index" :class="getTrCls(d, index)">
-                <slot :data="d" :index="index" v-if="isTemplateMode"></slot>
-              </TableTr>
-            </template>
-          </tbody>
-        </table>
-      </div>
+      <Loading :loading="loading"></Loading>
     </div>
     <div v-if="fixedColumnLeft.length" class="h-table-fixed-header-left">
       <table :style="{width: leftWidth + 'px'}">
@@ -98,7 +104,7 @@
         </colgroup>
         <tr>
           <th v-if="checkbox" class="h-table-th-checkbox">
-            <Checkbox :indeterminate="checks.length>0&&checks.length<datas.length" :checked="datas.length > 0 && checks.length == datas.length"
+            <Checkbox :indeterminate="checks.length>0&&checks.length<tableDatas.length" :checked="tableDatas.length > 0 && checks.length == tableDatas.length"
               @click.native="checkAll"></Checkbox>
           </th>
           <TableTh v-for="(thdata, index) of fixedColumnLeft" :key="index+update.columns" v-bind="thdata" :sortStatus="sortStatus"></TableTh>
@@ -116,7 +122,6 @@
       </table>
     </div>
     <div class="h-table-items" v-if="!isTemplateMode"><slot></slot></div>
-    <Loading :loading="loading"></Loading>
   </div>
 </template>
 <script>
@@ -125,12 +130,13 @@ import TableTr from './tabletr';
 import TableTh from './tableth';
 import debounce from 'heyui/src/utils/debounce';
 import Checkbox from 'heyui/src/components/checkbox';
+import Loading from 'heyui/src/components/loading';
 
 const prefix = 'h-table';
 
 export default {
   name: 'hTable',
-  components: { Checkbox },
+  components: { Checkbox, Loading },
   props: {
     columns: {
       type: Array,
@@ -191,8 +197,10 @@ export default {
         type: null,
         prop: null
       },
-      checksEmit: true, //是否触发checks的change事件
-      rowSelected: null
+checksEmit: true, //是否触发checks的change事件
+      tableDatas: [...this.datas],
+      rowSelected: null,
+      emptyWidth: 0
     };
   },
   watch: {
@@ -208,8 +216,10 @@ export default {
           n += 1;
         }
         if (changed) {
+          this.labelDatas(this.datas);
           this.update.datas += 1;
           this.checks.splice(0, this.checks.length);
+          this.tableDatas = [...this.datas];
         }
         this.datasBak = [...this.datas];
       },
@@ -233,10 +243,18 @@ export default {
         this.checksEmit = true
       },
       deep: true
+    },
+    checkbox() {
+      if (this.height || this.fixedColumnLeft.length || this.fixedColumnRight.length) {
+        this.resize();
+      }
     }
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.resize);
+  },
+  beforeMount() {
+    this.labelDatas(this.datas);
   },
   mounted() {
     this.isMounted = true;
@@ -308,6 +326,39 @@ export default {
     });
   },
   methods: {
+    labelDatas(datas) {
+      for (let d of datas) {
+        if (!d._heyui_uuid) {
+          this.$set(d, '_heyui_uuid', utils.uuid());
+        }
+      }
+    },
+    toggleTree(data, fold) {
+      if (data.children && data.children.length) {
+        if (data._opened || fold) {
+          data.children.forEach(item => {
+            this.toggleTree(item, true);
+            let cindex = this.tableDatas.indexOf(item);
+            let checkIndex = this.checks.indexOf(item);
+            if (cindex > -1) {
+              this.tableDatas.splice(cindex, 1);
+            }
+            if (checkIndex > -1) {
+              this.checks.splice(checkIndex, 1);
+            }
+          });
+          this.$set(data, '_opened', false);
+        } else {
+          this.labelDatas(data.children);
+          data.children.forEach(item => {
+            this.$set(item, '_level', (data._level || 0) + 1);
+          });
+          this.$set(data, '_opened', true);
+          let index = this.tableDatas.indexOf(data);
+          this.tableDatas.splice(index + 1, 0, ...data.children);
+        }
+      }
+    },
     getTrCls(d, index) {
       let cls = {
         'h-table-tr-selected': this.isChecked(d),
@@ -336,7 +387,7 @@ export default {
       this.rowSelected = null;
     },
     invereSelection() {
-      this.checks = this.datas.filter(item => this.checks.indexOf(item) == -1);
+      this.checks = this.tableDatas.filter(item => this.checks.indexOf(item) == -1);
     },
     clearSelection() {
       this.checks = [];
@@ -351,7 +402,7 @@ export default {
       if (triggerType === true) {
         this.$emit('sort', utils.copy(sortStatus));
       } else if (triggerType == 'auto') {
-        this.datas.sort((a, b) => {
+        this.tableDatas.sort((a, b) => {
           let ad = a[sortStatus.prop];
           let bd = b[sortStatus.prop];
           let index = ad == bd ? 0 : (ad > bd) ? 1 : -1;
@@ -369,10 +420,10 @@ export default {
       return [...(this.checks || [])];
     },
     checkAll() {
-      if (this.checks.length == this.datas.length) {
-        this.checks.splice(0, this.datas.length);
+      if (this.checks.length == this.tableDatas.length) {
+        this.checks.splice(0, this.tableDatas.length);
       } else {
-        this.checks = utils.extend([], this.datas);
+        this.checks = utils.extend([], this.tableDatas);
       }
       this.$emit('selectAll', this.checks);
     },
@@ -390,6 +441,7 @@ export default {
           this.scrollWidth = body.offsetWidth - body.clientWidth;
           this.scrollHeight = body.offsetHeight - body.clientHeight;
         }
+        this.emptyWidth = this.$el.querySelector('.h-table-header-table').clientWidth;
         this.tableWidth = this.$el.querySelector('.h-table-container').clientWidth;
         this.initFixedWidth();
       });
