@@ -2,7 +2,7 @@
   "name": "heyui",
   "version": "1.21.3-alpha.1",
   "description": "UI Toolkit for Web, Vue2.0.",
-  "main": "./dist/heyui.js",
+  "main": "./src/index.js",
   "module": "./src/index.js",
   "repository": {
     "type": "git",

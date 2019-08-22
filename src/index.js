@@ -194,14 +194,16 @@ const install = function (Vue, opts = {}) {
     locale.i18n(opts.i18n);
   }
 
-  Object.keys(components).forEach(key => {
-    let component = components[key];
-    Vue.component(key, component);
-    Vue.component(`h-${key.toLocaleLowerCase()}`, component);
-    if (key.indexOf('h') !== 0) {
-      Vue.component(`h${key}`, component);
-    }
-  });
+  if (opts.components != false) {
+    Object.keys(components).forEach(key => {
+      let component = components[key];
+      Vue.component(key, component);
+      Vue.component(`h-${key.toLocaleLowerCase()}`, component);
+      if (key.indexOf('h') !== 0) {
+        Vue.component(`h${key}`, component);
+      }
+    });
+  }
 
   Object.keys(filters).forEach(key => {
     Vue.filter(key, filters[key]);
