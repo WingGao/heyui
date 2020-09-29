@@ -6,8 +6,8 @@
       :param="param"
       :status="status"
       :inlineCollapsed="inlineCollapsed"
+      :mode="mode"
       @trigger="trigger"></hMenuItem>
-
   </ul>
 </template>
 <script>
@@ -50,7 +50,9 @@ const updateOpened = (obj) => {
   }
   return openedList;
 };
-
+const Props = {
+  mode: ['normal', 'horizontal']
+};
 export default {
   name: 'hMenu',
   props: {
@@ -69,9 +71,16 @@ export default {
     },
     mode: {
       type: String,
+      validator(value) {
+        return Props.mode.indexOf(value) > -1;
+      },
       default: 'normal' // normal, vertical
     },
     inlineCollapsed: {
+      type: Boolean,
+      default: false
+    },
+    activeAll: {
       type: Boolean,
       default: false
     }
@@ -134,9 +143,11 @@ export default {
         }
 
         this.$emit('click', menu);
-        if (menu.children && menu.children.length > 0) {
+        let isParent = menu.children && menu.children.length > 0;
+        if (isParent && (!this.activeAll || this.status.selected == menu.key)) {
           return;
         }
+
         this.status.selected = menu.key;
         this.$emit('select', menu.value);
         this.$emit('onclick', menu.value);

@@ -11,10 +11,10 @@
     <div>
       <example demo="dataplugins/datepicker2"></example>
     </div>
-    <h3>日期格式自定义</h3>
+    <!-- <h3>日期格式自定义</h3>
     <div>
       <example demo="dataplugins/datepicker3"></example>
-    </div>
+    </div> -->
     <h3>不同类型的选择控件</h3>
     <div>
       <example demo="dataplugins/datepicker5"></example>
@@ -122,6 +122,17 @@
         <td>Boolean</td>
         <td>-</td>
         <td>true</td>
+      </tr>
+      <tr>
+        <td>placement</td>
+        <td>日期选择器位置</td>
+        <td>-</td>
+        <td>
+          top, top-start, top-end, <br/>
+          bottom, bottom-start, bottom-end, <br/>
+          left, left-start, left-end, <br/>
+          right, right-start, right-end</td>
+        <td>bottom-start</td>
       </tr>
     </table>
 

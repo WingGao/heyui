@@ -70,7 +70,7 @@
       </tr>
       <tr>
         <td>useConfirm</td>
-        <td>是否使用确定按钮</td>
+        <td>是否使用确定按钮, 1.21.0+</td>
         <td>Boolean</td>
         <td>-</td>
         <td>false</td>
@@ -108,6 +108,24 @@
         <td>refresh</td>
         <td>刷新数据</td>
         <td></td>
+      </tr>
+      <tr>
+        <td>expandAll</td>
+        <td>展开所有的节点, 1.23.4+</td>
+        <td>无</td>
+        <td>无</td>
+      </tr>
+      <tr>
+        <td>expand</td>
+        <td>展开节点, 1.23.4+</td>
+        <td>([keys])</td>
+        <td>无</td>
+      </tr>
+      <tr>
+        <td>foldAll</td>
+        <td>收起所有的折叠, 1.23.4+</td>
+        <td>无</td>
+        <td>无</td>
       </tr>
     </table>
 

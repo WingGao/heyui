@@ -14,6 +14,7 @@
       v-model="sizeNow"
       :style="{order:orders.sizes}"
       v-if="orders.sizes!=-1"
+      class="h-page-select-size"
     ></Select>
     <span class="h-page-pager-container" :style="{order:orders.pager}" v-if="orders.pager!=-1 && this.count>0">
       <span :class="prevCls" @click="prev()">
@@ -36,12 +37,16 @@ import config from 'heyui/src/utils/config';
 import utils from 'heyui/src/utils/utils';
 import Locale from 'heyui/src/mixins/locale';
 import Message from 'heyui/src/plugins/message';
+import Select from 'heyui/src/components/select';
 
 const prefix = 'h-page';
 
 export default {
   name: 'hPagination',
   mixins: [Locale],
+  components: {
+    Select
+  },
   props: {
     size: {
       type: Number,
@@ -127,6 +132,9 @@ export default {
         return;
       }
       let cur = parseInt(event.target.value, 10);
+      if (cur == (this.value.page || this.cur)) {
+        return;
+      }
       this.setvalue({ cur: cur, size: this.sizeNow });
     },
     change(cur) {
@@ -141,10 +149,10 @@ export default {
       let value = { page: params.cur, total: this.totalNow };
       Object.assign(value, params);
       this.curValue = params.cur;
-      this.$emit('change', value);
       let inputvalue = { ...value };
       delete inputvalue.cur;
       this.$emit('input', inputvalue);
+      this.$emit('change', value);
     },
     changesize() {
       this.setvalue({ cur: 1, size: this.sizeNow });

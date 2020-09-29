@@ -13,11 +13,13 @@ export default {
     fixed: String,
     label: String,
     prop: String,
+    attrs: Function,
     dict: String,
     align: String,
     className: String,
     treeOpener: Boolean,
     unit: String,
+    format: Function,
     render: Function,
     sortProp: String,
     tooltip: {

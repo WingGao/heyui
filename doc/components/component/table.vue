@@ -15,6 +15,7 @@
     <ul class="text-ul">
       <li><code>unit</code>: 定义字段的单位</li>
       <li><code>dict</code>: 定义字段使用字典渲染</li>
+      <li><code>format</code>: 定义字段格式化方法, 1.23.1+</li>
       <li><code>render</code>: 自定义字段渲染方法</li>
     </ul>
     <example demo="view/table9"></example>
@@ -44,7 +45,7 @@
     <h3>Table 气泡提示以及自定义行列样式</h3>
     <example demo="view/table7"></example>
 
-    <h3>自定义表头</h3>
+    <h3>自定义表头，合并行/列</h3>
     <example demo="view/table8"></example>
 
     <h3>Table 参数</h3>
@@ -85,6 +86,13 @@
         <td>false</td>
       </tr>
       <tr>
+        <td>radio</td>
+        <td>是否使用radio选择器, 1.22.0+</td>
+        <td>Boolean</td>
+        <td>-</td>
+        <td>false</td>
+      </tr>
+      <tr>
         <td>border</td>
         <td>table是否有竖线分割</td>
         <td>Boolean</td>
@@ -115,6 +123,13 @@
       <tr>
         <td>getTrClass</td>
         <td>获取行的样式,1.19.2+</td>
+        <td>Function(data, index)</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>attrs</td>
+        <td>计算 td 的属性, 1.25.0+</td>
         <td>Function(data, index)</td>
         <td></td>
         <td></td>
@@ -204,6 +219,13 @@
         <td>unit</td>
         <td>字段显示单位</td>
         <td>String</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>format</td>
+        <td>定义字段格式化方法, 1.23.1+</td>
+        <td>Function</td>
         <td></td>
         <td></td>
       </tr>
@@ -318,6 +340,18 @@
         <td>triggerSort</td>
         <td>设置排序，triggerType为true的时候触发<code>sort</code>事件，为auto时自动排序，<code>1.16.0+新增</code></td>
         <td>sortStatus: {prop: String, type: String['asc'|'desc'] }, triggerType: true | 'auto' | false</td>
+        <td>无</td>
+      </tr>
+      <tr>
+        <td>expandAll</td>
+        <td>打开Tree结构的table所有的节点 <code>1.26.0+新增</code></td>
+        <td></td>
+        <td>无</td>
+      </tr>
+      <tr>
+        <td>foldAll</td>
+        <td>收起Tree结构的table所有的节点 <code>1.26.0+新增</code></td>
+        <td></td>
         <td>无</td>
       </tr>
     </table>

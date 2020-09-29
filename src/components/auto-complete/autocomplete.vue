@@ -2,11 +2,11 @@
   <div :class="autocompleteCls">
     <div :class="showCls">
       <template v-if="multiple"><span v-for="(obj, index) of objects" :key="index+''+obj.key"><span>{{obj.title}}</span><i class="h-icon-close-min" @click.stop="remove(obj)" v-if="!disabled"></i></span>
-        <input :disabled="disabled" ref="input" type="text" class="h-autocomplete-input h-input" @focus="focus" v-model="tempValue" @blur.stop="blur" @paste="paste" @keyup="handle" @keydown="keydownHandle" @keypress.enter="enterHandle" :placeholder="showPlaceholder" />
+        <input :disabled="disabled" ref="input" type="text" class="h-autocomplete-input h-input" @focus="focus" v-model="tempValue" @blur.stop="blur" @paste="paste" @keyup="handle" @keydown="keydownHandle" @keypress.enter="enterHandle" :placeholder="showPlaceholder" autocomplete="off" />
         <i class="h-icon-loading" v-if="loading"></i>
       </template>
       <template v-if="!multiple">
-        <input type="text" ref="input" :disabled="disabled" class="h-autocomplete-input h-input" @focus="focus" v-model="tempValue" @paste="paste" @blur.stop="blur" @keyup="handle" @keypress.enter="enterHandle" :placeholder="showPlaceholder" />
+        <input type="text" ref="input" :disabled="disabled" class="h-autocomplete-input h-input" @focus="focus" v-model="tempValue" @paste="paste" @blur.stop="blur" @keyup="handle" @keypress.enter="enterHandle" :placeholder="showPlaceholder" autocomplete="off" />
         <i class="h-icon-loading" v-if="loading"></i>
         <i class="h-icon-close text-hover" v-else-if="tempValue&&!disabled" @mousedown="clear"></i>
       </template>
@@ -555,10 +555,6 @@ export default {
         datas = datas.filter(item => {
           return keyArray.indexOf(item[this.param.keyName]) == -1;
         });
-      }
-      // maxLength
-      if (this.param.maxLength) {
-        datas.splice(this.param.maxLength);
       }
       let results = [];
       for (let data of datas) {

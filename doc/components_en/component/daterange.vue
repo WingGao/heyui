@@ -5,7 +5,7 @@
     <h3>Basic</h3>
     <p>By default, the data uses {start,end} objects and can also customize parameters. For details, refer to <router-link to="/en/component/config">Global Configuration</router-link></p>
     <div>
-      <exampleEn demo="dataplugins/daterangepicker1"></exampleEn>
+      <example demo="dataplugins/daterangepicker1"></example>
     </div>
     <h3>Disabled</h3>
     <div>
@@ -83,6 +83,18 @@
         <td>Boolean</td>
         <td>-</td>
         <td>false</td>
+      </tr>
+      <tr>
+        <td>placement</td>
+        <td>Content display position, 1.24.0+</td>
+        <td>Stirng</td>
+        <td>
+          top, top-start, top-end, <br/>
+          bottom, bottom-start, bottom-end, <br/>
+          left, left-start, left-end, <br/>
+          right, right-start, right-end
+        </td>
+        <td>bottom-start</td>
       </tr>
     </table>
 

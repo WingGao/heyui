@@ -3,23 +3,23 @@
     <div class="h-table-header" :style="{'padding-right': (scrollWidth+'px')}">
       <table class="h-table-header-table" :style="{'margin-left': (-scrollLeft+'px')}">
         <colgroup>
-          <col v-if="checkbox" width="60" />
+          <col v-if="checkbox||radio" width="60" />
           <col v-for="(c, index) of computeColumns" :width="getWidth(c)" :key="index+update.columns" />
         </colgroup>
         <template v-if="ths">
           <tr v-for="(thdata, thindex) of ths" :key="thindex+update.columns">
             <th v-if="checkbox&&thindex==0" class="h-table-th-checkbox" :rowspan="ths.length">
-              <Checkbox v-if="fixedColumnLeft.length==0" :indeterminate="checks.length>0&&checks.length<tableDatas.length"
-                :checked="checks.length>0&&checks.length == tableDatas.length" @click.native="checkAll"></Checkbox>
+              <CheckboxAll v-if="fixedColumnLeft.length==0" :checks="checks" :checkableDatas="checkableDatas" @checkAll="checkAll"></CheckboxAll>
             </th>
+            <th v-if="radio&&thindex==0" class="h-table-th-radio" :rowspan="ths.length"></th>
             <TableTh v-for="(thdata, index) of thdata" :key="index+update.columns" v-bind="thdata" :sortStatus="sortStatus"></TableTh>
           </tr>
         </template>
         <tr v-else>
           <th v-if="checkbox" class="h-table-th-checkbox">
-            <Checkbox v-if="fixedColumnLeft.length==0" :indeterminate="checks.length>0&&checks.length<tableDatas.length"
-              :checked="checks.length>0&&checks.length == tableDatas.length" @click.native="checkAll"></Checkbox>
+            <CheckboxAll v-if="fixedColumnLeft.length==0" :checks="checks" :checkableDatas="checkableDatas" @checkAll="checkAll"></CheckboxAll>
           </th>
+          <th v-else-if="radio" class="h-table-th-radio"></th>
           <TableTh v-for="(c, index) of computeColumns" :key="index+update.columns" v-bind="c" :sortStatus="sortStatus"></TableTh>
         </tr>
       </table>
@@ -38,6 +38,7 @@
           <table class="h-table-body-table" v-show="tableDatas.length">
             <colgroup>
               <col v-if="checkbox" width="60" />
+              <col v-if="radio" width="60" />
               <col v-for="(c, index) of computeColumns" :width="getWidth(c)" :key="index+update.columns" />
             </colgroup>
             <tbody class="h-table-tbody">
@@ -45,7 +46,10 @@
                 <TableTr @click="triggerTrClicked" @dblclick="triggerTrDblclicked" @toggleTree="toggleTree" :datas="d" :key="d._heyui_uuid"
                   :index="index" :trIndex="d._heyui_uuid" :class="getTrCls(d, index)">
                   <td v-if="checkbox" class="h-table-td-checkbox">
-                    <Checkbox v-if="fixedColumnLeft.length==0" :key="d._heyui_uuid" v-model="checks" :value="d"></Checkbox>
+                    <Checkbox v-if="fixedColumnLeft.length==0" :disabled="d._disabledSelect" :key="d._heyui_uuid" v-model="checks" :value="d"></Checkbox>
+                  </td>
+                  <td v-if="radio" class="h-table-td-radio">
+                    <Radio v-if="fixedColumnLeft.length==0" :key="d._heyui_uuid" v-model="rowSelected" :value="d"></Radio>
                   </td>
                   <slot :data="d" :index="index" v-if="isTemplateMode"></slot>
                 </TableTr>
@@ -63,6 +67,7 @@
           <table class="h-table-fixed-left-table" :style="{'margin-top': (-scrollTop+'px'), width: (tableWidth + 'px')}">
             <colgroup>
               <col v-if="checkbox" width="60" />
+              <col v-if="radio" width="60" />
               <col v-for="(c, index) of computeColumns" :width="getWidth(c)" :key="index+update.columns" />
             </colgroup>
             <tbody class="h-table-tbody">
@@ -70,7 +75,10 @@
                 <TableTr @click="triggerTrClicked" @dblclick="triggerTrDblclicked" @toggleTree="toggleTree" :datas="d" :key="d._heyui_uuid"
                   :index="index" :trIndex="d._heyui_uuid" :class="getTrCls(d, index)">
                   <td v-if="checkbox" class="h-table-td-checkbox">
-                    <Checkbox v-model="checks" :key="d._heyui_uuid" :value="d"></Checkbox>
+                    <Checkbox v-model="checks" :key="d._heyui_uuid" :disabled="d._disabledSelect" :value="d"></Checkbox>
+                  </td>
+                  <td v-if="radio" class="h-table-td-radio">
+                    <Radio :key="d._heyui_uuid" v-model="rowSelected" :value="d"></Radio>
                   </td>
                   <slot :data="d" :index="index" v-if="isTemplateMode"></slot>
                 </TableTr>
@@ -100,13 +108,14 @@
       <table :style="{width: leftWidth + 'px'}">
         <colgroup>
           <col v-if="checkbox" width="60" />
+          <col v-if="radio" width="60" />
           <col v-for="(c, index) of fixedColumnLeft" :width="getWidth(c)" :key="index+update.columns" />
         </colgroup>
         <tr>
           <th v-if="checkbox" class="h-table-th-checkbox">
-            <Checkbox :indeterminate="checks.length>0&&checks.length<tableDatas.length" :checked="tableDatas.length > 0 && checks.length == tableDatas.length"
-              @click.native="checkAll"></Checkbox>
+            <CheckboxAll :checks="checks" :checkableDatas="checkableDatas" @checkAll="checkAll"></CheckboxAll>
           </th>
+          <th v-if="radio" class="h-table-th-radio"> </th>
           <TableTh v-for="(thdata, index) of fixedColumnLeft" :key="index+update.columns" v-bind="thdata" :sortStatus="sortStatus"></TableTh>
         </tr>
       </table>
@@ -130,13 +139,23 @@ import TableTr from './tabletr';
 import TableTh from './tableth';
 import debounce from 'heyui/src/utils/debounce';
 import Checkbox from 'heyui/src/components/checkbox';
+import Radio from 'heyui/src/components/radio';
 import Loading from 'heyui/src/components/loading';
+
+import CheckboxAll from './table-checkbox';
 
 const prefix = 'h-table';
 
 export default {
   name: 'hTable',
-  components: { Checkbox, Loading },
+  components: {
+    TableTr,
+    TableTh,
+    Checkbox,
+    Radio,
+    Loading,
+    CheckboxAll
+  },
   props: {
     columns: {
       type: Array,
@@ -152,6 +171,10 @@ export default {
     },
     height: Number,
     checkbox: {
+      type: Boolean,
+      default: false
+    },
+    radio: {
       type: Boolean,
       default: false
     },
@@ -248,6 +271,11 @@ checksEmit: true, //是否触发checks的change事件
       if (this.height || this.fixedColumnLeft.length || this.fixedColumnRight.length) {
         this.resize();
       }
+    },
+    radio() {
+      if (this.height || this.fixedColumnLeft.length || this.fixedColumnRight.length) {
+        this.resize();
+      }
     }
   },
   beforeDestroy() {
@@ -333,30 +361,53 @@ checksEmit: true, //是否触发checks的change事件
         }
       }
     },
-    toggleTree(data, fold) {
+    toggleTree(data) {
+      if (data._opened) {
+        this.foldTree(data);
+      } else {
+        this.expandTree(data);
+      }
+    },
+    foldAll() {
+      this.tableDatas.forEach(item => {
+        this.foldTree(item);
+      });
+    },
+    expandAll() {
+      this.datas.forEach(item => {
+        this.expandTree(item, { expandAll: true });
+      });
+    },
+    expandTree(data, params = {}) {
+      if (data._opened) return false;
       if (data.children && data.children.length) {
-        if (data._opened || fold) {
-          data.children.forEach(item => {
-            this.toggleTree(item, true);
-            let cindex = this.tableDatas.indexOf(item);
-            let checkIndex = this.checks.indexOf(item);
-            if (cindex > -1) {
-              this.tableDatas.splice(cindex, 1);
-            }
-            if (checkIndex > -1) {
-              this.checks.splice(checkIndex, 1);
-            }
-          });
-          this.$set(data, '_opened', false);
-        } else {
-          this.labelDatas(data.children);
-          data.children.forEach(item => {
-            this.$set(item, '_level', (data._level || 0) + 1);
-          });
-          this.$set(data, '_opened', true);
-          let index = this.tableDatas.indexOf(data);
-          this.tableDatas.splice(index + 1, 0, ...data.children);
-        }
+        this.labelDatas(data.children);
+        this.$set(data, '_opened', true);
+        let index = this.tableDatas.indexOf(data);
+        this.tableDatas.splice(index + 1, 0, ...data.children);
+        data.children.forEach(item => {
+          this.$set(item, '_level', (data._level || 0) + 1);
+          if (params.expandAll) {
+            this.expandTree(item);
+          }
+        });
+      }
+    },
+    foldTree(data) {
+      if (!data._opened) return false;
+      if (data.children && data.children.length) {
+        data.children.forEach(item => {
+          this.foldTree(item);
+          let cindex = this.tableDatas.indexOf(item);
+          let checkIndex = this.checks.indexOf(item);
+          if (cindex > -1) {
+            this.tableDatas.splice(cindex, 1);
+          }
+          if (checkIndex > -1) {
+            this.checks.splice(checkIndex, 1);
+          }
+        });
+        this.$set(data, '_opened', false);
       }
     },
     getTrCls(d, index) {
@@ -420,10 +471,10 @@ checksEmit: true, //是否触发checks的change事件
       return [...(this.checks || [])];
     },
     checkAll() {
-      if (this.checks.length == this.tableDatas.length) {
-        this.checks.splice(0, this.tableDatas.length);
+      if (this.checks.length == this.checkableDatas.length) {
+        this.checks.splice(0, this.checkableDatas.length);
       } else {
-        this.checks = utils.extend([], this.tableDatas);
+        this.checks = utils.extend([], this.checkableDatas);
       }
       this.$emit('selectAll', this.checks);
     },
@@ -454,7 +505,7 @@ checksEmit: true, //是否触发checks的change事件
     },
     initFixedWidth() {
       let ths = this.$el.querySelectorAll('.h-table-header table>tr>th');
-      let fixedColumnLeftLength = this.fixedColumnLeft.length + (this.checkbox ? 1 : 0);
+      let fixedColumnLeftLength = this.fixedColumnLeft.length + (this.checkbox || this.radio ? 1 : 0);
       let leftWidth = 0;
       for (let i = 0; i < fixedColumnLeftLength; i++) {
         leftWidth += ths[i].clientWidth || 0;
@@ -516,12 +567,15 @@ checksEmit: true, //是否触发checks的change事件
     }
   },
   computed: {
+    checkableDatas() {
+      return this.tableDatas.filter(item => !item._disabledSelect);
+    },
     isTemplateMode() {
       let defaultSlot = this.$scopedSlots.default;
       return defaultSlot && (defaultSlot.name == 'normalized' || !this.$slots.default);
     },
     totalCol() {
-      return (this.checkbox ? 1 : 0) + this.computeColumns.length;
+      return (this.checkbox || this.radio ? 1 : 0) + this.computeColumns.length;
     },
     fixedColumnLeft() {
       let columns = [];
@@ -579,10 +633,6 @@ checksEmit: true, //是否触发checks的change事件
       }
       return s;
     }
-  },
-  components: {
-    TableTr,
-    TableTh
   }
 };
 </script>

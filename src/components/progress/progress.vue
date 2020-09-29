@@ -44,16 +44,16 @@ export default {
     },
     progressBgStyle() {
       let s = {};
-      if (!colors.includes(this.color)) {
+      if (!colors.indexOf(this.color) > -1) {
         s['background-color'] = this.color;
       }
-      s.width = `${this.percent}%`;
+      s.width = `${Math.min(this.percent, 100)}%`;
       s.height = `${this.strokeWidth}px`;
       return s;
     },
     progressBgClass() {
       let s = {};
-      if (colors.includes(this.color)) {
+      if (colors.indexOf(this.color) > -1) {
         s[`bg-${this.color}-color`] = true;
       }
       return s;

@@ -14,6 +14,7 @@
     <ul class="text-ul">
       <li><code>unit</code>: setting data unit</li>
       <li><code>dict</code>: use dict render data</li>
+      <li><code>format</code>: Define field formatting methods, 1.23.1+</li>
       <li><code>render</code>: define render function</li>
     </ul>
     <exampleEn demo="view/table9"></exampleEn>
@@ -47,8 +48,8 @@
     <h3>Table bubble tips and custom style</h3>
     <exampleEn demo="view/table7"></exampleEn>
 
-    <h3>Custom table header</h3>
-    <exampleEn demo="view/table8"></exampleEn>
+    <h3>Custom table header, colspan, rowspan</h3>
+    <example demo="view/table8"></example>
 
     <h3>Table 参数</h3>
     <table class="table">
@@ -83,6 +84,13 @@
       <tr>
         <td>checkbox</td>
         <td>Whether to use the checkbox selector</td>
+        <td>Boolean</td>
+        <td>-</td>
+        <td>false</td>
+      </tr>
+      <tr>
+        <td>radio</td>
+        <td>Whether to use the radio selector, 1.22.0+</td>
         <td>Boolean</td>
         <td>-</td>
         <td>false</td>
@@ -125,6 +133,13 @@
       <tr>
         <td>getTrClass</td>
         <td>get row style,1.19.2+</td>
+        <td>Function(data, index)</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>attrs</td>
+        <td>Computed td attributes,1.25.0+</td>
         <td>Function(data, index)</td>
         <td></td>
         <td></td>
@@ -214,6 +229,13 @@
         <td>unit</td>
         <td>setting data unit</td>
         <td>String</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>format</td>
+        <td>Define field formatting methods, 1.23.1+</td>
+        <td>Function</td>
         <td></td>
         <td></td>
       </tr>
@@ -322,6 +344,18 @@
         <td>Set sort, trigger sort event when triggerType is true, and sort automatically when triggerType is auto, <code>1.16.0+</code></td>
         <td>sortStatus: {prop: String, type: String['asc'|'desc'] }, triggerType: true | 'auto' | false</td>
         <td>Empty</td>
+      </tr>
+      <tr>
+        <td>expandAll</td>
+        <td>Expand all nodes of table of tree structure <code>1.26.0+新增</code></td>
+        <td></td>
+        <td>无</td>
+      </tr>
+      <tr>
+        <td>foldAll</td>
+        <td>Collapse all nodes of table of tree structure <code>1.26.0+新增</code></td>
+        <td></td>
+        <td>无</td>
       </tr>
     </table>
 

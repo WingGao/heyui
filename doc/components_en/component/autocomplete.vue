@@ -238,21 +238,21 @@
         <th>Default</th>
       </tr>
       <tr>
-        <td>key</td>
+        <td>keyName</td>
         <td>Key field of data</td>
         <td>String</td>
         <td>-</td>
         <td>Global configuration
-          <code>autocomplete.default.key</code>
+          <code>autocomplete.default.keyName</code>
         </td>
       </tr>
       <tr>
-        <td>title</td>
+        <td>titleName</td>
         <td>The title of the data corresponds to the field</td>
         <td>String</td>
         <td>-</td>
         <td>Global configuration
-          <code>autocomplete.default.title</code>
+          <code>autocomplete.default.titleName</code>
         </td>
       </tr>
       <tr>
@@ -275,13 +275,6 @@
         <td>Number</td>
         <td>-</td>
         <td>100</td>
-      </tr>
-      <tr>
-        <td>maxLength</td>
-        <td>Max length of result list</td>
-        <td>Number</td>
-        <td>-</td>
-        <td>20</td>
       </tr>
     </table>
 
