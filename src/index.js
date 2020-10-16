@@ -83,6 +83,7 @@ import $ScrollIntoView from 'heyui/src/plugins/scroll-into-view';
 import $Clipboard from 'heyui/src/plugins/clipboard';
 import $ImagePreview from 'heyui/src/plugins/image-preview';
 import $Dropdown from 'heyui/src/plugins/dropdown';
+import $Validator from 'heyui/src/plugins/validator';
 
 import dictMapping from 'heyui/src/filters/dictmapping';
 import hlang from 'heyui/src/filters/hlang';
@@ -180,7 +181,8 @@ const prototypes = {
   $ScrollIntoView,
   $Clipboard,
   $ImagePreview,
-  $Dropdown
+  $Dropdown,
+  $Validator
 };
 
 const filters = { dictMapping, hlang };
@@ -222,9 +224,9 @@ if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue);
 }
 
-const HeyUI = Object.assign(prototypes, config, { dictMapping, C:components }, { locale: locale.use });
+const HeyUI = Object.assign(prototypes, config, { dictMapping, C: components }, { locale: locale.use });
 
 HeyUI.install = install;
 
 // module.exports = HeyUI;
-export default HeyUI
+export default HeyUI;
