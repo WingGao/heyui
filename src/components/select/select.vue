@@ -82,6 +82,7 @@ export default {
   name: 'hSelect',
   mixins: [ Locale ],
   props: {
+    usenumber: Boolean,
     multiple: {
       type: Boolean,
       default: false
